@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+}
+
+@font-face {
+  font-family: "BungeeSpice";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../app/fonts/BungeeSpice-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(../app/fonts/Montserrat-Black.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../app/fonts/Montserrat-Bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "NotoSans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../app/fonts/NotoSans-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "NotoSans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(../app/fonts/NotoSans-SemiBold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "OpenSans";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(../app/fonts/OpenSans-ExtraBold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "OpenSans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../app/fonts/OpenSans-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "OpenSans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(../app/fonts/OpenSans-SemiBold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "OpenSans";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(../app/fonts/OpenSans-Light.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../app/fonts/Poppins-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(../app/fonts/Poppins-Medium.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../app/fonts/Roboto-Bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../app/fonts/Roboto-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(../app/fonts/Roboto-Light.woff2) format("woff2");
+}
+
+@layer base {
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-block py-2 px-4 rounded;
+  }
+}
+
+body {
+  font-family: "Roboto";
+  font-weight: 400;
+}
