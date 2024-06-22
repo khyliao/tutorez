@@ -19,12 +19,13 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@components/*": ["./app/components/*"],
-      "@globalStyles/*": ["./globalStyles/*"],
-      "@assets/*": ["./assets/*"],
-      "@context/*": ["./app/context/*"],
-      "@db/*": ["./db/*"],
-      "@services/*": ["./app/services/*"]
+      "@components/*": ["./src/app/components/*"],
+      "@globalStyles/*": ["./src/globalStyles/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@context/*": ["./src/app/context/*"],
+      "@db/*": ["./src/db/*"],
+      "@services/*": ["./src/app/services/*"],
+      "@hooks/*": ["./src/hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
