@@ -1,21 +1,25 @@
 "use client";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useLocale } from "next-intl";
 import Flag from "react-flagkit";
 import { useMediaQuery } from "@hooks/useMediaQuery";
 
 const LangPicker = () => {
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState("UA");
   const isMedia768 = useMediaQuery(768);
   const isMedia1024 = useMediaQuery(1024);
+  const nextLocale = useLocale();
 
   const getLangSize = () => {
     if (isMedia768) {
-      return 28;
+      return 26;
     } else if (isMedia1024) {
       return 24;
     } else {
-      return 30;
+      return 26;
     }
   };
 
@@ -23,9 +27,9 @@ const LangPicker = () => {
     if (isMedia768) {
       return "h-12 w-12";
     } else if (isMedia1024) {
-      return "h-10 w-10";
+      return "h-12 w-12";
     } else {
-      return "h-14 w-14";
+      return "h-12 w-12";
     }
   };
 
@@ -34,14 +38,31 @@ const LangPicker = () => {
   };
 
   const handleLangChange = (lang: string) => {
+    const currentLang = lang === "UA" ? "uk" : "en";
+
     setSelectedLang(lang);
     setIsMenuOpen(false);
+
+    localStorage.setItem("lang", currentLang);
+    router.replace(`/${currentLang}`);
   };
+
+  useEffect(() => {
+    const lang = localStorage.getItem("lang") ?? null;
+
+    if (nextLocale === "en") {
+      setSelectedLang("GB");
+    }
+
+    if (lang) {
+      router.replace(`/${lang}`);
+    }
+  }, []);
 
   return (
     <div className="relative inline-block">
       <button
-        className={`flex items-center justify-center rounded-full bg-[#452562] focus:outline-none ${getBtnSize()}`}
+        className={`flex items-center justify-center rounded-full bg-[#5f8ef4] focus:outline-none ${getBtnSize()}`}
         onClick={handleMenuToggle}
       >
         <Flag country={selectedLang} size={getLangSize()} />
