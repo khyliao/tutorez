@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useLocale } from "next-intl";
 import Flag from "react-flagkit";
+import clsx from "clsx";
 import { useMediaQuery } from "@hooks/useMediaQuery";
 
 const LangPicker = () => {
@@ -43,12 +44,12 @@ const LangPicker = () => {
     setSelectedLang(lang);
     setIsMenuOpen(false);
 
-    localStorage.setItem("lang", currentLang);
+    localStorage.setItem("userLang", currentLang);
     router.replace(`/${currentLang}`);
   };
 
   useEffect(() => {
-    const lang = localStorage.getItem("lang") ?? null;
+    const lang = localStorage.getItem("userLang") ?? null;
 
     if (nextLocale === "en") {
       setSelectedLang("GB");
@@ -68,9 +69,13 @@ const LangPicker = () => {
         <Flag country={selectedLang} size={getLangSize()} />
       </button>
       <ul
-        className={`opacity-0 pointer-events-none ${
-          isMenuOpen && `opacity-100 pointer-events-auto`
-        } absolute top-14 left-0 w-40 p-2 bg-gray-700 transition-opacity duration-500 rounded-lg shadow-lg`}
+        className={clsx(
+          "opacity-0 pointer-events-none absolute top-14 left-0 w-40 p-2 bg-gray-700 transition-opacity duration-500 rounded-lg shadow-lg",
+          {
+            "opacity-100 pointer-events-auto": isMenuOpen,
+            "-translate-x-[70%]": !isMedia768,
+          }
+        )}
       >
         <li
           className={`p-2 -translate-y-10 ${

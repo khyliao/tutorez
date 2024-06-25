@@ -1,5 +1,4 @@
-"use client";
-export default function NotFound() {
+const NotFound = () => {
   return (
     <html>
       <body className="text-center">
@@ -7,4 +6,6 @@ export default function NotFound() {
       </body>
     </html>
   );
-}
+};
+
+export default NotFound;

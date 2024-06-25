@@ -5,5 +5,12 @@
     "advantages": "Our advantages",
     "reviews": "Reviews",
     "contacts": "Contacts"
+  },
+  "Hero": {
+    "accentWord": "Teachers",
+    "title": "who make knowledge accessible",
+    "subtitle": "Discover a world of new opportunities with a team of professionals!",
+    "reqBtn": "Submit a request",
+    "more": "Learn more"
   }
 }

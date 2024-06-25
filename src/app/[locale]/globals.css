@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-}
-
 @font-face {
   font-family: "Bungee";
   font-style: normal;
@@ -67,6 +64,14 @@
   font-weight: 600;
   font-display: swap;
   src: url(../../app/fonts/OpenSans-SemiBold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "OpenSans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../../app/fonts/OpenSans-Bold.woff2) format("woff2");
 }
 
 @font-face {
@@ -141,4 +146,18 @@ body {
 body {
   font-family: "Roboto";
   font-weight: 400;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
 }
