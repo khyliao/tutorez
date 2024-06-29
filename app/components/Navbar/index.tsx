@@ -1,15 +1,15 @@
 "use client";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
-import { useMediaQuery } from "@hooks/useMediaQuery";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useState } from "react";
 import Hamburger from "hamburger-react";
-import LangPicker from "../LangPicker";
+import LangPicker from "@components/LangPicker";
+import { useLang } from "@/hooks/useLang";
 
 const Navbar = () => {
-  const t = useTranslations("Navbar");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMedia768 = useMediaQuery(768);
+  const { lang, t } = useLang();
 
   const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -34,35 +34,35 @@ const Navbar = () => {
             href="#about"
             onClick={handleToggleMenu}
           >
-            {t("about")}
+            {t[lang].navbar.about}
           </Link>
           <Link
             className="text-white font-extrabold text-2xl leading-6 font-open-sans md:text-base lg:text-xl  hover:text-nav-active focus:text-nav-active duration-200 transition-colors hover:drop-shadow-nav-link-mobile"
             href="#team"
             onClick={handleToggleMenu}
           >
-            {t("team")}
+            {t[lang].navbar.team}
           </Link>
           <Link
             className="text-white font-extrabold text-2xl leading-6 font-open-sans md:text-base lg:text-xl  hover:text-nav-active focus:text-nav-active duration-200 transition-colors hover:drop-shadow-nav-link-mobile"
             href="#advantages"
             onClick={handleToggleMenu}
           >
-            {t("advantages")}
+            {t[lang].navbar.advantages}
           </Link>
           <Link
             className="text-white font-extrabold text-2xl leading-6 font-open-sans md:text-base lg:text-xl  hover:text-nav-active focus:text-nav-active duration-200 transition-colors hover:drop-shadow-nav-link-mobile"
             href="#reviews"
             onClick={handleToggleMenu}
           >
-            {t("reviews")}
+            {t[lang].navbar.reviews}
           </Link>
           <Link
             className="text-white font-extrabold text-2xl leading-6 font-open-sans md:text-base lg:text-xl  hover:text-nav-active focus:text-nav-active duration-200 transition-colors hover:drop-shadow-nav-link-mobile"
             href="#contacts"
             onClick={handleToggleMenu}
           >
-            {t("contacts")}
+            {t[lang].navbar.contacts}
           </Link>
         </nav>
         <LangPicker />

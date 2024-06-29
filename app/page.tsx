@@ -1,6 +1,6 @@
 "use client";
-import { useMediaQuery } from "@hooks/useMediaQuery";
-import Hero from "@components/Hero";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import Hero from "@/app/components/Hero";
 
 const Home = () => {
   const isMedia1024 = useMediaQuery(1024);

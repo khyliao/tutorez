@@ -1,18 +1,16 @@
 "use client";
-import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import { useLocale } from "next-intl";
 import Flag from "react-flagkit";
 import clsx from "clsx";
-import { useMediaQuery } from "@hooks/useMediaQuery";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { setLang } from "@context/lang";
+import { AllowedLangs } from "@/constants/lang";
 
 const LangPicker = () => {
-  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState("UA");
   const isMedia768 = useMediaQuery(768);
   const isMedia1024 = useMediaQuery(1024);
-  const nextLocale = useLocale();
 
   const getLangSize = () => {
     if (isMedia768) {
@@ -41,22 +39,19 @@ const LangPicker = () => {
   const handleLangChange = (lang: string) => {
     const currentLang = lang === "UA" ? "uk" : "en";
 
+    setLang(currentLang as AllowedLangs);
     setSelectedLang(lang);
+
     setIsMenuOpen(false);
 
     localStorage.setItem("userLang", currentLang);
-    router.replace(`/${currentLang}`);
   };
 
   useEffect(() => {
     const lang = localStorage.getItem("userLang") ?? null;
-
-    if (nextLocale === "en") {
+    if (lang === "en") {
+      setLang("en" as AllowedLangs);
       setSelectedLang("GB");
-    }
-
-    if (lang) {
-      router.replace(`/${lang}`);
     }
   }, []);
 
@@ -92,7 +87,7 @@ const LangPicker = () => {
           className={`p-2 -translate-y-10 ${
             isMenuOpen && "translate-y-0"
           }   flex items-center cursor-pointer duration-[450ms] rounded-lg hover:bg-gray-600 ${
-            selectedLang === "US" && "bg-blue-500"
+            selectedLang === "GB" && "bg-blue-500"
           }`}
           onClick={() => handleLangChange("GB")}
         >

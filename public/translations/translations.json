@@ -1,0 +1,34 @@
+{
+  "en": {
+    "navbar": {
+      "about": "About us",
+      "team": "Our team",
+      "advantages": "Our advantages",
+      "reviews": "Reviews",
+      "contacts": "Contacts"
+    },
+    "hero": {
+      "accentWord": "Teachers",
+      "title": "who make knowledge accessible",
+      "subtitle": "Discover a world of new opportunities with a team of professionals!",
+      "reqBtn": "Submit a request",
+      "more": "Learn more"
+    }
+  },
+  "uk": {
+    "navbar": {
+      "about": "Про нас",
+      "team": "Наша команда",
+      "advantages": "Наші переваги",
+      "reviews": "Відгуки",
+      "contacts": "Контакти"
+    },
+    "hero": {
+      "accentWord": "Викладачі",
+      "title": "які роблять знання доступними",
+      "subtitle": "Відкрий для себе світ нових можливостей разом з командою професіоналів свого діла!",
+      "reqBtn": "Залишити заявку",
+      "more": "Детальніше"
+    }
+  }
+}
