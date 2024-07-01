@@ -9,8 +9,8 @@ const Hero = () => {
   const { lang, t } = useLang();
 
   return (
-    <section className="pt-6 md:pt-12 px-4 lg:pt-16 lg:px-12 xl:pt-20 xl:px-20">
-      <div className="mb-7 flex flex-col md:flex-row-reverse items-center md:justify-center lg:justify-between">
+    <section className="mb-14 lg:mb-40 pt-6 md:pt-12 px-4 lg:pt-16 lg:px-12 xl:pt-20 xl:px-20">
+      <div className="mb-7 md:mb-3 flex flex-col md:flex-row-reverse items-center md:justify-center lg:justify-between">
         <img
           className="mb-7 w-full max-w-[400px] md:ml-20 lg:max-w-[500px] xl:max-w-[600px] 2xl:max-w-[800px] "
           src={isMedia1024 ? "heroMobile.png" : "heroDesktop.png"}
@@ -21,12 +21,12 @@ const Hero = () => {
             <span className="text-[#9E00FF]">{t[lang].hero.accentWord}</span>{" "}
             {t[lang].hero.title}
           </h1>
-          <p className="mb-6 text-sm lg:text-xl lg:mb-8  xl:text-2xl font-semibold font-open-sans text-[#333333]">
+          <p className="mb-6 text-sm lg:text-xl lg:mb-8  xl:text-xl font-semibold font-open-sans text-[#333333]">
             {t[lang].hero.subtitle}
           </p>
           <Link
             href="#contacts"
-            className="py-2 px-6 rounded-2xl m-auto md:m-0 md:mr-auto font-bold font-open-sans text-base lg:text-base xl:text-lg text-white bg-hero-primary"
+            className="py-2 px-6 rounded-2xl m-auto md:m-0 md:mr-auto font-bold font-open-sans text-sm lg:text-base text-white bg-hero-primary"
           >
             {t[lang].hero.reqBtn}
           </Link>
@@ -34,7 +34,7 @@ const Hero = () => {
       </div>
       <div className="flex flex-col items-center">
         <Link href="#about" className="flex flex-col items-center">
-          <span className="inline-block text-[11px] text-[#363636] font-bold font-open-sans mb-1 lg:mb-[2px] lg:text-sm">
+          <span className="inline-block text-[11px] text-[#363636] font-semibold font-open-sans mb-1 lg:mb-[2px] lg:text-sm">
             {t[lang].hero.more}
           </span>
           <NextArrow className="animate-bounce fill-[#363636]" />

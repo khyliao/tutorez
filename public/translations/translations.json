@@ -13,6 +13,24 @@
       "subtitle": "Discover a world of new opportunities with a team of professionals!",
       "reqBtn": "Submit a request",
       "more": "Learn more"
+    },
+    "about": {
+      "title": "About us",
+      "paragraph": "We are a team of professional tutors dedicated to helping you achieve academic success. Our teachers specialize in various subjects, including mathematics, English, history, programming and many more.",
+      "benefits": {
+        "schedule": {
+          "name": "Class Schedule",
+          "description": "A convenient class schedule that allows you to combine learning with other activities"
+        },
+        "specialist": {
+          "name": "Certified Specialists",
+          "description": "Education is provided only by knowledgeable bachelors and masters"
+        },
+        "course": {
+          "name": "Clear Course",
+          "description": "Each teacher has a predefined list of topics for each course"
+        }
+      }
     }
   },
   "uk": {
@@ -29,6 +47,24 @@
       "subtitle": "Відкрий для себе світ нових можливостей разом з командою професіоналів свого діла!",
       "reqBtn": "Залишити заявку",
       "more": "Детальніше"
+    },
+    "about": {
+      "title": "Про нас",
+      "paragraph": "Ми – команда професійних репетиторів, яка прагне допомогти вам досягти академічного успіху. Наші викладачі спеціалізуються на різних предметах, включаючи математику, англійську мову, історію, програмування та багато іншого.",
+      "benefits": {
+        "schedule": {
+          "name": "Розклад занять",
+          "description": "Зручний розклад занять, який дозволяє поєднувати навчання з іншими активностями"
+        },
+        "specialist": {
+          "name": "Дипломовані спеціалісти",
+          "description": "Навчання відбувається тільки серед освічених бакалаврів та магістрів"
+        },
+        "course": {
+          "name": "Чіткий курс",
+          "description": "Кожен з викладачів має завідомо готовий перелік тем для кожного з курсів "
+        }
+      }
     }
   }
 }

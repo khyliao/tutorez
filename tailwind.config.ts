@@ -13,6 +13,7 @@ const config: Config = {
         roboto: ["Roboto", "sans-serif"],
       },
       colors: {
+        "section-title": "#212121",
         "nav-active": "#DB00FF",
         "hero-primary": "#9E00FF",
       },
@@ -23,8 +24,7 @@ const config: Config = {
           "linear-gradient(180.00deg, rgba(254, 170, 255, 0.6),rgba(254, 183, 255, 0.5) 10.831%,rgba(255, 207, 250, 0.3) 21.931%,rgba(254, 239, 217, 0.2) 27.215%,rgba(254, 239, 217, 0.2) 47.734%,rgba(255, 159, 159, 0.3) 52.271%,rgba(255, 250, 205, 0.4) 69.317%,rgba(255, 250, 205, 0.4) 77.366%,rgba(254, 183, 255, 0.33) 81.695%,rgba(254, 183, 255, 0.3) 100%)",
       },
       dropShadow: {
-        "nav-link": "0 0 35px #DB00FF",
-        "nav-link-mobile": "0 0 20px #DB00FF",
+        "nav-link": "0 0 6px #DB00FF",
       },
       keyframes: {
         slideDown: {

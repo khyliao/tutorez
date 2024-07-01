@@ -1,6 +1,7 @@
 "use client";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import Hero from "@/app/components/Hero";
+import About from "./components/About";
 
 const Home = () => {
   const isMedia1024 = useMediaQuery(1024);
@@ -12,6 +13,7 @@ const Home = () => {
       }`}
     >
       <Hero />
+      <About />
     </main>
   );
 };
