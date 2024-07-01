@@ -1,0 +1,23 @@
+.team-card {
+  position: relative;
+
+  background-color: #e9e1ff;
+
+  overflow: hidden;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+@media screen and (min-width: 1024px) {
+  .team-card:hover {
+    box-shadow: 0 4px 40px #b08ffc;
+  }
+}
+
+.team-card-img {
+  transition: transform 300ms ease, filter 300ms ease;
+}
+
+.team-card:hover .team-card-img {
+  transform: scale(1.1);
+  filter: brightness(1.05);
+}

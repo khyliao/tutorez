@@ -17,16 +17,16 @@ const Hero = () => {
           alt="platform's placeholder"
         />
         <div className="flex flex-col ">
-          <h1 className="text-3xl font-extrabold lg:text-5xl xl:text-6xl mb-6 lg:mb-9 xl:mb-11">
+          <h1 className="text-3xl font-extrabold lg:text-5xl xl:text-7xl mb-6 lg:mb-9 xl:mb-11">
             <span className="text-[#9E00FF]">{t[lang].hero.accentWord}</span>{" "}
             {t[lang].hero.title}
           </h1>
-          <p className="mb-6 text-sm lg:text-xl lg:mb-8  xl:text-xl font-semibold font-open-sans text-[#333333]">
+          <p className="mb-6 text-sm lg:text-xl lg:mb-8 xl:text-2xl font-semibold font-open-sans text-[#333333]">
             {t[lang].hero.subtitle}
           </p>
           <Link
             href="#contacts"
-            className="py-2 px-6 rounded-2xl m-auto md:m-0 md:mr-auto font-bold font-open-sans text-sm lg:text-base text-white bg-hero-primary"
+            className="py-2 px-6 rounded-2xl m-auto md:m-0 md:mr-auto font-bold font-open-sans text-sm lg:text-base xl:text-xl text-white bg-hero-primary"
           >
             {t[lang].hero.reqBtn}
           </Link>
@@ -34,7 +34,7 @@ const Hero = () => {
       </div>
       <div className="flex flex-col items-center">
         <Link href="#about" className="flex flex-col items-center">
-          <span className="inline-block text-[11px] text-[#363636] font-semibold font-open-sans mb-1 lg:mb-[2px] lg:text-sm">
+          <span className="inline-block text-[11px] text-[#363636] font-semibold font-open-sans mb-1 lg:mb-[2px] lg:text-sm xl:text-lg">
             {t[lang].hero.more}
           </span>
           <NextArrow className="animate-bounce fill-[#363636]" />

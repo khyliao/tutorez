@@ -31,6 +31,35 @@
           "description": "Each teacher has a predefined list of topics for each course"
         }
       }
+    },
+    "team": {
+      "title": "Our Team",
+      "tutors": [
+        {
+          "name": "Emir",
+          "subject": "Mathematics",
+          "bio": "Transforms complex equations into captivating puzzles, turning each math lesson into an adventure in logic and discovery",
+          "photo": "emir.webp"
+        },
+        {
+          "name": "Oleksandr",
+          "subject": "Programming",
+          "bio": "Brings ideas to life, turning lines of code into compelling stories of innovation and creativity",
+          "photo": "oleksandr.webp"
+        },
+        {
+          "name": "Sofiia",
+          "subject": "English",
+          "bio": "Weaves words into enchanting tales, making English not just a subject but a gateway to new worlds",
+          "photo": "sofia.webp"
+        },
+        {
+          "name": "Ravil",
+          "subject": "Biology",
+          "bio": "Unveils the wonders of life, guiding students through the intricate and fascinating web of biology",
+          "photo": "ravil.webp"
+        }
+      ]
     }
   },
   "uk": {
@@ -50,7 +79,7 @@
     },
     "about": {
       "title": "Про нас",
-      "paragraph": "Ми – команда професійних репетиторів, яка прагне допомогти вам досягти академічного успіху. Наші викладачі спеціалізуються на різних предметах, включаючи математику, англійську мову, історію, програмування та багато іншого.",
+      "paragraph": "Ми – команда професійних репетиторів, яка прагне допомогти вам досягти академічного успіху. Наші викладачі спеціалізуються на різних предметах, включаючи математику, англійську мову, історію, програмування та багато іншого",
       "benefits": {
         "schedule": {
           "name": "Розклад занять",
@@ -65,6 +94,35 @@
           "description": "Кожен з викладачів має завідомо готовий перелік тем для кожного з курсів "
         }
       }
+    },
+    "team": {
+      "title": "Наша команда",
+      "tutors": [
+        {
+          "name": "Емір",
+          "subject": "Математика",
+          "bio": "Перетворює складні рівняння на захопливі головоломки, роблячи кожен урок математики пригодою в логіці та відкриттях",
+          "photo": "emir.webp"
+        },
+        {
+          "name": "Олександр",
+          "subject": "Програмування",
+          "bio": "Втілює ідеї в реальність, перетворюючи рядки коду на захопливі історії інновацій та творчості",
+          "photo": "oleksandr.webp"
+        },
+        {
+          "name": "Софія",
+          "subject": "Англійська мова",
+          "bio": "Переплітає слова в чарівні оповідання, роблячи англійську не просто предметом, а воротами в нові світи",
+          "photo": "sofia.webp"
+        },
+        {
+          "name": "Равіль",
+          "subject": "Біологія",
+          "bio": "Відкриває чудеса життя, проводячи студентів крізь складну і захопливу павутину біології",
+          "photo": "ravil.webp"
+        }
+      ]
     }
   }
 }
