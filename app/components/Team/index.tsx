@@ -6,7 +6,7 @@ const Team = () => {
 
   return (
     <section
-      className="px-4 flex flex-col items-center scroll-mt-20 md:scroll-mt-28"
+      className="px-4 flex mb-24 flex-col items-center scroll-mt-20 md:scroll-mt-28"
       id="team"
     >
       <h2 className="mb-7 lg:mb-12 lg:text-4xl text-center text-[#333] font-open-sans font-extrabold tracking-wide text-2xl leading-9">

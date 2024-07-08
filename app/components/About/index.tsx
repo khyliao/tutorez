@@ -14,7 +14,7 @@ const About = () => {
       <h2 className="mb-7 lg:text-4xl text-center text-section-title font-open-sans font-extrabold tracking-wide text-2xl leading-9">
         {t[lang].about.title}
       </h2>
-      <p className="mb-8 text-xs lg:text-[22px] max-w-[1500px] text-[#525151] lg:mb-24 text-center font-open-sans leading-5 lg:leading-8 tracking-wide ">
+      <p className="mb-8 text-xs lg:text-[22px] max-w-[1500px] text-[#525151] lg:mb-12 text-center font-open-sans leading-5 lg:leading-8 tracking-wide ">
         {t[lang].about.paragraph}
       </p>
       <ul className="flex flex-col md:flex-row gap-7 md:gap-12 xl:gap-24 items-center md:items-start">

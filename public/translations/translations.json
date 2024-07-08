@@ -60,6 +60,21 @@
           "photo": "ravil.webp"
         }
       ]
+    },
+    "advantages": {
+      "title": "Our Advantages",
+      "benefits": [
+        {
+          "name": "Online Learning",
+          "description": "Opportunity to study remotely using interactive platforms and materials",
+          "commonBtn": "Start"
+        },
+        {
+          "name": "Learning Control",
+          "description": "Always stay updated on your learning progress, receive performance reports, and review completed materials at any time",
+          "commonBtn": "Start Now"
+        }
+      ]
     }
   },
   "uk": {
@@ -121,6 +136,21 @@
           "subject": "Біологія",
           "bio": "Відкриває чудеса життя, проводячи студентів крізь складну і захопливу павутину біології",
           "photo": "ravil.webp"
+        }
+      ]
+    },
+    "advantages": {
+      "title": "Наші переваги",
+      "benefits": [
+        {
+          "name": "Онлайн-навчання",
+          "description": "Можливість займатися дистанційно з використанням інтерактивних платформ та матеріалів",
+          "commonBtn": "Розпочати"
+        },
+        {
+          "name": "Контроль навчання",
+          "description": "Будьте завжди в курсі вашого прогресу в навчанні, отримуйте звіти про успішність та перегляйте пройдений матеріал в будь-який час",
+          "commonBtn": "Почати зараз"
         }
       ]
     }
