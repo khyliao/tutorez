@@ -7,7 +7,10 @@ const About = () => {
   const { lang, t } = useLang();
 
   return (
-    <section className="flex flex-col items-center mb-24 px-4" id="about">
+    <section
+      className="flex flex-col items-center mb-24 scroll-mt-20 md:scroll-mt-28  px-4"
+      id="about"
+    >
       <h2 className="mb-7 lg:text-4xl text-center text-section-title font-open-sans font-extrabold tracking-wide text-2xl leading-9">
         {t[lang].about.title}
       </h2>

@@ -9,7 +9,7 @@
 
 @media screen and (min-width: 1024px) {
   .team-card:hover {
-    box-shadow: 0 4px 40px #b08ffc;
+    box-shadow: 0 4px 18px #b08ffc;
   }
 }
 
