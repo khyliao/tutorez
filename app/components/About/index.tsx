@@ -1,4 +1,4 @@
-import { useLang } from "@/hooks/useLang";
+import { useLang } from "@hooks/useLang";
 import CourseIcon from "@assets/course.svg";
 import ScheduleIcon from "@assets/schedule.svg";
 import SpecialistIcon from "@assets/specialist.svg";

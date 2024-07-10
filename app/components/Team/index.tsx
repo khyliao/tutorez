@@ -1,4 +1,4 @@
-import { useLang } from "@/hooks/useLang";
+import { useLang } from "@hooks/useLang";
 import "./team.css";
 
 const Team = () => {

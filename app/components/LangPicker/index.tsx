@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Flag from "react-flagkit";
 import clsx from "clsx";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useMediaQuery } from "@hooks/useMediaQuery";
 import { setLang } from "@context/lang";
 import { AllowedLangs } from "@/constants/lang";
 

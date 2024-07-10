@@ -1,8 +1,8 @@
 "use client";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useMediaQuery } from "@hooks/useMediaQuery";
 import NextArrow from "@assets/nextArrow.svg";
 import Link from "next/link";
-import { useLang } from "@/hooks/useLang";
+import { useLang } from "@hooks/useLang";
 
 const Hero = () => {
   const isMedia1024 = useMediaQuery(1024);

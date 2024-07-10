@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "modern-normalize";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
-import { useLang } from "@/hooks/useLang";
+import { useLang } from "@hooks/useLang";
 
 export const metadata: Metadata = {
   title: "Tutorez",

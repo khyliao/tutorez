@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useLang } from "@/hooks/useLang";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useLang } from "@hooks/useLang";
+import { useMediaQuery } from "@hooks/useMediaQuery";
 
 const Advantage = () => {
   const { t, lang } = useLang();
@@ -16,19 +16,19 @@ const Advantage = () => {
         {t[lang].advantages.title}
       </h2>
       <ul>
-        <li className="flex flex-col md:flex-row items-center mb-14 md:items-center md:bg-[#FFFBF5] md:pl-16 md:pr-24 lg:pl-20 lg:pr-38 xl:pl-32 xl:pr-64">
+        <li className="flex flex-col md:flex-row items-center mb-14 md:bg-[#FFFBF5] md:pl-16 md:pr-24 lg:pl-20 lg:pr-38 xl:pl-32 xl:pr-64">
           <Image
             className="mb-7 md:mb-0 md:mr-16 md:max-w-[320px] lg:max-w-none lg:mr-20 xl:mr-28"
             src="/advantage-1.webp"
-            width={isMedia1024 ? 370 : 480}
+            width={isMedia1024 ? 500 : 480}
             height={isMedia1024 ? 230 : 360}
             alt="benefit"
           />
-          <div className="flex flex-col items-center md:block">
+          <div className="flex flex-col items-start md:block">
             <h3 className="mb-4 font-open-sans font-semibold text-xl md:text-2xl lg:text-3xl leading-5 md:mb-4 lg:mb-6 ">
               {t[lang].advantages.benefits[0].name}
             </h3>
-            <p className="mb-4 text-center md:text-start font-open-sans leading-7 opacity-50 md:text-base md:mb-8 lg:mb-6 xl:mb-8">
+            <p className="mb-4 md:text-start font-open-sans leading-7 opacity-50 md:text-base md:mb-8 lg:mb-6 xl:mb-8">
               {t[lang].advantages.benefits[0].description}
             </p>
             <Link
@@ -40,19 +40,19 @@ const Advantage = () => {
             </Link>
           </div>
         </li>
-        <li className="flex flex-col items-center md:flex-row-reverse md:items-center md:bg-[#EBF8FF] md:pl-16 md:pr-24 lg:pl-24 lg:pr-38 xl:pl-32 xl:pr-64">
+        <li className="flex flex-col items-center md:flex-row-reverse md:bg-[#EBF8FF] md:pl-16 md:pr-24 lg:pl-24 lg:pr-38 xl:pl-32 xl:pr-64">
           <Image
             className="mb-7 md:mb-0 md:max-w-[320px] lg:max-w-none"
             src="/advantage-2.webp"
-            width={isMedia1024 ? 370 : 480}
+            width={isMedia1024 ? 500 : 480}
             height={isMedia1024 ? 230 : 360}
             alt="benefit"
           />
-          <div className="flex flex-col items-center md:block md:mr-16 lg:mr-20 xl:mr-28">
+          <div className="flex flex-col items-start  md:block md:mr-16 lg:mr-20 xl:mr-28">
             <h3 className="mb-4 font-open-sans font-semibold text-xl md:text-2xl lg:text-3xl leading-5 md:mb-4 lg:mb-6">
               {t[lang].advantages.benefits[1].name}
             </h3>
-            <p className="mb-4 text-center md:text-start font-open-sans leading-7 opacity-50 md:text-base md:mb-8 lg:mb-6 xl:mb-8">
+            <p className="mb-4 md:text-start font-open-sans leading-7 opacity-50 md:text-base md:mb-8 lg:mb-6 xl:mb-8">
               {t[lang].advantages.benefits[1].description}
             </p>
             <Link

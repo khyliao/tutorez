@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useMediaQuery } from "@hooks/useMediaQuery";
 import { useEffect, useState } from "react";
 import Hamburger from "hamburger-react";
 import LangPicker from "@components/LangPicker";
-import { useLang } from "@/hooks/useLang";
+import { useLang } from "@hooks/useLang";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
