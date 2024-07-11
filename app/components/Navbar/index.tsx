@@ -16,15 +16,17 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.classList.add("no-scroll");
-    } else {
-      document.body.classList.remove("no-scroll");
-    }
+    if (isMedia768) {
+      if (isMenuOpen) {
+        document.body.classList.add("no-scroll");
+      } else {
+        document.body.classList.remove("no-scroll");
+      }
 
-    return () => {
-      document.body.classList.remove("no-scroll");
-    };
+      return () => {
+        document.body.classList.remove("no-scroll");
+      };
+    }
   }, [isMenuOpen]);
 
   return (

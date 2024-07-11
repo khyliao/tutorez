@@ -9,7 +9,7 @@ const Advantage = () => {
 
   return (
     <section
-      className="scroll-mt-20 px-6 md:px-0 md:scroll-mt-28"
+      className="mb-24 md:mb-32 scroll-mt-20 px-6 md:px-0 md:scroll-mt-28"
       id="advantages"
     >
       <h2 className="mb-7 lg:mb-12 lg:text-4xl text-center text-[#333] font-open-sans font-extrabold tracking-wide text-2xl leading-9">
@@ -57,7 +57,7 @@ const Advantage = () => {
             </p>
             <Link
               href="#contacts"
-              className="py-[8px] px-6 border-solid border-2 transition-colors duration-200 border-[#B3ADA4] hover:text-white hover:bg-[#53519CB3] hover: border-[#53519CB3]  rounded-3xl"
+              className="py-[8px] px-6 border-solid border-2 transition-colors duration-200 border-[#B3ADA4] hover:text-white hover:bg-[#53519CB3] hover:border-transparent  rounded-3xl"
               type="button"
             >
               {t[lang].advantages.benefits[1].commonBtn}

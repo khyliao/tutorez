@@ -1,22 +1,78 @@
-export default [
-  {
-    client: "Маргарита",
-    review:
-      "Софія - чудова викладачка англійської мови! Її заняття завжди цікаві та насичені корисною інформацією. Ще ніколи не бачила аби людина так неперевершено знаходила підхід до інших, вона знайде його до кожного учня і пояснить складні граматичні правила простою і зрозумілою мовою. Завдяки її підтримці та мотивації, мої знання англійської значно покращилися. Рекомендую Софію всім, хто хоче покращити свої навички в англійській мові!",
-  },
-  {
-    client: "Надія",
-    review:
-      "Хочу висловити щиру подяку Олександру за допомогу у створенні неймовірного сайту для мого кафе. Завдяки його професіоналізму та відданості, ми змогли створити сучасний та привабливий сайт, який відображає дух нашого закладу. Олександр володіє глибокими знаннями у сфері веб-розробки, що стало очевидним з першого ж дня нашої співпраці. Він працював зі мною на всіх етапах проєкту: від планування та дизайну до написання коду і фінального тестування. Сайт був написаний на HTML, SCSS та JavaScript, і результат перевершив усі мої очікування, я вдячна йому також що він навчив мене як з цим працювати, а це дозволить мені вносити корективи навіть самостійно, дякую!",
-  },
-  {
-    client: "Надія",
-    review:
-      "Хочу висловити щиру подяку Олександру за допомогу у створенні неймовірного сайту для мого кафе. Завдяки його професіоналізму та відданості, ми змогли створити сучасний та привабливий сайт, який відображає дух нашого закладу. Олександр володіє глибокими знаннями у сфері веб-розробки, що стало очевидним з першого ж дня нашої співпраці. Він працював зі мною на всіх етапах проєкту: від планування та дизайну до написання коду і фінального тестування. Сайт був написаний на HTML, SCSS та JavaScript, і результат перевершив усі мої очікування, я вдячна йому також що він навчив мене як з цим працювати, а це дозволить мені вносити корективи навіть самостійно, дякую!",
-  },
-  {
-    client: "Надія",
-    review:
-      "Хочу висловити щиру подяку Олександру за допомогу у створенні неймовірного сайту для мого кафе. Завдяки його професіоналізму та відданості, ми змогли створити сучасний та привабливий сайт, який відображає дух нашого закладу. Олександр володіє глибокими знаннями у сфері веб-розробки, що стало очевидним з першого ж дня нашої співпраці. Він працював зі мною на всіх етапах проєкту: від планування та дизайну до написання коду і фінального тестування. Сайт був написаний на HTML, SCSS та JavaScript, і результат перевершив усі мої очікування, я вдячна йому також що він навчив мене як з цим працювати, а це дозволить мені вносити корективи навіть самостійно, дякую!",
-  },
-];
+export default {
+  en: [
+    {
+      client: "Margarita",
+      review:
+        "Sofia is an excellent English teacher! Her lessons are always interesting and filled with useful information. I've never seen anyone find such an exceptional approach to others. I recommend Sofia to anyone who wants to improve their English skills!",
+      photo: "profile3",
+    },
+    {
+      client: "Nadia",
+      review:
+        "I want to express my sincere gratitude to Oleksandr for helping to create an incredible website for my cafe. Thanks to his professionalism and dedication, we were able to create a modern and attractive website. ",
+      photo: "profile2",
+    },
+    {
+      client: "Margarita",
+      review:
+        "Sofia is an excellent English teacher! Her lessons are always interesting and filled with useful information. I've never seen anyone find such an exceptional approach to others. I recommend Sofia to anyone who wants to improve their English skills!",
+      photo: "profile1",
+    },
+    {
+      client: "Nadia",
+      review:
+        "I want to express my sincere gratitude to Oleksandr for helping to create an incredible website for my cafe. Thanks to his professionalism and dedication, we were able to create a modern and attractive website.",
+      photo: "profile3",
+    },
+    {
+      client: "Margarita",
+      review:
+        "Sofia is an excellent English teacher! Her lessons are always interesting and filled with useful information. I've never seen anyone find such an exceptional approach to others. I recommend Sofia to anyone who wants to improve their English skills!",
+      photo: "profile2",
+    },
+    {
+      client: "Nadia",
+      review:
+        "I want to express my sincere gratitude to Oleksandr for helping to create an incredible website for my cafe. Thanks to his professionalism and dedication, we were able to create a modern and attractive website.",
+      photo: "profile1",
+    },
+  ],
+  uk: [
+    {
+      client: "Маргарита",
+      review:
+        "Софія - чудова викладачка англійської мови! Її заняття завжди цікаві та насичені корисною інформацією. Ще ніколи не бачила аби людина так неперевершено знаходила підхід до інших. Рекомендую Софію всім, хто хоче покращити свої навички в англійській мові!",
+      photo: "profile3",
+    },
+    {
+      client: "Надія",
+      review:
+        "Хочу висловити щиру подяку Олександру за допомогу у створенні неймовірного сайту для мого кафе. Завдяки його професіоналізму та відданості, ми змогли створити сучасний та привабливий сайт",
+      photo: "profile2",
+    },
+    {
+      client: "Маргарита",
+      review:
+        "Софія - чудова викладачка англійської мови! Її заняття завжди цікаві та насичені корисною інформацією. Ще ніколи не бачила аби людина так неперевершено знаходила підхід до інших. Рекомендую Софію всім, хто хоче покращити свої навички в англійській мові!",
+      photo: "profile1",
+    },
+    {
+      client: "Надія",
+      review:
+        "Хочу висловити щиру подяку Олександру за допомогу у створенні неймовірного сайту для мого кафе. Завдяки його професіоналізму та відданості, ми змогли створити сучасний та привабливий сайт",
+      photo: "profile3",
+    },
+    {
+      client: "Маргарита",
+      review:
+        "Софія - чудова викладачка англійської мови! Її заняття завжди цікаві та насичені корисною інформацією. Ще ніколи не бачила аби людина так неперевершено знаходила підхід до інших. Рекомендую Софію всім, хто хоче покращити свої навички в англійській мові!",
+      photo: "profile2",
+    },
+    {
+      client: "Надія",
+      review:
+        "Хочу висловити щиру подяку Олександру за допомогу у створенні неймовірного сайту для мого кафе. Завдяки його професіоналізму та відданості, ми змогли створити сучасний та привабливий сайт",
+      photo: "profile1",
+    },
+  ],
+};
