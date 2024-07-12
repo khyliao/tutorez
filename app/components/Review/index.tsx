@@ -41,7 +41,6 @@ const Review = () => {
         }}
         parallax
         modules={[Navigation, Pagination, Autoplay, Parallax, Pagination]}
-        onSwiper={(swiper) => console.log(swiper)}
         className="mb-7 w-full md:max-w-[900px] rounded-lg"
       >
         <div
@@ -100,7 +99,7 @@ const Review = () => {
             {t[lang].review.callText}
           </p>
           <button
-            className="block mx-auto cursor-pointer border-2 border-solid border-black bg-white py-3 px-4 font-open-sans font-bold tracking-wide text-sm text-[#11103D] rounded-md"
+            className="block mx-auto cursor-pointer border-2 border-solid border-black hover:text-white hover:bg-[#383838] transition-colors duration-200 bg-white py-3 px-4 font-open-sans font-bold tracking-wider text-sm md:text-base text-[#11103D] rounded-md"
             type="button"
           >
             {t[lang].review.reviewBtn}

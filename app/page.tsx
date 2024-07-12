@@ -5,6 +5,7 @@ import About from "@components/About";
 import Team from "@components/Team";
 import Advantage from "@components/Advantage";
 import Review from "@components/Review";
+import Stats from "./components/Stats";
 
 const Home = () => {
   const isMedia1024 = useMediaQuery(1024);
@@ -20,6 +21,7 @@ const Home = () => {
       <Team />
       <Advantage />
       <Review />
+      <Stats />
     </main>
   );
 };

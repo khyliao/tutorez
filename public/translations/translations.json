@@ -81,7 +81,25 @@
       "callTitle": "Your feedback is very important to us",
       "callText": "Customer reviews help improve the quality of services and products by providing valuable feedback. They build trust with new customers by showcasing real experiences and satisfaction with our cooperation.",
       "reviewBtn": "Leave a review"
-    }
+    },
+    "stats": [
+      {
+        "stat": "200+",
+        "desc": "Requests received"
+      },
+      {
+        "stat": "32",
+        "desc": "Recommended to friends"
+      },
+      {
+        "stat": "6000+",
+        "desc": "Lessons conducted"
+      },
+      {
+        "stat": "98%",
+        "desc": "Positive reviews"
+      }
+    ]
   },
   "uk": {
     "navbar": {
@@ -165,6 +183,12 @@
       "callTitle": "Нам дуже важливі ваші відгуки",
       "callText": "Відгуки клієнтів допомагають покращувати якість послуг та продуктів, надаючи цінний зворотний зв'язок. Вони зміцнюють довіру нових клієнтів, демонструючи реальний досвід та задоволення від співпраці.",
       "reviewBtn": "Залишити відгук"
-    }
+    },
+    "stats": [
+      { "stat": "200+", "desc": "Отримано звернень" },
+      { "stat": "32", "desc": "Рекомендовано друзям" },
+      { "stat": "6000+", "desc": "Проведених уроків" },
+      { "stat": "98%", "desc": "Позитивних відгуків" }
+    ]
   }
 }
