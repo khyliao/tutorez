@@ -43,11 +43,7 @@ const Review = () => {
         modules={[Navigation, Pagination, Autoplay, Parallax, Pagination]}
         className="mb-7 w-full md:max-w-[900px] rounded-lg"
       >
-        <div
-          className="parallax-bg"
-          style={{ backgroundImage: "url(path/to/image.jpg)" }}
-          data-swiper-parallax="-23%"
-        ></div>
+        <div className="parallax-bg" data-swiper-parallax="-23%"></div>
         <div className="swiper-button-prev"></div>
         {reviews[lang].map((review, index) => (
           <SwiperSlide

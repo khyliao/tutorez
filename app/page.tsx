@@ -6,6 +6,7 @@ import Team from "@components/Team";
 import Advantage from "@components/Advantage";
 import Review from "@components/Review";
 import Stats from "./components/Stats";
+import ClientForm from "./components/ClientForm";
 
 const Home = () => {
   const isMedia1024 = useMediaQuery(1024);
@@ -22,6 +23,7 @@ const Home = () => {
       <Advantage />
       <Review />
       <Stats />
+      <ClientForm />
     </main>
   );
 };

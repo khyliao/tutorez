@@ -26,7 +26,7 @@ const Hero = () => {
           </p>
           <Link
             href="#contacts"
-            className="py-2 px-6 rounded-2xl m-auto md:m-0 md:mr-auto font-bold font-open-sans text-sm lg:text-base xl:text-xl text-white bg-hero-primary"
+            className="py-2 px-6 lg:py-3 lg:px-8 lg: rounded-2xl m-auto md:m-0 md:mr-auto font-bold font-open-sans text-sm lg:text-base xl:text-xl transition-colors duration-200 text-white bg-hero-primary hover:bg-[#9000e9]"
           >
             {t[lang].hero.reqBtn}
           </Link>

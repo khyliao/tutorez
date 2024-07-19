@@ -1,0 +1,24 @@
+.gradient-first-text {
+  color: #f1e0fd;
+  background: linear-gradient(to bottom, #30a6e9 0%, #751cba 100%);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 12px transparent;
+}
+
+.gradient-second-text {
+  color: #ead5f8;
+  background: linear-gradient(to bottom, #30a6e9 0%, #751cba 100%);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 12px transparent;
+}
+
+@media screen and (min-width: 1024px) {
+  .gradient-first-text {
+    -webkit-text-stroke: 20px transparent;
+    filter: drop-shadow(0px 0px 100px rgba(81, 28, 186, 1));
+  }
+  .gradient-second-text {
+    -webkit-text-stroke: 20px transparent;
+    filter: drop-shadow(0px 0px 100px rgba(81, 28, 186, 1));
+  }
+}

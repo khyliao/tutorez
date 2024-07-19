@@ -96,10 +96,42 @@
         "desc": "Lessons conducted"
       },
       {
-        "stat": "98%",
+        "stat": "100%",
         "desc": "Positive reviews"
       }
-    ]
+    ],
+    "form": {
+      "promoNow": "Only now!",
+      "promoTitle": ["Super", "News"],
+      "promoDetails": "A unique opportunity to get 2 free lessons just for filling out the application. Hurry up before time runs out!",
+      "formTitle": "Application for education",
+      "submitBtn": "Submit",
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Enter your name",
+          "formError": "Name is required!"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email address"
+        },
+        "phone": {
+          "label": "Phone number",
+          "placeholder": "Enter your phone number",
+          "formError": "Phone number is required!",
+          "phoneValidError": "Invalid phone number format"
+        },
+        "additionInfo": {
+          "label": "Additional information",
+          "placeholder": "My Telegram: @student"
+        },
+        "subject": {
+          "label": "Subject",
+          "subjects": []
+        }
+      }
+    }
   },
   "uk": {
     "navbar": {
@@ -188,7 +220,39 @@
       { "stat": "200+", "desc": "Отримано звернень" },
       { "stat": "32", "desc": "Рекомендовано друзям" },
       { "stat": "6000+", "desc": "Проведених уроків" },
-      { "stat": "98%", "desc": "Позитивних відгуків" }
-    ]
+      { "stat": "100%", "desc": "Позитивних відгуків" }
+    ],
+    "form": {
+      "promoNow": "Тільки зараз!",
+      "promoTitle": ["Супер", "Новина"],
+      "promoDetails": "Унікальна можливість отримати 2 безкоштовних заняття лише за заповнення заявки. Встигніть виконати умову до того як сплине час!",
+      "formTitle": "Заявка на навчання",
+      "submitBtn": "Відправити",
+      "fields": {
+        "name": {
+          "label": "Імʼя",
+          "placeholder": "Введіть імʼя",
+          "formError": "Необхідно ввести імʼя!"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Введіть електронну адресу"
+        },
+        "phone": {
+          "label": "Номер телефону",
+          "placeholder": "Введіть номер телефону",
+          "formError": "Необхідно ввести номер телефону!",
+          "phoneValidError": "Неправильний формат телефону"
+        },
+        "additionInfo": {
+          "label": "Додаткова інформація",
+          "placeholder": "Мій телеграм: @student"
+        },
+        "subject": {
+          "label": "Предмет",
+          "subjects": []
+        }
+      }
+    }
   }
 }
