@@ -64,11 +64,11 @@ const ClientForm = () => {
             className="absolute -top-5 -right-2 lg:-top-8 lg:-right-4"
           />
         </div>
-        <strong className="block -ml-1 mb-2 lg:mb-5 font-montserrat font-black p-1">
+        <strong className="block -ml-1 mb-2 lg:mb-8 font-montserrat font-black p-1">
           <span className="block  gradient-first-text p-2 pb-0 pt-0 pr-0 text-[40px] md:text-[48px] lg:text-[70px] xl:text-[80px]">
             {t[lang].form.promoTitle[0]}
           </span>
-          <span className="block drop-shadow-[0px_10px_50px_rgba(0, 0, 0, 0.2)] lg:drop-shadow-[0px_10px_50px_rgba(0, 0, 0, 0.4)] gradient-second-text p-2 pt-0 pr-0 text-[44px] leading-[46px] md:text-[58px] md:leading-[50px] lg:text-[98px] xl:text-[102px] lg:leading-[78px] xl:leading-[86px]">
+          <span className="block gradient-second-text p-2 pt-0 pr-0 text-[44px] leading-[46px] md:text-[58px] md:leading-[50px] lg:text-[92px] xl:text-[102px] lg:leading-[78px] xl:leading-[86px]">
             {t[lang].form.promoTitle[1]}
           </span>
         </strong>

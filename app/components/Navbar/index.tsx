@@ -33,7 +33,7 @@ const Navbar = () => {
     <header className="fixed w-full z-20 flex items-center py-2 px-4 xl:px-10 justify-between h-[70px] md:h-[90px] bg-[#2B2B2B]">
       <Link
         href="/"
-        className="font-bungee z-20 tracking-wider text-2xl lg:text-3xl leading-5 text-white font-medium"
+        className="font-bungee z-20 tracking-wider text-2xl lg:text-3xl xl:text-4xl leading-5 text-white font-medium"
       >
         Tutor<span className="text-[#7000FF]">EZ</span>
       </Link>
@@ -44,35 +44,35 @@ const Navbar = () => {
       >
         <nav className="flex flex-col gap-[40px] md:gap-4 lg:gap-8 xl:gap-10 2xl:gap-16 mb-10 md:mb-0 md:flex-row md:items-center md:mr-6">
           <Link
-            className="text-white font-extrabold text-2xl leading-6 font-open-sans md:text-base lg:text-xl  hover:text-nav-active duration-200 transition-colors hover:drop-shadow-nav-link  "
+            className="text-white font-extrabold text-2xl leading-6 font-open-sans md:text-base lg:text-xl xl:text-2xl  hover:text-nav-active duration-200 transition-colors hover:drop-shadow-nav-link  "
             href="#about"
             onClick={handleToggleMenu}
           >
             {t[lang].navbar.about}
           </Link>
           <Link
-            className="text-white font-extrabold text-2xl leading-6 font-open-sans md:text-base lg:text-xl  hover:text-nav-active duration-200 transition-colors hover:drop-shadow-nav-link "
+            className="text-white font-extrabold text-2xl leading-6 font-open-sans md:text-base lg:text-xl xl:text-2xl  hover:text-nav-active duration-200 transition-colors hover:drop-shadow-nav-link "
             href="#team"
             onClick={handleToggleMenu}
           >
             {t[lang].navbar.team}
           </Link>
           <Link
-            className="text-white font-extrabold text-2xl leading-6 font-open-sans md:text-base lg:text-xl  hover:text-nav-active duration-200 transition-colors hover:drop-shadow-nav-link "
+            className="text-white font-extrabold text-2xl leading-6 font-open-sans md:text-base lg:text-xl xl:text-2xl  hover:text-nav-active duration-200 transition-colors hover:drop-shadow-nav-link "
             href="#advantages"
             onClick={handleToggleMenu}
           >
             {t[lang].navbar.advantages}
           </Link>
           <Link
-            className="text-white font-extrabold text-2xl leading-6 font-open-sans md:text-base lg:text-xl  hover:text-nav-active duration-200 transition-colors hover:drop-shadow-nav-link "
+            className="text-white font-extrabold text-2xl leading-6 font-open-sans md:text-base lg:text-xl xl:text-2xl  hover:text-nav-active duration-200 transition-colors hover:drop-shadow-nav-link "
             href="#reviews"
             onClick={handleToggleMenu}
           >
             {t[lang].navbar.reviews}
           </Link>
           <Link
-            className="text-white font-extrabold text-2xl leading-6 font-open-sans md:text-base lg:text-xl  hover:text-nav-active duration-200 transition-colors hover:drop-shadow-nav-link "
+            className="text-white font-extrabold text-2xl leading-6 font-open-sans md:text-base lg:text-xl xl:text-2xl  hover:text-nav-active duration-200 transition-colors hover:drop-shadow-nav-link "
             href="#contacts"
             onClick={handleToggleMenu}
           >
