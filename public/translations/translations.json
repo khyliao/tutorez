@@ -131,6 +131,35 @@
           "subjects": []
         }
       }
+    },
+    "footer": {
+      "description": "High level of experience in providing educational services, individualized approach to each student, and ensuring high-quality education.",
+      "subscriptionBlock": {
+        "ctaText": "Subscribe for the latest news",
+        "followBtn": "Subscribe"
+      },
+      "socialMedia": {
+        "title": "Follow us",
+        "medias": [
+          "Facebook",
+          "LinkedIn",
+          "Instagram",
+          "YouTube",
+          "Twitter",
+          "Telegram"
+        ]
+      },
+      "company": {
+        "title": "Company",
+        "companies": [
+          "About us",
+          "Our team",
+          "Our advantages",
+          "Reviews",
+          "Contacts"
+        ]
+      },
+      "copyright": "All rights reserved"
     }
   },
   "uk": {
@@ -253,6 +282,35 @@
           "subjects": []
         }
       }
+    },
+    "footer": {
+      "description": "Високий рівень досвіду в наданні освітніх послуг, індивідуальний підхід до кожного учня та забезпечення високої якості навчання.",
+      "subscriptionBlock": {
+        "ctaText": "Підписатися на актуальні новини",
+        "followBtn": "Підписатися"
+      },
+      "socialMedia": {
+        "title": "Слідкуй за нами",
+        "medias": [
+          "Facebook",
+          "Linkedin",
+          "Instagram",
+          "Youtube",
+          "Twitter",
+          "Telegram"
+        ]
+      },
+      "company": {
+        "title": "Компанія",
+        "companies": [
+          "Про нас",
+          "Наша команда",
+          "Наші переваги",
+          "Відгуки",
+          "Контакти"
+        ]
+      },
+      "copyright": "Всі права захищені"
     }
   }
 }

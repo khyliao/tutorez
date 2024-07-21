@@ -17,6 +17,7 @@ const config: Config = {
         "section-title": "#212121",
         "nav-active": "#DB00FF",
         "hero-primary": "#9E00FF",
+        footer: "#2B2B2B",
       },
       backgroundImage: {
         "linear-main":

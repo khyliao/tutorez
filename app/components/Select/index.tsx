@@ -38,19 +38,89 @@ const FormSelect = ({ subject, setSubject, disabled }: Props) => {
         id="demo-select-small"
         disabled={disabled}
         value={subject}
-        className="bg-[#fff] h-[48px] lg:h-[54px] border-white "
+        className="bg-[#fff] h-[48px] md:h-[54px] border-white "
         onChange={handleChange}
         onOpen={handleOpen}
         onClose={handleClose}
         defaultValue="Математика"
         open={open}
+        MenuProps={{
+          PaperProps: {
+            sx: {
+              "& .MuiList-root": {
+                paddingTop: 0,
+                paddingBottom: 0,
+              },
+            },
+          },
+        }}
       >
-        <MenuItem value="Math">Математика</MenuItem>
-        <MenuItem value="English">Англійська мова</MenuItem>
-        <MenuItem value="Programming">Програмування</MenuItem>
-        <MenuItem value="Ukrainian">Українська мова</MenuItem>
-        <MenuItem value="History">Історія України</MenuItem>
-        <MenuItem value="Biology">Біологія</MenuItem>
+        <MenuItem
+          sx={{
+            "&.Mui-selected:hover": {
+              backgroundColor: "#7A5CFA",
+            },
+          }}
+          className="text-[#666666] md:h-[54px] border border-solid border-[#cccccc] hover:bg-[#7A5CFA] hover:text-white transition-colors duration-300 linear"
+          value="Math"
+        >
+          Математика
+        </MenuItem>
+        <MenuItem
+          sx={{
+            "&.Mui-selected:hover": {
+              backgroundColor: "#7A5CFA",
+            },
+          }}
+          className="text-[#666666] md:h-[54px] border border-solid border-[#cccccc] hover:bg-[#7A5CFA] hover:text-white transition-colors duration-300 linear"
+          value="English"
+        >
+          Англійська мова
+        </MenuItem>
+        <MenuItem
+          sx={{
+            "&.Mui-selected:hover": {
+              backgroundColor: "#7A5CFA",
+            },
+          }}
+          className="text-[#666666] md:h-[54px] border border-solid border-[#cccccc] hover:bg-[#7A5CFA] hover:text-white transition-colors duration-300 linear"
+          value="Programming"
+        >
+          Програмування
+        </MenuItem>
+        <MenuItem
+          sx={{
+            "&.Mui-selected:hover": {
+              backgroundColor: "#7A5CFA",
+            },
+          }}
+          className="text-[#666666] md:h-[54px] border border-solid border-[#cccccc] hover:bg-[#7A5CFA] hover:text-white transition-colors duration-300 linear"
+          value="Ukrainian"
+        >
+          Українська мова
+        </MenuItem>
+        <MenuItem
+          sx={{
+            "&.Mui-selected:hover": {
+              backgroundColor: "#7A5CFA",
+            },
+          }}
+          className="text-[#666666] md:h-[54px] border border-solid border-[#cccccc] hover:bg-[#7A5CFA] hover:text-white transition-colors duration-300 linear"
+          value="History"
+        >
+          Історія України
+        </MenuItem>
+        <MenuItem
+          sx={{
+            "&.Mui-selected:hover": {
+              backgroundColor: "#7A5CFA",
+            },
+          }}
+          className="text-[#666666] md:h-[54px] border border-solid border-[#cccccc] hover:bg-[#7A5CFA] hover:text-white transition-colors duration-300 linear"
+          value="Biology"
+        >
+          Біологія
+        </MenuItem>
       </Select>
     </FormControl>
   );

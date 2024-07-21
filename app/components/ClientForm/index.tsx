@@ -54,7 +54,7 @@ const ClientForm = () => {
       id="contacts"
     >
       <div className="mb-10 md:max-w-[400px] lg:max-w-[550px]">
-        <div className="relative inline-block mb-3 lg:mb-0">
+        <div className="relative inline-block lg:mb-0">
           <span className="inline-block py-2 px-6 text-white uppercase font-montserrat font-bold text-base md:text-lg lg:text-2xl leading-5 bg-[#ec1e9a] rounded-[50px] ">
             {t[lang].form.promoNow}
           </span>
@@ -64,15 +64,15 @@ const ClientForm = () => {
             className="absolute -top-5 -right-2 lg:-top-8 lg:-right-4"
           />
         </div>
-        <strong className="block -ml-1 mb-2 lg:mb-8 font-montserrat font-black p-1">
-          <span className="block  gradient-first-text p-2 pb-0 pt-0 pr-0 text-[40px] md:text-[48px] lg:text-[70px] xl:text-[80px]">
+        <strong className="block -ml-1 mb-4 lg:mb-8 font-montserrat font-black p-1">
+          <span className="block  gradient-first-text p-2 pb-0 pt-0 pr-0 text-[50px] lg:text-[70px] xl:text-[80px]">
             {t[lang].form.promoTitle[0]}
           </span>
-          <span className="block gradient-second-text p-2 pt-0 pr-0 text-[44px] leading-[46px] md:text-[58px] md:leading-[50px] lg:text-[92px] xl:text-[102px] lg:leading-[78px] xl:leading-[86px]">
+          <span className="block gradient-second-text p-2 pt-0 pr-0 text-[56px] leading-[48px] md:leading-[50px] lg:text-[92px] xl:text-[102px] lg:leading-[78px] xl:leading-[86px]">
             {t[lang].form.promoTitle[1]}
           </span>
         </strong>
-        <p className="mb-5 text-sm md:text-base lg:text-2xl font-bold font-montserrat leading-5">
+        <p className="mb-5 text-base md:text-base lg:text-2xl font-bold font-montserrat leading-5">
           {t[lang].form.promoDetails}
         </p>
         <Timer />
@@ -81,7 +81,7 @@ const ClientForm = () => {
         className="flex flex-col md:flex-1 items-center px-2 md:px-0"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h2 className="font-open-sans text-[22px] md:text-xl lg:text-3xl xl:text-4xl font-extrabold leading-5 mb-5">
+        <h2 className="font-open-sans text-center text-[22px] md:text-xl lg:text-3xl xl:text-4xl font-extrabold leading-7 md:leading-5 mb-5">
           {t[lang].form.formTitle}
         </h2>
         <div className="w-full flex flex-col mb-4">
