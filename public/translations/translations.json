@@ -128,7 +128,14 @@
         },
         "subject": {
           "label": "Subject",
-          "subjects": []
+          "subjects": [
+            "Math",
+            "English",
+            "Programming",
+            "Ukrainian",
+            "History of Ukraine",
+            "Biology"
+          ]
         }
       }
     },
@@ -152,11 +159,11 @@
       "company": {
         "title": "Company",
         "companies": [
-          "About us",
-          "Our team",
-          "Our advantages",
-          "Reviews",
-          "Contacts"
+          ["About us", "about"],
+          ["Our team", "team"],
+          ["Our advantages", "advantages"],
+          ["Reviews", "reviews"],
+          ["Contacts", "contacts"]
         ]
       },
       "copyright": "All rights reserved"
@@ -279,7 +286,14 @@
         },
         "subject": {
           "label": "Предмет",
-          "subjects": []
+          "subjects": [
+            "Математика",
+            "Англійська мова",
+            "Програмування",
+            "Українська мова",
+            "Історія України",
+            "Біологія"
+          ]
         }
       }
     },
@@ -303,11 +317,11 @@
       "company": {
         "title": "Компанія",
         "companies": [
-          "Про нас",
-          "Наша команда",
-          "Наші переваги",
-          "Відгуки",
-          "Контакти"
+          ["Про нас", "about"],
+          ["Наша команда", "team"],
+          ["Наші переваги", "advantages"],
+          ["Відгуки", "reviews"],
+          ["Контакти", "contacts"]
         ]
       },
       "copyright": "Всі права захищені"

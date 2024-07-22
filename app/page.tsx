@@ -14,9 +14,7 @@ const Home = () => {
 
   return (
     <main
-      className={`h-[7000px] ${
-        isMedia1024 ? "bg-linear-main-mobile" : "bg-linear-main"
-      }`}
+      className={`${isMedia1024 ? "bg-linear-main-mobile" : "bg-linear-main"}`}
     >
       <Hero />
       <About />

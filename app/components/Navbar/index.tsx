@@ -40,7 +40,7 @@ const Navbar = () => {
       <aside
         className={`fixed z-10 top-0 pt-[80px] pl-4 left-0 h-screen w-screen bg-[#2B2B2B] -translate-y-full  md:translate-y-0  md:flex md:h-auto md:w-auto md:p-0  ${
           isMedia768 && (isMenuOpen ? "translate-y-0" : "-translate-y-full")
-        }   md:sticky md:translate-x-0 transition-transform  duration-300 ease-in-out lg:w-[74%] xl:w-[72%] justify-between`}
+        }   md:sticky md:translate-x-0 transition-transform  duration-300 ease-in-out lg:w-[80%] 2xl:w-[74%] justify-between`}
       >
         <nav className="flex flex-col gap-[40px] md:gap-4 lg:gap-8 xl:gap-10 2xl:gap-16 mb-10 md:mb-0 md:flex-row md:items-center md:mr-6">
           <Link

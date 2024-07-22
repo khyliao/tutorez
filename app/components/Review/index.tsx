@@ -79,7 +79,7 @@ const Review = () => {
         <div className="swiper-button-next"></div>
       </Swiper>
 
-      <div className="mt-9 mb-6 max-w-[290px] mx-auto flex flex-col md:max-w-[900px]">
+      <div className="mt-9 mb-6 max-w-[290px] mx-auto flex flex-col md:px-2 md:max-w-[900px]">
         <Image
           className="self-start mb-1 md:m-0"
           width={isMedia768 ? 40 : 74}
@@ -95,7 +95,7 @@ const Review = () => {
             {t[lang].review.callText}
           </p>
           <button
-            className="block mx-auto cursor-pointer border-2 border-solid border-black hover:text-white hover:bg-[#383838] transition-colors duration-200 bg-white py-3 px-4 font-open-sans font-bold tracking-wider text-sm md:text-base text-[#11103D] rounded-md"
+            className="block mx-auto cursor-pointer border-2 border-solid border-black hover:text-white hover:bg-[#383838] transition-colors duration-300 bg-white py-3 px-4 font-open-sans font-bold tracking-wider text-sm md:text-base text-[#11103D] rounded-md"
             type="button"
           >
             {t[lang].review.reviewBtn}

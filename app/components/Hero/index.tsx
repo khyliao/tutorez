@@ -9,10 +9,10 @@ const Hero = () => {
   const { lang, t } = useLang();
 
   return (
-    <section className=" mb-14 lg:mb-40 pt-24 md:pt-28 px-4 lg:pt-28 lg:px-12 xl:pt-32 xl:px-20">
+    <section className="mb-14 lg:mb-40 pt-24 md:pt-28 px-4 lg:pt-28 lg:px-12 xl:pt-32 xl:px-20">
       <div className="mb-7 md:mb-3 flex flex-col md:flex-row-reverse items-center md:justify-center lg:justify-between">
         <img
-          className="mb-7 w-full max-w-[400px] md:ml-20 lg:max-w-[500px] xl:max-w-[600px] 2xl:max-w-[800px] "
+          className="mb-7 w-full max-w-[400px] md:ml-20 lg:max-w-[500px] xl:max-w-[600px] 2xl:max-w-[760px] "
           src={isMedia1024 ? "heroMobile.webp" : "heroDesktop.webp"}
           alt="platform's placeholder"
         />

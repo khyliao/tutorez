@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { useLang } from "@/hooks/useLang";
 
 type Props = {
   subject: string;
@@ -11,6 +12,7 @@ type Props = {
 
 const FormSelect = ({ subject, setSubject, disabled }: Props) => {
   const [open, setOpen] = useState(false);
+  const { t, lang } = useLang();
   const handleChange = (event: SelectChangeEvent<string>) => {
     setSubject(event.target.value);
   };
@@ -55,72 +57,20 @@ const FormSelect = ({ subject, setSubject, disabled }: Props) => {
           },
         }}
       >
-        <MenuItem
-          sx={{
-            "&.Mui-selected:hover": {
-              backgroundColor: "#7A5CFA",
-            },
-          }}
-          className="text-[#666666] md:h-[54px] border border-solid border-[#cccccc] hover:bg-[#7A5CFA] hover:text-white transition-colors duration-300 linear"
-          value="Math"
-        >
-          Математика
-        </MenuItem>
-        <MenuItem
-          sx={{
-            "&.Mui-selected:hover": {
-              backgroundColor: "#7A5CFA",
-            },
-          }}
-          className="text-[#666666] md:h-[54px] border border-solid border-[#cccccc] hover:bg-[#7A5CFA] hover:text-white transition-colors duration-300 linear"
-          value="English"
-        >
-          Англійська мова
-        </MenuItem>
-        <MenuItem
-          sx={{
-            "&.Mui-selected:hover": {
-              backgroundColor: "#7A5CFA",
-            },
-          }}
-          className="text-[#666666] md:h-[54px] border border-solid border-[#cccccc] hover:bg-[#7A5CFA] hover:text-white transition-colors duration-300 linear"
-          value="Programming"
-        >
-          Програмування
-        </MenuItem>
-        <MenuItem
-          sx={{
-            "&.Mui-selected:hover": {
-              backgroundColor: "#7A5CFA",
-            },
-          }}
-          className="text-[#666666] md:h-[54px] border border-solid border-[#cccccc] hover:bg-[#7A5CFA] hover:text-white transition-colors duration-300 linear"
-          value="Ukrainian"
-        >
-          Українська мова
-        </MenuItem>
-        <MenuItem
-          sx={{
-            "&.Mui-selected:hover": {
-              backgroundColor: "#7A5CFA",
-            },
-          }}
-          className="text-[#666666] md:h-[54px] border border-solid border-[#cccccc] hover:bg-[#7A5CFA] hover:text-white transition-colors duration-300 linear"
-          value="History"
-        >
-          Історія України
-        </MenuItem>
-        <MenuItem
-          sx={{
-            "&.Mui-selected:hover": {
-              backgroundColor: "#7A5CFA",
-            },
-          }}
-          className="text-[#666666] md:h-[54px] border border-solid border-[#cccccc] hover:bg-[#7A5CFA] hover:text-white transition-colors duration-300 linear"
-          value="Biology"
-        >
-          Біологія
-        </MenuItem>
+        {t[lang].form.fields.subject.subjects.map((subject) => (
+          <MenuItem
+            key={subject}
+            sx={{
+              "&.Mui-selected:hover": {
+                backgroundColor: "#7A5CFA",
+              },
+            }}
+            className="text-[#666666] md:h-[54px] border border-solid border-[#cccccc] hover:bg-[#7A5CFA] hover:text-white transition-colors duration-300 linear"
+            value={subject}
+          >
+            {subject}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );

@@ -11,7 +11,7 @@ import "./clientForm.css";
 const ClientForm = () => {
   const { t, lang } = useLang();
   const isMedia1024 = useMediaQuery(1024);
-  const [subject, setSubject] = useState("Math");
+  const [subject, setSubject] = useState("Математика");
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
