@@ -16,7 +16,7 @@ const Team = () => {
         {t[lang].team.tutors.map(({ photo, name, bio, subject }, index) => (
           <li
             key={index}
-            className="team-card max-w-[320px] bg-[#e9e1ff] ease-in-out lg:hover:bg-[#7e4cfa4f] shadow-lg rounded-lg overflow-hidden relative transition-all duration-300 transform"
+            className="team-card max-w-[320px] bg-[#e9e1ff] ease-in-out shadow-lg rounded-lg overflow-hidden relative transition-all duration-300 transform"
           >
             <div className="inline-block overflow-hidden">
               <img
@@ -25,11 +25,11 @@ const Team = () => {
                 className="team-card-img  object-cove"
               />
             </div>
-            <div className="p-3 px-6 md:p-6 text-center ">
-              <h3 className="team-card-title text-base leading-4 font-poppins font-bold md:leading-5 md:text-xl mb-2 text-[#333]">
+            <div className="p-3 px-6 md:p-6 text-center">
+              <h3 className="team-card-title text-lg leading-4 font-bold md:leading-5 md:text-xl mb-2 text-[#333]">
                 {name}
               </h3>
-              <p className="team-card-subject text-[#6b7280] text-base leading-4 font-poppins font-regular md:leading-5 md:text-base mb-2 md:mb-4">
+              <p className="team-card-subject text-[#6b7280] text-base leading-4 font-regular md:leading-5 md:text-base mb-2 md:mb-4">
                 {subject}
               </p>
               <p className="team-card-bio text-sm leading-4 md:leading-5 md:text-base text-[#4b5563]">

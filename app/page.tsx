@@ -8,23 +8,23 @@ import Review from "@components/Review";
 import Stats from "./components/Stats";
 import ClientForm from "./components/ClientForm";
 import Footer from "./components/Footer";
-
+import "./globals.css";
 const Home = () => {
   const isMedia1024 = useMediaQuery(1024);
 
   return (
-    <main
-      className={`${isMedia1024 ? "bg-linear-main-mobile" : "bg-linear-main"}`}
-    >
-      <Hero />
-      <About />
-      <Team />
-      <Advantage />
-      <Review />
-      <Stats />
-      <ClientForm />
+    <>
+      <main className="main">
+        <Hero />
+        <About />
+        <Team />
+        <Advantage />
+        <Review />
+        <Stats />
+        <ClientForm />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 };
 

@@ -50,10 +50,10 @@ const ClientForm = () => {
 
   return (
     <section
-      className="md:flex mb-14 lg:mb-24 px-3 scroll-mt-24 md:scroll-mt-32 md:items-center md:gap-10 md:px-6 lg:max-w-[1300px] lg:mx-auto"
+      className="md:flex pb-14 lg:pb-24 px-3 scroll-mt-24 md:scroll-mt-32 md:items-center md:gap-10 md:px-6 lg:max-w-[1300px] lg:mx-auto"
       id="contacts"
     >
-      <div className="mb-10 md:max-w-[400px] lg:max-w-[550px]">
+      <div className="accent-news mb-10 md:max-w-[400px] lg:max-w-[550px]">
         <div className="relative inline-block lg:mb-0">
           <span className="inline-block py-2 px-6 text-white uppercase font-montserrat font-bold text-base md:text-lg lg:text-2xl leading-5 bg-[#ec1e9a] rounded-[50px] ">
             {t[lang].form.promoNow}
