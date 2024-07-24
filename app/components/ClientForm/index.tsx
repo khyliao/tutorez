@@ -7,6 +7,7 @@ import Timer from "@components/Timer";
 import FormSelect from "@components/Select";
 import Gift from "@assets/gift.svg";
 import "./clientForm.css";
+import { motion } from "framer-motion";
 
 const ClientForm = () => {
   const { t, lang } = useLang();
@@ -53,8 +54,26 @@ const ClientForm = () => {
       className="md:flex pb-14 lg:pb-24 px-3 scroll-mt-24 md:scroll-mt-32 md:items-center md:gap-10 md:px-6 lg:max-w-[1300px] lg:mx-auto"
       id="contacts"
     >
-      <div className="accent-news mb-10 md:max-w-[400px] lg:max-w-[550px]">
-        <div className="relative inline-block lg:mb-0">
+      <div
+        className={`${
+          isMedia1024 ?? "accent-news"
+        } mb-10 md:max-w-[400px] lg:max-w-[550px]`}
+      >
+        <motion.div
+          className="relative inline-block lg:mb-0"
+          initial={{
+            x: -20,
+            opacity: 0,
+          }}
+          whileInView={{
+            x: 0,
+            opacity: 1,
+            transition: {
+              duration: 1,
+            },
+          }}
+          viewport={{ once: true }}
+        >
           <span className="inline-block py-2 px-6 text-white uppercase font-montserrat font-bold text-base md:text-lg lg:text-2xl leading-5 bg-[#ec1e9a] rounded-[50px] ">
             {t[lang].form.promoNow}
           </span>
@@ -63,23 +82,80 @@ const ClientForm = () => {
             height={isMedia1024 ? 34 : 48}
             className="absolute -top-5 -right-2 lg:-top-8 lg:-right-4"
           />
-        </div>
+        </motion.div>
         <strong className="block -ml-1 mb-4 lg:mb-8 font-montserrat font-black p-1">
-          <span className="block  gradient-first-text p-2 pb-0 pt-0 pr-0 text-[50px] lg:text-[70px] xl:text-[80px]">
+          <motion.span
+            className="block  gradient-first-text p-2 pb-0 pt-0 pr-0 text-[50px] lg:text-[70px] xl:text-[80px]"
+            initial={{
+              x: -20,
+              opacity: 0,
+            }}
+            whileInView={{
+              x: 0,
+              opacity: 1,
+              transition: {
+                delay: 0.2,
+                duration: 1,
+              },
+            }}
+            viewport={{ once: true }}
+          >
             {t[lang].form.promoTitle[0]}
-          </span>
-          <span className="block gradient-second-text p-2 pt-0 pr-0 text-[56px] leading-[48px] md:leading-[50px] lg:text-[92px] xl:text-[102px] lg:leading-[78px] xl:leading-[86px]">
+          </motion.span>
+          <motion.span
+            className="block gradient-second-text p-2 pt-0 pr-0 text-[56px] leading-[48px] md:leading-[50px] lg:text-[92px] xl:text-[102px] lg:leading-[78px] xl:leading-[86px]"
+            initial={{
+              x: -20,
+              opacity: 0,
+            }}
+            whileInView={{
+              x: 0,
+              opacity: 1,
+              transition: {
+                delay: 0.5,
+                duration: 1,
+              },
+            }}
+            viewport={{ once: true }}
+          >
             {t[lang].form.promoTitle[1]}
-          </span>
+          </motion.span>
         </strong>
-        <p className="mb-5 text-base md:text-base lg:text-2xl font-bold font-montserrat leading-5">
+        <motion.p
+          className="mb-5 text-base md:text-base lg:text-2xl font-bold font-montserrat leading-5"
+          initial={{
+            y: 20,
+            opacity: 0,
+          }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+            transition: {
+              delay: 0.7,
+              duration: 1,
+            },
+          }}
+          viewport={{ once: true }}
+        >
           {t[lang].form.promoDetails}
-        </p>
+        </motion.p>
         <Timer />
       </div>
-      <form
+      <motion.form
         className="flex flex-col md:flex-1 items-center px-2 md:px-0"
         onSubmit={handleSubmit(onSubmit)}
+        initial={{
+          y: 20,
+          opacity: 0,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+          transition: {
+            duration: 1.3,
+          },
+        }}
+        viewport={{ once: true }}
       >
         <h2 className="font-open-sans text-center text-[22px] md:text-xl lg:text-3xl xl:text-4xl font-extrabold leading-7 md:leading-5 mb-5">
           {t[lang].form.formTitle}
@@ -179,7 +255,7 @@ const ClientForm = () => {
         >
           {t[lang].form.submitBtn}
         </button>
-      </form>
+      </motion.form>
     </section>
   );
 };

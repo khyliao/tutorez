@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import "./timer.css";
+import { motion } from "framer-motion";
 
 const Timer = () => {
   const duration = 23760000;
@@ -44,9 +45,24 @@ const Timer = () => {
   }, [duration]);
 
   return (
-    <div className="backdrop-btn font-montserrat font-black text-4xl md:text-5xl lg:text-6xl p-1 leading-8 tracking-wide text-[#36045B]">
+    <motion.div
+      className="backdrop-btn font-montserrat font-black text-4xl md:text-5xl lg:text-6xl p-1 leading-8 tracking-wide text-[#36045B]"
+      initial={{
+        y: 20,
+        opacity: 0,
+      }}
+      whileInView={{
+        y: 0,
+        opacity: 1,
+        transition: {
+          delay: 1,
+          duration: 1,
+        },
+      }}
+      viewport={{ once: true }}
+    >
       {msToTime(timer)}
-    </div>
+    </motion.div>
   );
 };
 

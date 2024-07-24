@@ -1,5 +1,6 @@
 import { useLang } from "@hooks/useLang";
 import "./team.css";
+import { motion } from "framer-motion";
 
 const Team = () => {
   const { lang, t } = useLang();
@@ -9,10 +10,38 @@ const Team = () => {
       className="px-4 flex mb-24 flex-col items-center scroll-mt-20 md:scroll-mt-28"
       id="team"
     >
-      <h2 className="mb-7 lg:mb-12 lg:text-4xl text-center text-[#333] font-open-sans font-extrabold tracking-wide text-2xl leading-9">
+      <motion.h2
+        className="mb-7 lg:mb-12 lg:text-4xl text-center text-[#333] font-open-sans font-extrabold tracking-wide text-2xl leading-9"
+        initial={{
+          y: -10,
+          opacity: 0,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+          transition: {
+            duration: 1,
+          },
+        }}
+        viewport={{ once: true }}
+      >
         {t[lang].team.title}
-      </h2>
-      <ul className="flex flex-wrap justify-center gap-8">
+      </motion.h2>
+      <motion.ul
+        className="flex flex-wrap justify-center gap-8"
+        initial={{
+          y: 20,
+          opacity: 0,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+          transition: {
+            duration: 1,
+          },
+        }}
+        viewport={{ once: true }}
+      >
         {t[lang].team.tutors.map(({ photo, name, bio, subject }, index) => (
           <li
             key={index}
@@ -38,7 +67,7 @@ const Team = () => {
             </div>
           </li>
         ))}
-      </ul>
+      </motion.ul>
     </section>
   );
 };

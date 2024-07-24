@@ -122,11 +122,14 @@
 
 html,
 body {
+  overflow-x: hidden;
+
   max-width: 100vw;
   scroll-behavior: smooth;
 }
 
 body {
+  position: relative;
   font-family: "Roboto";
   font-weight: 400;
 }

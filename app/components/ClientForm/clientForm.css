@@ -1,7 +1,7 @@
 .gradient-first-text,
 .gradient-second-text {
   background: linear-gradient(to bottom, #30a6e9 0%, #751cba 100%);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-stroke: 12px transparent;
 }
 

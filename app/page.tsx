@@ -1,5 +1,5 @@
 "use client";
-import { useMediaQuery } from "@hooks/useMediaQuery";
+import { Analytics } from "@vercel/analytics/react";
 import Hero from "@components/Hero";
 import About from "@components/About";
 import Team from "@components/Team";
@@ -9,12 +9,12 @@ import Stats from "./components/Stats";
 import ClientForm from "./components/ClientForm";
 import Footer from "./components/Footer";
 import "./globals.css";
-const Home = () => {
-  const isMedia1024 = useMediaQuery(1024);
 
+const Home = () => {
   return (
     <>
       <main className="main">
+        <Analytics />
         <Hero />
         <About />
         <Team />

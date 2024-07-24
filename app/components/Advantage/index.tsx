@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLang } from "@hooks/useLang";
 import { useMediaQuery } from "@hooks/useMediaQuery";
+import { motion } from "framer-motion";
 
 const Advantage = () => {
   const { t, lang } = useLang();
@@ -12,11 +13,39 @@ const Advantage = () => {
       className="mb-24 md:mb-32 scroll-mt-20  md:scroll-mt-28"
       id="advantages"
     >
-      <h2 className="mb-7 lg:mb-12 lg:text-4xl text-center text-[#333] font-open-sans font-extrabold tracking-wide text-2xl leading-9">
+      <motion.h2
+        className="mb-7 lg:mb-12 lg:text-4xl text-center text-[#333] font-open-sans font-extrabold tracking-wide text-2xl leading-9"
+        initial={{
+          y: -10,
+          opacity: 0,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+          transition: {
+            duration: 1,
+          },
+        }}
+        viewport={{ once: true }}
+      >
         {t[lang].advantages.title}
-      </h2>
+      </motion.h2>
       <ul>
-        <li className="flex flex-col px-6 py-4 drop-shadow-first-advantage md:py-0 md:flex-row items-center mb-14 bg-[#FFFBF5] md:pl-16 md:pr-24 lg:pl-20 lg:pr-38 xl:pl-32 xl:pr-64">
+        <motion.li
+          className="flex flex-col px-6 py-4 drop-shadow-first-advantage md:py-0 md:flex-row items-center mb-14 bg-[#FFFBF5] md:pl-16 md:pr-24 lg:pl-20 lg:pr-38 xl:pl-32 xl:pr-64"
+          initial={{
+            x: -100,
+            opacity: 0,
+          }}
+          whileInView={{
+            x: 0,
+            opacity: 1,
+            transition: {
+              duration: 1,
+            },
+          }}
+          viewport={{ once: true }}
+        >
           <Image
             className="mb-7 md:mb-0 md:mr-16 md:max-w-[320px] lg:max-w-none lg:mr-20 xl:mr-28"
             src="/advantage-1.webp"
@@ -39,8 +68,22 @@ const Advantage = () => {
               {t[lang].advantages.benefits[0].commonBtn}
             </Link>
           </div>
-        </li>
-        <li className="flex flex-col px-6 py-4 drop-shadow-second-advantage md:py-0 items-center md:flex-row-reverse bg-[#EBF8FF] md:pl-16 md:pr-24 lg:pl-24 lg:pr-38 xl:pl-32 xl:pr-64">
+        </motion.li>
+        <motion.li
+          className="flex flex-col px-6 py-4 drop-shadow-second-advantage md:py-0 items-center md:flex-row-reverse bg-[#EBF8FF] md:pl-16 md:pr-24 lg:pl-24 lg:pr-38 xl:pl-32 xl:pr-64"
+          initial={{
+            transform: "translateX(100px)",
+            opacity: 0,
+          }}
+          whileInView={{
+            transform: "translateX(0)",
+            opacity: 1,
+            transition: {
+              duration: 1,
+            },
+          }}
+          viewport={{ once: true }}
+        >
           <Image
             className="mb-7 md:mb-0 md:max-w-[320px] lg:max-w-none"
             src="/advantage-2.webp"
@@ -63,7 +106,7 @@ const Advantage = () => {
               {t[lang].advantages.benefits[1].commonBtn}
             </Link>
           </div>
-        </li>
+        </motion.li>
       </ul>
     </section>
   );
