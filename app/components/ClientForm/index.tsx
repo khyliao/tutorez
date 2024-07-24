@@ -56,7 +56,7 @@ const ClientForm = () => {
     >
       <div
         className={`${
-          isMedia1024 ?? "accent-news"
+          !isMedia1024 && "accent-news"
         } mb-10 md:max-w-[400px] lg:max-w-[550px]`}
       >
         <motion.div
