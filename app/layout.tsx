@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       "Tutorez - це провідна платформа для онлайн-навчання, яка пропонує якісні освітні послуги з різних предметів та допомагає учням досягати успіху в навчанні.",
     images: [
       {
-        url: "/public/preview.png",
+        url: "/preview.png",
         width: 800,
         height: 600,
         alt: "Tutorez - Платформа онлайн-навчання",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       "Tutorez - це провідна платформа для онлайн-навчання, яка пропонує якісні освітні послуги з різних предметів та допомагає учням досягати успіху в навчанні.",
     images: [
       {
-        url: "/public/preview.png",
+        url: "/preview.png",
         width: 800,
         height: 600,
         alt: "Tutorez - Платформа онлайн-навчання",
@@ -39,7 +39,6 @@ export const metadata: Metadata = {
     width: "device-width",
     initialScale: 1,
   },
-  generator: "Next.js",
 };
 
 export default function RootLayout({
