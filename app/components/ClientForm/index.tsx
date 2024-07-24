@@ -250,7 +250,7 @@ const ClientForm = () => {
           />
         </div>
         <button
-          className="w-[164px] md:w-[176px] xl:w-[200px] inline-block p-3 xl:p-4 text-center font-noto-sans text-sm md:text-base lg:text-lg md:font-semibold md:-tracking-tight leading-6 text-white bg-[#7A5CFA] rounded-lg"
+          className="w-[164px] md:w-[176px] xl:w-[200px] inline-block p-3 xl:p-4 text-center font-noto-sans text-sm md:text-base lg:text-lg md:font-semibold md:-tracking-tight leading-6 transition-colors duration-300 text-white bg-[#7A5CFA] hover:bg-[#6e4ff8] rounded-lg"
           type="submit"
         >
           {t[lang].form.submitBtn}
