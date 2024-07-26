@@ -45,7 +45,8 @@ const Hero = () => {
             }}
             viewport={{ once: true }}
           >
-            <span className="text-[#9E00FF]">{t[lang].hero.accentWord}</span>{" "}
+            <span className="text-[#9E00FF]">{t[lang].hero.accentWord}</span>
+            {", "}
             {t[lang].hero.title}
           </motion.h1>
           <motion.p

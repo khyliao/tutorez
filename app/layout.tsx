@@ -39,6 +39,9 @@ export const metadata: Metadata = {
     width: "device-width",
     initialScale: 1,
   },
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -48,10 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uk">
-      <head>
-        <link rel="icon" href="favicon.png" />
-        <meta property="og:image" content="/preview.png" />
-      </head>
+      <head></head>
       <body>
         <Navbar />
         {children}
