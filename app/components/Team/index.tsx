@@ -51,17 +51,17 @@ const Team = () => {
               <img
                 src={`/${photo}`}
                 alt={`${name}'s photo`}
-                className="team-card-img  object-cove"
+                className="team-card-img object-cover"
               />
             </div>
             <div className="p-3 px-6 md:p-6 text-center">
               <h3 className="team-card-title text-lg leading-4 font-bold md:leading-5 md:text-xl mb-2 text-[#333]">
                 {name}
               </h3>
-              <p className="team-card-subject text-[#6b7280] text-base leading-4 font-regular md:leading-5 md:text-base mb-2 md:mb-4">
+              <p className="team-card-subject text-[#373a41] text-base leading-4 font-regular md:leading-5 md:text-base mb-2 md:mb-4">
                 {subject}
               </p>
-              <p className="team-card-bio text-sm leading-4 md:leading-5 md:text-base text-[#4b5563]">
+              <p className="team-card-bio text-sm leading-4 md:leading-5 md:text-base text-[#2b3036]">
                 {bio}
               </p>
             </div>

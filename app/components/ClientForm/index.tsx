@@ -94,7 +94,6 @@ const ClientForm = () => {
               x: 0,
               opacity: 1,
               transition: {
-                delay: 0.2,
                 duration: 1,
               },
             }}
@@ -112,8 +111,7 @@ const ClientForm = () => {
               x: 0,
               opacity: 1,
               transition: {
-                delay: 0.5,
-                duration: 1,
+                duration: 1.7,
               },
             }}
             viewport={{ once: true }}
@@ -131,8 +129,7 @@ const ClientForm = () => {
             y: 0,
             opacity: 1,
             transition: {
-              delay: 0.7,
-              duration: 1,
+              duration: 1.2,
             },
           }}
           viewport={{ once: true }}
@@ -152,7 +149,7 @@ const ClientForm = () => {
           y: 0,
           opacity: 1,
           transition: {
-            duration: 1.3,
+            duration: 1.2,
           },
         }}
         viewport={{ once: true }}
