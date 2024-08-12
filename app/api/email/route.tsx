@@ -2,8 +2,8 @@ import { NextResponse, NextRequest } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function POST(req: NextRequest) {
-  const password = process.env.BURNER_PASSWORD;
-  const myEmail = process.env.PERSONAL_EMAIL;
+  const password = process.env.NEXT_PUBLIC_BURNER_PASSWORD;
+  const myEmail = process.env.NEXT_PUBLIC_PERSONAL_EMAIL;
 
   const formData = await req.formData();
 
