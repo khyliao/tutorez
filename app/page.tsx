@@ -2,28 +2,28 @@
 import { Analytics } from "@vercel/analytics/react";
 import dynamic from "next/dynamic";
 import Hero from "@components/Hero";
-import Review from "@components/Review";
-import Advantage from "@components/Advantage";
+import About from "@components/About";
+import Footer from "@components/Footer";
 import "./globals.css";
 
-const AboutLazy = dynamic(() => import("@components/About"), {
-  loading: () => <p>Loading team...</p>,
+const TeamLazy = dynamic(() => import("@components/Team"), {
+  ssr: false,
 });
 
-const TeamLazy = dynamic(() => import("@components/Team"), {
-  loading: () => <p>Loading team...</p>,
+const AdvantageLazy = dynamic(() => import("@components/Advantage"), {
+  ssr: false,
 });
 
 const ClientFormLazy = dynamic(() => import("@components/ClientForm"), {
-  loading: () => <p>Loading client form...</p>,
+  ssr: false,
+});
+
+const ReviewLazy = dynamic(() => import("@components/Review"), {
+  ssr: false,
 });
 
 const StatsLazy = dynamic(() => import("@components/Stats"), {
-  loading: () => <p>Loading stats...</p>,
-});
-
-const FooterLazy = dynamic(() => import("@components/Footer"), {
-  loading: () => <p>Loading footer...</p>,
+  ssr: false,
 });
 
 const Home = () => {
@@ -32,14 +32,14 @@ const Home = () => {
       <Analytics />
       <main className="main">
         <Hero />
-        <AboutLazy />
+        <About />
         <TeamLazy />
-        <Advantage />
-        <Review />
+        <AdvantageLazy />
+        <ReviewLazy />
         <StatsLazy />
         <ClientFormLazy />
       </main>
-      <FooterLazy />
+      <Footer />
     </>
   );
 };

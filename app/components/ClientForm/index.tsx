@@ -4,11 +4,14 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { Inputs } from "@/types/form";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useLang } from "@/hooks/useLang";
-import Timer from "@components/Timer";
 import FormSelect from "@components/Select";
 import Gift from "@assets/gift.svg";
 import "./clientForm.css";
 import { motion } from "framer-motion";
+
+const TimerLazy = dynamic(() => import("@components/Timer"), {
+  loading: () => <p>Loading footer...</p>,
+});
 
 const ClientForm = () => {
   const { t, lang } = useLang();
@@ -137,7 +140,7 @@ const ClientForm = () => {
         >
           {t[lang].form.promoDetails}
         </motion.p>
-        <Timer />
+        <TimerLazy />
       </div>
       <motion.form
         className="flex flex-col md:flex-1 items-center px-2 md:px-0"

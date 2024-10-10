@@ -1,11 +1,11 @@
 .backdrop-btn {
   background: #c483e5;
   -webkit-background-clip: text;
-  -webkit-text-stroke: 6px transparent;
+  -webkit-text-stroke: 8px transparent;
 }
 
 @media screen and (min-width: 1024px) {
   .backdrop-btn {
-    -webkit-text-stroke: 10px transparent;
+    -webkit-text-stroke: 14px transparent;
   }
 }
