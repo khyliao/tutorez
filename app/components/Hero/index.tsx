@@ -1,34 +1,40 @@
 "use client";
-import { useMediaQuery } from "@hooks/useMediaQuery";
-import NextArrow from "@assets/nextArrow.svg";
-import Link from "next/link";
-import { useLang } from "@hooks/useLang";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import NextArrow from "@assets/nextArrow.svg";
+import { useLang } from "@hooks/useLang";
 
 const Hero = () => {
-  const isMedia1024 = useMediaQuery(1024);
   const { lang, t } = useLang();
 
   return (
     <section className="mb-14 lg:mb-40 pt-24 md:pt-28 px-4 lg:pt-28 lg:px-12 xl:pt-32 xl:px-20">
       <div className="mb-7 md:mb-3 flex flex-col md:flex-row-reverse items-center md:justify-center lg:justify-between">
-        <motion.img
+        <motion.div
+          className="mb-7 relative w-full max-w-[400px] md:ml-20 lg:max-w-[500px] xl:max-w-[600px] 2xl:max-w-[760px]"
           initial={{
             y: -20,
             opacity: 0,
           }}
-          whileInView={{
-            y: 0,
+          animate={{
+            y: [0, -4, 0],
             opacity: 1,
-            transition: {
+          }}
+          transition={{
+            y: {
+              duration: 4,
+              repeat: Infinity,
+              repeatType: "reverse",
+            },
+            opacity: {
               duration: 1,
+              repeat: 0,
             },
           }}
           viewport={{ once: true }}
-          className="mb-7 w-full max-w-[400px] md:ml-20 lg:max-w-[500px] xl:max-w-[600px] 2xl:max-w-[760px] "
-          src={isMedia1024 ? "heroMobile.webp" : "heroDesktop.webp"}
-          alt="platform's placeholder"
-        />
+        >
+          <motion.img src="heroDesktop.webp" alt="platform's placeholder" />
+        </motion.div>
         <div className="flex flex-col ">
           <motion.h1
             className="text-3xl font-extrabold lg:text-5xl xl:text-7xl mb-6 lg:mb-9 xl:mb-11"

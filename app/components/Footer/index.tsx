@@ -36,14 +36,14 @@ const Footer = () => {
             onSubmit={handleSubmitSubscribe}
           >
             <label
-              className="text-white font-roboto font-bold lg:text-lg leading-5 mb-3"
+              className="text-white font-bold lg:text-lg leading-5 mb-3"
               htmlFor="subscription"
             >
               {t[lang].footer.subscriptionBlock.ctaText}
             </label>
             <input
               onChange={handleInput}
-              className="mb-4 border border-[#CCCCCC] rounded-[6px] p-[6px] pl-2 font-noto-sans text-base leading-8"
+              className="mb-4 border border-[#CCCCCC] rounded-[6px] p-[6px] pl-2 font-open-sans text-base leading-8"
               placeholder="Email"
               type="email"
               value={email}

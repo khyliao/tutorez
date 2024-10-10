@@ -46,7 +46,7 @@ const Timer = () => {
 
   return (
     <motion.div
-      className="backdrop-btn font-montserrat font-black text-4xl md:text-5xl lg:text-6xl p-1 leading-8 tracking-wide text-[#36045B]"
+      className="backdrop-btn font-open-sans font-extrabold text-4xl md:text-5xl lg:text-6xl p-1 leading-8 tracking-wide text-[#36045B]"
       initial={{
         y: 20,
         opacity: 0,

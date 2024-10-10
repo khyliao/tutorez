@@ -2,14 +2,14 @@ import { useLang } from "@hooks/useLang";
 import CourseIcon from "@assets/course.svg";
 import ScheduleIcon from "@assets/schedule.svg";
 import SpecialistIcon from "@assets/specialist.svg";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 
 const About = () => {
   const { lang, t } = useLang();
 
   return (
     <section
-      className="flex flex-col items-center mb-24 scroll-mt-20 md:scroll-mt-28  px-4"
+      className="flex flex-col items-center mb-24 scroll-mt-20 md:scroll-mt-28 px-4"
       id="about"
     >
       <div>

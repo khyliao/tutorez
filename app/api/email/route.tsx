@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 export async function POST(req: NextRequest) {
   const password = process.env.NEXT_PUBLIC_BURNER_PASSWORD;
   const myEmail = process.env.NEXT_PUBLIC_PERSONAL_EMAIL;
-
+  console.log(password, myEmail);
   const formData = await req.formData();
 
   const name = formData.get("name") as string | null;
@@ -28,6 +28,7 @@ export async function POST(req: NextRequest) {
     },
   });
 
+  console.log(transporter);
   try {
     const mail = await transporter.sendMail({
       priority: "high",

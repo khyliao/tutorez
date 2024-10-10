@@ -74,7 +74,7 @@ const ClientForm = () => {
           }}
           viewport={{ once: true }}
         >
-          <span className="inline-block py-2 px-6 text-white uppercase font-montserrat font-bold text-base md:text-lg lg:text-2xl leading-5 bg-[#ec1e9a] rounded-[50px] ">
+          <span className="inline-block py-2 px-6 text-white uppercase font-open-sans tracking-wide font-bold text-base md:text-lg lg:text-2xl leading-5 bg-[#ec1e9a] rounded-[50px] ">
             {t[lang].form.promoNow}
           </span>
           <Gift
@@ -83,7 +83,7 @@ const ClientForm = () => {
             className="absolute -top-5 -right-2 lg:-top-8 lg:-right-4"
           />
         </motion.div>
-        <strong className="block -ml-1 mb-4 lg:mb-8 font-montserrat font-black p-1">
+        <strong className="block -ml-1 mb-4 lg:mb-8 font-open-sans font-extrabold p-1">
           <motion.span
             className="block  gradient-first-text p-2 pb-0 pt-0 pr-0 text-[50px] lg:text-[70px] xl:text-[80px]"
             initial={{
@@ -120,7 +120,7 @@ const ClientForm = () => {
           </motion.span>
         </strong>
         <motion.p
-          className="mb-5 text-base md:text-base lg:text-2xl font-bold font-montserrat leading-5"
+          className="mb-5 text-base md:text-base lg:text-2xl font-bold font-open-sans leading-5"
           initial={{
             y: 20,
             opacity: 0,
@@ -159,7 +159,7 @@ const ClientForm = () => {
         </h2>
         <div className="w-full flex flex-col mb-4">
           <label
-            className="font-noto-sans text-sm lg:text-base xl:text-lg font-semibold leading-5 text-[#4a4a4a] mb-2"
+            className="font-open-sans text-sm lg:text-base xl:text-lg font-semibold leading-5 text-[#4a4a4a] mb-2"
             htmlFor="name"
           >
             {t[lang].form.fields.name.label} *
@@ -179,7 +179,7 @@ const ClientForm = () => {
         </div>
         <div className="w-full flex flex-col mb-4">
           <label
-            className="font-noto-sans text-sm lg:text-base xl:text-lg font-semibold leading-5 text-[#4a4a4a] mb-2"
+            className="font-open-sans text-sm lg:text-base xl:text-lg font-semibold leading-5 text-[#4a4a4a] mb-2"
             htmlFor="phone"
           >
             {t[lang].form.fields.phone.label} *
@@ -205,7 +205,7 @@ const ClientForm = () => {
         </div>
         <div className="w-full flex flex-col mb-4">
           <label
-            className="font-noto-sans text-sm lg:text-base xl:text-lg font-semibold leading-5 text-[#4a4a4a] mb-2"
+            className="font-open-sans text-sm lg:text-base xl:text-lg font-semibold leading-5 text-[#4a4a4a] mb-2"
             htmlFor="email"
           >
             {t[lang].form.fields.email.label}
@@ -220,7 +220,7 @@ const ClientForm = () => {
         </div>
         <div className="w-full flex flex-col mb-4">
           <label
-            className="font-noto-sans text-sm lg:text-base xl:text-lg font-semibold leading-5 text-[#4a4a4a] mb-2"
+            className="font-open-sans text-sm lg:text-base xl:text-lg font-semibold leading-5 text-[#4a4a4a] mb-2"
             htmlFor="other"
           >
             {t[lang].form.fields.additionInfo.label}
@@ -235,7 +235,7 @@ const ClientForm = () => {
         </div>
         <div className="w-full flex flex-col mb-6 md:mb-8 ">
           <label
-            className="font-noto-sans text-sm lg:text-base xl:text-lg font-semibold leading-5 text-[#4a4a4a] mb-2"
+            className="font-open-sans text-sm lg:text-base xl:text-lg font-semibold leading-5 text-[#4a4a4a] mb-2"
             htmlFor="subject"
           >
             {t[lang].form.fields.subject.label}
@@ -247,7 +247,7 @@ const ClientForm = () => {
           />
         </div>
         <button
-          className="w-[164px] md:w-[176px] xl:w-[200px] inline-block p-3 xl:p-4 text-center font-noto-sans text-sm md:text-base lg:text-lg md:font-semibold md:-tracking-tight leading-6 transition-colors duration-300 text-white bg-[#7A5CFA] hover:bg-[#6e4ff8] rounded-lg"
+          className="w-[164px] md:w-[176px] xl:w-[200px] inline-block p-3 xl:p-4 text-center font-open-sans text-sm md:text-base lg:text-lg md:font-semibold md:-tracking-tight leading-6 transition-colors duration-300 text-white bg-[#7A5CFA] hover:bg-[#6e4ff8] rounded-lg"
           type="submit"
         >
           {t[lang].form.submitBtn}

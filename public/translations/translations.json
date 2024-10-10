@@ -12,7 +12,33 @@
       "title": "who make knowledge accessible",
       "subtitle": "Discover a world of new opportunities with a team of professionals!",
       "reqBtn": "Submit a request",
-      "more": "Learn more"
+      "more": "Learn more",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "animationY": { "y": [0, -2, 0, 2, 0] },
+          "bgColor": "#FFE0E4",
+          "position": "left-10 top-48"
+        },
+        {
+          "name": "Programming",
+          "animationY": { "y": [0, 2, 0, -2, 0] },
+          "bgColor": "#C6D4F9",
+          "position": "right-0 top-60"
+        },
+        {
+          "name": "Ukrainian",
+          "animationY": { "y": [0, -2, 0, 2, 0] },
+          "bgColor": "#DCD3FF",
+          "position": "left-14 bottom-36"
+        },
+        {
+          "name": "English",
+          "animationY": { "y": [0, 2, 0, -2, 0] },
+          "bgColor": "#FEFFD8",
+          "position": "right-16 bottom-24"
+        }
+      ]
     },
     "about": {
       "title": "About us",
@@ -66,13 +92,15 @@
       "benefits": [
         {
           "name": "Online Learning",
-          "description": "Opportunity to study remotely using interactive platforms and materials",
-          "commonBtn": "Start"
+          "description": "Opportunity to <strong>study remotely</strong> using <strong>interactive platforms</strong> and materials",
+          "commonBtn": "Start",
+          "imageUrl": "advantage-1.webp"
         },
         {
           "name": "Learning Control",
-          "description": "Always stay updated on your learning progress, receive performance reports, and review completed materials at any time",
-          "commonBtn": "Start Now"
+          "description": "Always stay <strong>updated</strong> on your <strong>learning progress</strong>, receive <strong>performance reports</strong>, and review completed materials at any time",
+          "commonBtn": "Start Now",
+          "imageUrl": "advantage-2.webp"
         }
       ]
     },
@@ -182,7 +210,33 @@
       "title": "які роблять знання доступними",
       "subtitle": "Відкрий для себе світ нових можливостей разом з командою професіоналів свого діла!",
       "reqBtn": "Залишити заявку",
-      "more": "Детальніше"
+      "more": "Детальніше",
+      "subjects": [
+        {
+          "name": "Математика",
+          "animationY": { "y": [0, -2, 0, 2, 0] },
+          "bgColor": "#FFE0E4",
+          "position": "left-10 top-48"
+        },
+        {
+          "name": "Програмування",
+          "animationY": { "y": [0, 2, 0, -2, 0] },
+          "bgColor": "#C6D4F9",
+          "position": "right-0 top-60"
+        },
+        {
+          "name": "Українська мова",
+          "animationY": { "y": [0, -2, 0, 2, 0] },
+          "bgColor": "#DCD3FF",
+          "position": "left-14 bottom-36"
+        },
+        {
+          "name": "Аглійська мова",
+          "animationY": { "y": [0, 2, 0, -2, 0] },
+          "bgColor": "#FEFFD8",
+          "position": "right-16 bottom-24"
+        }
+      ]
     },
     "about": {
       "title": "Про нас",
@@ -236,13 +290,15 @@
       "benefits": [
         {
           "name": "Онлайн-навчання",
-          "description": "Можливість займатися дистанційно з використанням інтерактивних платформ та матеріалів",
-          "commonBtn": "Розпочати"
+          "description": "Можливість <strong>займатися дистанційно</strong> з використанням <strong>інтерактивних платформ</strong> та матеріалів",
+          "commonBtn": "Розпочати",
+          "imageUrl": "advantage-1.webp"
         },
         {
           "name": "Контроль навчання",
-          "description": "Будьте завжди в курсі вашого прогресу в навчанні, отримуйте звіти про успішність та перегляйте пройдений матеріал в будь-який час",
-          "commonBtn": "Почати зараз"
+          "description": "Будьте завжди <strong>в курсі</strong> вашого <strong>прогресу</strong> в навчанні, <strong>отримуйте звіти про успішність</strong>  та перегляйте пройдений матеріал в будь-який час",
+          "commonBtn": "Почати зараз",
+          "imageUrl": "advantage-2.webp"
         }
       ]
     },

@@ -11,38 +11,6 @@
 }
 
 @font-face {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-  src: url(../app/fonts/Montserrat-Black.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(../app/fonts/Montserrat-Bold.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "NotoSans";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(../app/fonts/NotoSans-Regular.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "NotoSans";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(../app/fonts/NotoSans-SemiBold.woff2) format("woff2");
-}
-
-@font-face {
   font-family: "OpenSans";
   font-style: normal;
   font-weight: 800;
@@ -56,6 +24,14 @@
   font-weight: 400;
   font-display: swap;
   src: url(../app/fonts/OpenSans-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "OpenSans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(../app/fonts/OpenSans-Medium.ttf) format("ttf");
 }
 
 @font-face {
@@ -82,30 +58,6 @@
   src: url(../app/fonts/OpenSans-Light.woff2) format("woff2");
 }
 
-@font-face {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(../app/fonts/Roboto-Bold.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(../app/fonts/Roboto-Regular.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url(../app/fonts/Roboto-Light.woff2) format("woff2");
-}
-
 @layer base {
   img {
     display: block;
@@ -130,7 +82,7 @@ body {
 
 body {
   position: relative;
-  font-family: "Roboto";
+  font-family: "OpenSans";
   font-weight: 400;
 }
 
@@ -153,34 +105,12 @@ body {
 }
 
 .main {
-  background-image: linear-gradient(
-    180deg,
-    rgba(254, 170, 255, 0.8),
-    rgba(254, 170, 255, 0.6) 9%,
-    rgba(250, 250, 252, 1) 12%,
-    rgb(240, 250, 252, 0.1) 20%,
-    rgba(254, 170, 255, 0.2) 21%,
-    rgb(254, 170, 255, 0.2) 47.734%,
-    rgba(255, 169, 159, 0.3) 52.271%,
-    rgba(255, 234, 205, 0.4) 69.317%,
-    rgba(255, 250, 205, 0.4) 77.366%,
-    rgba(254, 183, 255, 0.6) 86.695%,
-    rgba(254, 183, 255, 0.6) 100%
-  );
-}
+  background-image: url("../assets/background-mobile.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #e7e1ff;
 
-@media screen and (min-width: 1024px) {
-  .main {
-    background-image: linear-gradient(
-      180deg,
-      rgba(254, 170, 255, 0.9) 0%,
-      rgba(254, 170, 255, 0.3) 26%,
-      rgba(216, 110, 254, 0.1) 37%,
-      rgba(255, 250, 205, 0.35) 59.641%,
-      rgba(252, 230, 31, 0.2) 78.793%,
-      rgba(247, 157, 255, 0.3) 81%,
-      rgba(248, 164, 255, 0.6) 82%,
-      rgba(248, 164, 255, 0.6) 100%
-    );
+  @media screen and (min-width: 768px) {
+    background-image: url("../assets/background.webp");
   }
 }

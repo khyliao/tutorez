@@ -86,7 +86,7 @@ const Review = () => {
                 src={`/${review.photo}.webp`}
                 alt="profile"
               />
-              <div className="mt-9 mb-6 bg-[#C9ECF7]/80 px-8 py-5 rounded-[50px] cursor-grab">
+              <div className="mt-9 mb-6 bg-[#b493f9]/80 px-8 py-5 rounded-[50px] cursor-grab">
                 <h3
                   className="mb-1 font-open-sans text-base font-bold leading-5 md:text-[22px] md:leading-8"
                   data-swiper-parallax="-100"
@@ -130,8 +130,8 @@ const Review = () => {
           src="/reviewCaller.webp"
           alt="profile"
         />
-        <div className="max-w-[260px] md:max-w-[410px] md:-mt-16 md:ml-24 md:p-5 self-end md:self-start border border-solid border-black bg-[#FBF6C980]/50 px-3 py-4 rounded-3xl">
-          <h3 className="mb-1 font-open-sans text-base font-bold leading-5 md:text-[22px]  md:leading-8">
+        <div className="max-w-[260px] md:max-w-[410px] md:-mt-16 md:ml-24 md:p-5 self-end md:self-start border border-solid border-black bg-[#f9f3ba80]/50 px-3 py-4 rounded-3xl">
+          <h3 className="mb-1 font-open-sans text-base font-bold leading-5 md:text-[22px] md:leading-8">
             {t[lang].review.callTitle}
           </h3>
           <p className="mb-6 text-[#0f0f0f] font-semibold text-sm leading-5 font-open-sans md:text-lg md:leading-6">
