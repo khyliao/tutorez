@@ -1,4 +1,5 @@
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Inputs } from "@/types/form";
 import { useMediaQuery } from "@/hooks/useMediaQuery";

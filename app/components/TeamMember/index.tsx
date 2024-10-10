@@ -1,41 +1,20 @@
-import {
-  motion,
-  AnimationProps,
-  VariantLabels,
-  TargetAndTransition,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import { Tutor } from "@/types/tutor";
 
 type Props = {
   tutor: Tutor;
-  whileInView?: VariantLabels | TargetAndTransition;
-  initial?: AnimationProps["initial"];
 };
 
-const TeamMember: React.FC<Props> = ({ tutor, whileInView, initial }) => {
+const TeamMember: React.FC<Props> = ({ tutor }) => {
   const { photo, name, bio, subject } = tutor;
 
   return (
-    <motion.li
-      // whileInView={whileInView}
-      // initial={initial}
-      initial={{
-        y: -10,
-        opacity: 0,
-      }}
-      whileInView={{
-        y: 0,
-        opacity: 1,
-        transition: {
-          duration: 1,
-        },
-      }}
-      className="team-card max-w-[320px] bg-[#e9e1ff] ease-in-out shadow-lg rounded-lg overflow-hidden relative transition-all duration-300 transform"
-    >
+    <motion.li className="team-card max-w-[320px] bg-[#e9e1ff] ease-in-out shadow-lg rounded-lg overflow-hidden relative transition-all duration-300 transform">
       <div className="inline-block overflow-hidden">
         <img
           src={`/${photo}`}
           alt={`${name}'s photo`}
+          loading="lazy"
           className="team-card-img object-cover"
         />
       </div>
