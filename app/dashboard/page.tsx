@@ -15,7 +15,7 @@ const Dashboard = () => {
   return (
     <div className="flex">
       <DashboardMenu />
-      <div className="w-calc-full-minus-96 md:w-calc-full-minus-256">
+      <div className="grid grid-rows-[auto_1fr]  w-calc-full-minus-96 md:w-calc-full-minus-256">
         <header className="p-4 flex flex-col md:flex-row gap-4 md:gap-0 transition-colors justify-between dark:bg-[#1D1E42]">
           <div className="flex flex-col lg:flex-row gap-4">
             {/* <div className="flex gap-2 items-center font-montserrat font-medium text-sm">
@@ -35,10 +35,7 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="flex items-center gap-4 cursor-pointer">
-            <Button
-              type={isThemeDark ? "purpleIcon" : "purpleDarkIcon"}
-              className="dark:bg-[#fff]"
-            >
+            <Button type="purpleIcon" className="dark:bg-[#fff] ">
               Додати студента
             </Button>
           </div>

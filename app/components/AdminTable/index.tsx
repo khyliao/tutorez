@@ -7,11 +7,11 @@ import s from "./AdminTable.module.css";
 import { useTheme } from "@hooks/useTheme";
 
 const AdminTable = () => {
-  const { isThemeDark } = useTheme();
-
   return (
-    <div className={s.scrollbarVisible}>
-      <table className="w-full min-w-[1040px] font-montserrat px-4">
+    <div
+      className={`${s.scrollbarVisible} transition-colors dark:bg-[#1D1E42]`}
+    >
+      <table className="w-full min-w-[1040px] transition-colors dark:bg-[#1D1E42] dark:text-white font-montserrat px-4">
         <thead>
           <tr className="h-16 ">
             <th className="px-4">ID</th>
@@ -51,7 +51,7 @@ const AdminTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="h-16 text-center font-medium bg-[#F7F6FE]">
+          <tr className="h-16 text-center font-medium transition-colors bg-[#F7F6FE] dark:bg-[#26264F]">
             <td className="px-4">
               <div className="inline-flex items-center gap-2">
                 <CopyIcon
@@ -84,7 +84,7 @@ const AdminTable = () => {
               </div>
             </td>
           </tr>
-          <tr className="h-16 text-center font-medium">
+          <tr className="h-16 text-center transition-colors font-medium">
             <td className="px-4">
               <div className="inline-flex items-center gap-2">
                 <CopyIcon
@@ -117,7 +117,7 @@ const AdminTable = () => {
               </div>
             </td>
           </tr>
-          <tr className="h-16 text-center font-medium bg-[#F7F6FE]">
+          <tr className="h-16 text-center transition-colors font-medium bg-[#F7F6FE] dark:bg-[#26264F]">
             <td className="px-4">
               <div className="inline-flex items-center gap-2">
                 <CopyIcon

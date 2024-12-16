@@ -27,7 +27,7 @@ const ThemeSwitcher = () => {
     <>
       <div
         className={`flex items-center bg-[#1F1F22] p-[2px] transition-colors rounded-[14px] w-14 h-8 cursor-pointer ${
-          isThemeDark && "bg-[#c8bcf6]"
+          isThemeDark && "bg-[#af9cfa]"
         }`}
         onClick={handleThemeSwitch}
       >

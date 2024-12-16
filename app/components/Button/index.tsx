@@ -12,19 +12,9 @@ const Button = ({ type, className, children }: Props) => {
       return (
         <button
           type="button"
-          className={`flex items-center gap-2 text-sm font-montserrat font-bold px-3 py-2 rounded-lg text-[#1D1E42] bg-text ${className}`}
+          className={`flex transition-colors duration-200 items-center gap-2 text-sm font-montserrat font-bold px-3 py-2 rounded-lg text-white bg-purplePrimary hover:bg-[#5c3ec8] dark:text-[#1D1E42] bg-text ${className}`}
         >
-          <PlusIcon className="text-[#1D1E42]" /> {children}
-        </button>
-      );
-    case "purpleDarkIcon":
-      return (
-        <button
-          type="button"
-          className="flex items-center gap-2 text-sm font-montserrat font-bold px-3 py-2 rounded-lg text-white bg-purplePrimary"
-        >
-          <PlusIcon className="text-white" />
-          {children}
+          <PlusIcon className="dark:text-[#1D1E42] text-white" /> {children}
         </button>
       );
     case "light":

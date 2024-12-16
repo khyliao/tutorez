@@ -3,10 +3,10 @@
   scrollbar-gutter: stable;
 }
 
-.scrollbarVisible::-webkit-scrollbar {
+/* .scrollbarVisible::-webkit-scrollbar {
   width: 4px;
   height: 4px;
-}
+} */
 
 .scrollbarVisible::-webkit-scrollbar-thumb {
   background-color: #aaa;

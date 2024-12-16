@@ -12,7 +12,7 @@ const DashboardMenu = () => {
   const { isThemeDark } = useTheme();
 
   return (
-    <div className="flex flex-col h-screen p-4 md:p-6 w-24 md:w-64 border-[#EFEFEF] border-r dark:bg-[#09090A] dark:border-r-[#1F1F22]">
+    <div className="flex flex-col h-screen p-4 md:p-6 w-24 md:w-64 transition-colors border-[#EFEFEF] border-r dark:bg-[#09090A] dark:border-r-[#1F1F22]">
       <div className="flex gap-3 justify-center md:justify-start items-center mb-11">
         <Image src={avatar} width={56} height={56} alt="avatar" />
         <div className="hidden md:flex flex-col">
