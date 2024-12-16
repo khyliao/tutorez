@@ -46,29 +46,25 @@ const Login = () => {
   // };
 
   const onSubmit: SubmitHandler<Inputs> = async ({ login, password }) => {
-    const hashedPassword = await hashPassword(password);
-    const userInputDetails = { login, password: hashedPassword };
-
-    const userCredential = await logIn(login);
+    // const hashedPassword = await hashPassword(password);
+    // const userInputDetails = { login, password: hashedPassword };
+    // const userCredential = await logIn(login);
     // const res = await registerUser({
     //   login: "sanya",
     //   password: "sanya",
     //   role: "root",
     // });
     // console.log(res);
-    const isUserDetailsCorrect = checkUserDetailsByLogIn(
-      userInputDetails.password,
-      userCredential.password
-    );
-
-    console.log(isUserDetailsCorrect);
-    console.log(userCredential);
-
-    if (!isUserDetailsCorrect) {
-      return `No correct details`;
-    }
-
-    router.push("/dashboard");
+    // const isUserDetailsCorrect = checkUserDetailsByLogIn(
+    //   userInputDetails.password,
+    //   userCredential.password
+    // );
+    // console.log(isUserDetailsCorrect);
+    // console.log(userCredential);
+    // if (!isUserDetailsCorrect) {
+    //   return `No correct details`;
+    // }
+    // router.push("/dashboard");
   };
 
   return (
