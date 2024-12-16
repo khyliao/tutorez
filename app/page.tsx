@@ -5,32 +5,24 @@ import Hero from "@components/Hero";
 import About from "@components/About";
 import Footer from "@components/Footer";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
-const TeamLazy = dynamic(() => import("@components/Team"), {
-  ssr: false,
-});
+const TeamLazy = dynamic(() => import("@components/Team"));
 
-const AdvantageLazy = dynamic(() => import("@components/Advantage"), {
-  ssr: false,
-});
+const AdvantageLazy = dynamic(() => import("@components/Advantage"));
 
-const ClientFormLazy = dynamic(() => import("@components/ClientForm"), {
-  ssr: false,
-});
+const ClientFormLazy = dynamic(() => import("@components/ClientForm"));
 
-const ReviewLazy = dynamic(() => import("@components/Review"), {
-  ssr: false,
-});
+const ReviewLazy = dynamic(() => import("@components/Review"));
 
-const StatsLazy = dynamic(() => import("@components/Stats"), {
-  ssr: false,
-});
+const StatsLazy = dynamic(() => import("@components/Stats"));
 
 const Home = () => {
   return (
     <>
       <Analytics />
       <main className="main">
+        <Navbar />
         <Hero />
         <About />
         <TeamLazy />

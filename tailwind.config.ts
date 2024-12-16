@@ -1,9 +1,22 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: ["./app/**/*.{js,ts,jsx,tsx,mdx}"],
+  safelist: ["bg-[#080809]"],
   theme: {
     extend: {
+      boxShadow: {
+        purpleShadow: "0 2px 10px rgba(118, 10, 255, 0.7)",
+        themeSwitcherLightBox:
+          "0px 1px 1px 0px rgba(0, 0, 0, 0.25), 1px 1px 10px 0px #24272C",
+        themeSwitcherBoxDark:
+          "0px 3.22px 3.22px 0px rgba(0, 0, 0, 0.25), 8.05px 8.05px 16.1px 0px #24272C",
+      },
+      spacing: {
+        "calc-full-minus-96": "calc(100% - 96px)",
+        "calc-full-minus-256": "calc(100% - 256px)",
+      },
       fontFamily: {
         bungee: ["Bungee", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
@@ -18,6 +31,8 @@ const config: Config = {
         "nav-active": "#DB00FF",
         "hero-primary": "#9E00FF",
         footer: "#2B2B2B",
+        purplePrimary: "#624DE3",
+        "light-dashboard-menu": "#EFEFEF",
       },
       backgroundImage: {
         "linear-main":
@@ -37,9 +52,14 @@ const config: Config = {
           "0%": { transform: "translateY(-20px)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
         },
+        fadeIn: {
+          "0%": { opacity: "0", transform: "translateY(-10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         slideDown: "slideDown 0.5s ease-out",
+        fadeIn: "fadeIn 0.3s ease-in-out forwards",
       },
     },
   },

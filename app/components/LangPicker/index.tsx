@@ -11,14 +11,17 @@ const LangPicker = () => {
   const [selectedLang, setSelectedLang] = useState("UA");
   const isMedia768 = useMediaQuery(768);
   const isMedia1024 = useMediaQuery(1024);
+  const isMedia1280 = useMediaQuery(1280);
 
   const getLangSize = () => {
     if (isMedia768) {
-      return 26;
-    } else if (isMedia1024) {
       return 24;
+    } else if (isMedia1024) {
+      return 28;
+    } else if (isMedia1280) {
+      return 22;
     } else {
-      return 26;
+      return 24;
     }
   };
 
@@ -26,7 +29,9 @@ const LangPicker = () => {
     if (isMedia768) {
       return "h-12 w-12";
     } else if (isMedia1024) {
-      return "h-12 w-12";
+      return "h-14 w-14";
+    } else if (isMedia1280) {
+      return "h-11 w-11";
     } else {
       return "h-12 w-12";
     }
@@ -56,7 +61,7 @@ const LangPicker = () => {
   }, []);
 
   return (
-    <div className="relative inline-block">
+    <div className="relative flex items-center">
       <button
         className={`flex items-center justify-center rounded-full bg-[#5f8ef4] focus:outline-none ${getBtnSize()}`}
         onClick={handleMenuToggle}

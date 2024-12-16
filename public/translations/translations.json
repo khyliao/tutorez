@@ -1,11 +1,15 @@
 {
   "en": {
+    "login": {
+      "placeholder": "Log in"
+    },
     "navbar": {
       "about": "About us",
       "team": "Our team",
       "advantages": "Our advantages",
       "reviews": "Reviews",
-      "contacts": "Contacts"
+      "contacts": "Contacts",
+      "login": "Student Login"
     },
     "hero": {
       "accentWord": "Teachers",
@@ -198,12 +202,16 @@
     }
   },
   "uk": {
+    "login": {
+      "placeholder": "Вхід"
+    },
     "navbar": {
       "about": "Про нас",
       "team": "Наша команда",
       "advantages": "Наші переваги",
       "reviews": "Відгуки",
-      "contacts": "Контакти"
+      "contacts": "Контакти",
+      "login": "Вхід для студента"
     },
     "hero": {
       "accentWord": "Викладачі",

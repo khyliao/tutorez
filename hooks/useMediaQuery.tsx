@@ -23,7 +23,7 @@ export const useMediaQuery = (maxWidth: number) => {
   const [isMedia, setIsMedia] = useState(false);
 
   useEffect(() => {
-    if (windowWidth <= maxWidth) {
+    if (windowWidth < maxWidth) {
       setIsMedia(true);
     } else {
       setIsMedia(false);

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "modern-normalize";
 import "./globals.css";
-import Navbar from "@/app/components/Navbar";
+import StoreProvider from "./StoreProvider";
 
 export const metadata: Metadata = {
   title: "Tutorez - Платформа онлайн-навчання",
@@ -35,6 +35,7 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   viewport: {
     width: "device-width",
     initialScale: 1,
@@ -51,10 +52,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uk">
-      <head></head>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>
-        <Navbar />
-        {children}
+        <StoreProvider>{children}</StoreProvider>
       </body>
     </html>
   );

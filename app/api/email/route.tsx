@@ -28,7 +28,6 @@ export async function POST(req: NextRequest) {
     },
   });
 
-  console.log(transporter);
   try {
     const mail = await transporter.sendMail({
       priority: "high",
