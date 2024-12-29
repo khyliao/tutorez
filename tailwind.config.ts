@@ -15,7 +15,7 @@ const config: Config = {
       },
       spacing: {
         "calc-full-minus-96": "calc(100% - 96px)",
-        "calc-full-minus-256": "calc(100% - 256px)",
+        "calc-full-minus-224": "calc(100% - 224px)",
       },
       fontFamily: {
         bungee: ["Bungee", "sans-serif"],
@@ -33,6 +33,7 @@ const config: Config = {
         footer: "#2B2B2B",
         purplePrimary: "#624DE3",
         "light-dashboard-menu": "#EFEFEF",
+        inputBgStatic: "#E9EAF7",
       },
       backgroundImage: {
         "linear-main":

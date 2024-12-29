@@ -1,11 +1,19 @@
+"use client";
+
+import { copyToClipboard } from "@/lib/clipboard";
 import CopyIcon from "@assets/copy.svg";
 import EditIcon from "@assets/edit.svg";
 import DeleteIcon from "@assets/delete.svg";
 import UpDownArrow from "@assets/arrow-y.svg";
-import { copyToClipboard } from "@lib/clipboard";
-import s from "./AdminTable.module.css";
+import s from "./UsersTable.module.css";
+import { useGetTutorsQuery } from "@/lib/store/api/tutorApi";
 
-const AdminTable = () => {
+const UsersTable = () => {
+  // const { data, error, isLoading } = useGetTutorsQuery(null);
+  // console.log(data);
+  // if (isLoading) return <p>Loading...</p>;
+  // if (error) return <p>Error: {error as string}</p>;
+
   return (
     <div
       className={`${s.scrollbarVisible} transition-colors dark:bg-[#1D1E42]`}
@@ -13,10 +21,10 @@ const AdminTable = () => {
       <table className="w-full min-w-[1040px] transition-colors dark:bg-[#1D1E42] dark:text-white font-montserrat px-4">
         <thead>
           <tr className="h-16 ">
-            <th className="px-4">ID</th>
+            <th className="px-4">Логін</th>
             <th className="">
               <div className="flex px-4 items-center justify-center ">
-                Студент <UpDownArrow className="cursor-pointer" />
+                Користувач <UpDownArrow className="cursor-pointer" />
               </div>
             </th>
             <th className="">
@@ -41,7 +49,7 @@ const AdminTable = () => {
             </th>
             <th className="">
               <div className="flex px-4 items-center justify-center ">
-                Статус студента <UpDownArrow className="cursor-pointer" />
+                Статус викладача <UpDownArrow className="cursor-pointer" />
               </div>
             </th>
             <th className="">
@@ -59,10 +67,10 @@ const AdminTable = () => {
                     copyToClipboard("text");
                   }} //! change in the future
                 />
-                #20462
+                khilyao
               </div>
             </td>
-            <td className="px-4">Матвій</td>
+            <td className="px-4">Олексій</td>
             <td className="px-4">Англійська мова</td>
             <td className="px-4">13.05.2022</td>
             <td className="px-4">300</td>
@@ -92,12 +100,12 @@ const AdminTable = () => {
                     console.log("first");
                   }}
                 />
-                #20462
+                khilyao
               </div>
             </td>
-            <td className="px-4">Матвій</td>
+            <td className="px-4">Дмитро</td>
             <td className="px-4">Англійська мова</td>
-            <td className="px-4">13.05.2022</td>
+            <td className="px-4">12.05.2022</td>
             <td className="px-4">300</td>
             <td className="px-4">1 год 30 хв</td>
             <td className="px-4">
@@ -125,7 +133,7 @@ const AdminTable = () => {
                     console.log("first");
                   }}
                 />
-                #20462
+                khilyao
               </div>
             </td>
             <td className="px-4">Матвій</td>
@@ -155,4 +163,4 @@ const AdminTable = () => {
   );
 };
 
-export default AdminTable;
+export default UsersTable;

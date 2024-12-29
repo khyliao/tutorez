@@ -5,3 +5,13 @@ export type Inputs = {
   other?: string;
   subject?: string;
 };
+
+export interface ICreateUserForm {
+  name: string;
+  subject: string;
+  telegram: string;
+  role: string;
+  comment: string;
+  password: string;
+  login: string;
+}

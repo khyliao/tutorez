@@ -1,5 +1,5 @@
 import { useAppSelector } from "@hooks/reduxHooks";
-import { selectTheme } from "@store/features/themeSlice";
+import { selectTheme } from "@/lib/store/api/features/themeSlice";
 
 export const useTheme = () => {
   const theme = useAppSelector(selectTheme);

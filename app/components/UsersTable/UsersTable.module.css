@@ -1,0 +1,18 @@
+.scrollbarVisible {
+  overflow: scroll;
+  scrollbar-gutter: stable;
+}
+
+/* .scrollbarVisible::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+} */
+
+.scrollbarVisible::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 6px;
+}
+
+.scrollbarVisible::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}

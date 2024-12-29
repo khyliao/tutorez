@@ -1,7 +1,10 @@
 {
   "en": {
     "login": {
-      "placeholder": "Log in"
+      "entry": "Log in",
+      "login": "Login",
+      "password": "Password",
+      "forgot": "Forgot your password?"
     },
     "navbar": {
       "about": "About us",
@@ -203,7 +206,10 @@
   },
   "uk": {
     "login": {
-      "placeholder": "Вхід"
+      "entry": "Вхід",
+      "login": "Логін",
+      "password": "Пароль",
+      "forgot": "Забули свій пароль?"
     },
     "navbar": {
       "about": "Про нас",
