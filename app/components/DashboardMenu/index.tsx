@@ -30,11 +30,12 @@ const DashboardMenu = () => {
   const router = useRouter();
   const user = useAppSelector(selectCurrentUser);
 
-  if (!user) return <></>;
+  const role = useMemo(
+    () => (user ? getUserRoleField(user.role) : null),
+    [user]
+  );
 
-  const role = useMemo(() => {
-    return getUserRoleField(user.role);
-  }, [user.role]);
+  if (!user) return <></>;
 
   const handleLogOut = () => {
     localStorage.removeItem("user");
