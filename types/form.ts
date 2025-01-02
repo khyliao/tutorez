@@ -15,3 +15,14 @@ export interface ICreateUserForm {
   password: string;
   login: string;
 }
+
+export interface IAddStudentForm {
+  name: string;
+  subject: string;
+  login: string;
+  telegram: string;
+  price: string;
+  status: string;
+  comment: string;
+  role: string;
+}

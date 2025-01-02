@@ -1,14 +1,13 @@
 import { useForm } from "react-hook-form";
-import { ICreateUserForm } from "@/types/form";
-import { useRegisterUserMutation } from "@/lib/store/api/userApi";
+import { IAddStudentForm } from "@/types/form";
+import { useRegisterStudentMutation } from "@store/api/studentApi";
 import Dropdown from "@components/Dropdown";
 
-const AddUserForm = () => {
-  const [registerUser] = useRegisterUserMutation();
+const AddStudentForm = () => {
+  const [registerStudent] = useRegisterStudentMutation();
 
-  const onSubmit = (data: ICreateUserForm) => {
-    console.log(data);
-    registerUser(data);
+  const onSubmit = (data: IAddStudentForm) => {
+    registerStudent(data);
     reset();
   };
 
@@ -18,15 +17,16 @@ const AddUserForm = () => {
     setValue,
     reset,
     formState: { errors },
-  } = useForm<ICreateUserForm>({
+  } = useForm<IAddStudentForm>({
     defaultValues: {
       name: "",
       subject: "",
       telegram: "",
-      role: "Викладач",
-      comment: "",
-      password: "",
+      price: "",
       login: "",
+      status: "Активний",
+      comment: "",
+      role: "student",
     },
   });
 
@@ -34,7 +34,7 @@ const AddUserForm = () => {
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="space-y-4 font-montserrat"
-      id="addUser"
+      id="addStudent"
       autoComplete="off"
     >
       <div className="flex justify-between gap-3">
@@ -109,65 +109,78 @@ const AddUserForm = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col">
-        <label
-          htmlFor="telegram"
-          className="mb-2 text-sm font-bold leading-4 text-[#2E3438]"
-        >
-          Telegram *
-        </label>
-        <div>
-          <div className="relative">
-            <span
-              className="hidden md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer"
-              onClick={() => {
-                setValue("telegram", "");
-              }}
-            >
-              x
-            </span>
-            <input
-              id="telegram"
-              className="placeholder:text-sm md:placeholder:text-base bg-inputBgStatic w-full font-medium rounded p-2"
-              placeholder="@example293"
-              {...register("telegram", {
-                required: "Обовʼязкове поле для заповнення!",
-              })}
-            />
+      <div className="flex justify-between gap-3">
+        <div className="flex flex-col grow">
+          <label
+            htmlFor="telegram"
+            className="mb-2 text-sm font-bold leading-4 text-[#2E3438]"
+          >
+            Telegram *
+          </label>
+          <div>
+            <div className="relative">
+              <span
+                className="hidden md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer"
+                onClick={() => {
+                  setValue("telegram", "");
+                }}
+              >
+                x
+              </span>
+              <input
+                id="telegram"
+                className="placeholder:text-sm md:placeholder:text-base bg-inputBgStatic w-full font-medium rounded p-2"
+                placeholder="@example293"
+                {...register("telegram", {
+                  required: "Обовʼязкове поле для заповнення!",
+                })}
+              />
+            </div>
+            {errors.telegram && (
+              <span className="text-red-500 text-xs mt-1">
+                {errors.telegram.message}
+              </span>
+            )}
           </div>
-          {errors.telegram && (
-            <span className="text-red-500 text-xs mt-1">
-              {errors.telegram.message}
-            </span>
-          )}
+        </div>
+        <div className="flex flex-col grow">
+          <label
+            htmlFor="price"
+            className="mb-2 text-sm font-bold leading-4 text-[#2E3438]"
+          >
+            Ціна/год *
+          </label>
+          <div>
+            <div className="relative">
+              <span
+                className="hidden md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer"
+                onClick={() => {
+                  setValue("price", "");
+                }}
+              >
+                x
+              </span>
+              <input
+                id="price"
+                className="placeholder:text-sm md:placeholder:text-base bg-inputBgStatic w-full font-medium rounded p-2"
+                placeholder="200"
+                {...register("price", {
+                  required: "Обовʼязкове поле для заповнення!",
+                })}
+              />
+            </div>
+            {errors.price && (
+              <span className="text-red-500 text-xs mt-1">
+                {errors.price.message}
+              </span>
+            )}
+          </div>
         </div>
       </div>
       <hr />
       <div className="flex flex-col">
         <label
-          htmlFor="role"
-          className="mb-2 text-sm font-bold leading-4 text-[#2E3438]"
-        >
-          Тип користувача
-        </label>
-        <div>
-          <div className="relative">
-            <Dropdown
-              options={["Викладач", "Адміністратор", "Суперадміністратор"]}
-              field="role"
-              setValue={setValue}
-            />
-          </div>
-          {errors.role && (
-            <span className="text-red-500 text-xs mt-1">
-              {errors.role.message}
-            </span>
-          )}
-        </div>
-      </div>
-      <div className="flex flex-col">
-        <label
-          htmlFor="login"
+          htmlFor="status"
           className="mb-2 text-sm font-bold leading-4 text-[#2E3438]"
         >
           Логін *
@@ -185,7 +198,7 @@ const AddUserForm = () => {
             <input
               id="login"
               className="placeholder:text-sm md:placeholder:text-base bg-inputBgStatic w-full font-medium rounded p-2"
-              placeholder="Викладач"
+              placeholder="matviy304"
               {...register("login", {
                 required: "Обовʼязкове поле для заповнення!",
               })}
@@ -200,34 +213,22 @@ const AddUserForm = () => {
       </div>
       <div className="flex flex-col">
         <label
-          htmlFor="password"
+          htmlFor="status"
           className="mb-2 text-sm font-bold leading-4 text-[#2E3438]"
         >
-          Пароль *
+          Статус студента
         </label>
         <div>
           <div className="relative">
-            <span
-              className="hidden md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer"
-              onClick={() => {
-                setValue("password", "");
-              }}
-            >
-              x
-            </span>
-            <input
-              id="password"
-              type="password"
-              className="placeholder:text-sm md:placeholder:text-base bg-inputBgStatic w-full font-medium rounded p-2"
-              placeholder="Викладач"
-              {...register("password", {
-                required: "Обовʼязкове поле для заповнення!",
-              })}
+            <Dropdown
+              options={["Активний", "Пауза", "Призупинений", "Втрачений"]}
+              setValue={setValue}
+              field="status"
             />
           </div>
-          {errors.password && (
+          {errors.status && (
             <span className="text-red-500 text-xs mt-1">
-              {errors.password.message}
+              {errors.status.message}
             </span>
           )}
         </div>
@@ -252,7 +253,8 @@ const AddUserForm = () => {
             <input
               id="comment"
               className="placeholder:text-sm md:placeholder:text-base bg-inputBgStatic w-full font-medium rounded p-2"
-              placeholder="Готова взяти додатково 2 студентів"
+              placeholder="Потрібно скинути додаткові матеріали на завтра"
+              {...register("comment")}
             />
           </div>
           {errors.comment && (
@@ -266,4 +268,4 @@ const AddUserForm = () => {
   );
 };
 
-export default AddUserForm;
+export default AddStudentForm;

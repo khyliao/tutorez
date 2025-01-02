@@ -9,6 +9,7 @@ import EmailIcon from "@assets/email.svg";
 import PasswordIcon from "@assets/password.svg";
 import { useAppDispatch } from "@hooks/reduxHooks";
 import { setCurrentUser } from "@store/api/features/currentUserSlice";
+import { useState } from "react";
 
 type Inputs = {
   login: string;
@@ -24,14 +25,16 @@ const Login = () => {
     formState: { errors },
   } = useForm<Inputs>();
   const router = useRouter();
-  const [loginUser, { isLoading, isError, isSuccess }] = useLoginUserMutation();
+  const [loginUser, { error }] = useLoginUserMutation();
   const dispatch = useAppDispatch();
+  const [apiError, setApiError] = useState<string | null>(null);
 
   const onSubmit: SubmitHandler<Inputs> = async (userCredentials) => {
     try {
       const res = await loginUser(userCredentials);
 
       if (res.error) {
+        setApiError("Invalid login or password. Please try again.");
         throw new Error(`No correct details`);
       }
 
@@ -100,13 +103,18 @@ const Login = () => {
               </span>
             )}
           </div>
-
+          {apiError && (
+            <div className="text-red-600  text-sm font-semibold">
+              {apiError}
+            </div>
+          )}
           <Link
             href=""
-            className="text-[#9292a6] hover:text-[#363638] transition-colors duration-300 mb-7 font-medium font-montserrat tracking-wide"
+            className="text-[#9292a6] hover:text-[#363638] transition-colors duration-300 mb-4 font-medium font-montserrat tracking-wide"
           >
             {t[lang].login.forgot}
           </Link>
+
           <button className="px-4 py-3 w-full text-lg rounded-lg font-bold text-white tracking-wide transition-colors duration-300 bg-[#5500ff] hover:bg-[#4000ff] focus:bg-[#4000ff]">
             {t[lang].login.entry}
           </button>

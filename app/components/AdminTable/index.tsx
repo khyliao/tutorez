@@ -13,7 +13,7 @@ const AdminTable = () => {
       <table className="w-full min-w-[1040px] transition-colors dark:bg-[#1D1E42] dark:text-white font-montserrat px-4">
         <thead>
           <tr className="h-16 ">
-            <th className="px-4">ID</th>
+            <th className="px-4">Логін</th>
             <th className="">
               <div className="flex px-4 items-center justify-center ">
                 Студент <UpDownArrow className="cursor-pointer" />
@@ -56,10 +56,10 @@ const AdminTable = () => {
                 <CopyIcon
                   className="cursor-pointer"
                   onClick={() => {
-                    copyToClipboard("text");
+                    copyToClipboard("student302");
                   }} //! change in the future
                 />
-                #20462
+                student302
               </div>
             </td>
             <td className="px-4">Матвій</td>
@@ -92,7 +92,7 @@ const AdminTable = () => {
                     console.log("first");
                   }}
                 />
-                #20462
+                student302
               </div>
             </td>
             <td className="px-4">Матвій</td>
@@ -125,7 +125,7 @@ const AdminTable = () => {
                     console.log("first");
                   }}
                 />
-                #20462
+                student302
               </div>
             </td>
             <td className="px-4">Матвій</td>

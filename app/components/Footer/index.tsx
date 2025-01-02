@@ -96,7 +96,7 @@ const Footer = () => {
       </div>
       <hr className="mb-4 border-[#E5E7EB]" />
       <span className="block text-center text-white font-light text-xs md:text-sm lg:text-base xl:text-lg">
-        &copy; 2024 {t[lang].footer.copyright}
+        &copy; 2025 {t[lang].footer.copyright}
       </span>
     </footer>
   );

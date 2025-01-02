@@ -32,7 +32,7 @@ const Button = ({
       return (
         <button
           form={form}
-          className="leading-5 px-4 py-3 text-white font-montserrat font-medium rounded-md transition-colors duration-300 bg-purplePrimary hover:bg-[#473dd6]"
+          className="leading-5 text-sm px-3 py-2 md:px-4 md:py-3 md:text-base text-white font-montserrat font-medium rounded-md transition-colors duration-300 bg-purplePrimary hover:bg-[#473dd6]"
           type={btnType}
           onClick={onClick}
         >
@@ -42,7 +42,7 @@ const Button = ({
     case "secondaryBtnMode":
       return (
         <button
-          className="leading-5 font-montserrat font-medium rounded-md px-0 p-2 md:px-3 transition-colors duration-300 md:hover:bg-[#d6d4f7]"
+          className="leading-5 text-sm font-montserrat font-medium rounded-md px-0 p-2 md:px-3 md:text-base transition-colors duration-300 md:hover:bg-[#d6d4f7]"
           type="button"
           onClick={onClick}
         >

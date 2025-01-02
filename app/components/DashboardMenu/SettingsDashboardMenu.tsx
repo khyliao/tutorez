@@ -10,18 +10,21 @@ export const DASHBOARD_MENU_ITEMS = [
     label: "Дашборд",
   },
   {
-    icon: <AnalyticsIcon />,
-    link: "/analytics",
-    label: "Аналітика",
-  },
-  {
     icon: <UsersIcon />,
     link: "/users",
     label: "Користувачі",
   },
   {
+    icon: <AnalyticsIcon />,
+    link: "/analytics",
+    label: "Аналітика",
+    soon: true,
+  },
+
+  {
     icon: <NotificationIcon />,
     link: "/notification",
     label: "Сповіщення",
+    soon: true,
   },
 ];

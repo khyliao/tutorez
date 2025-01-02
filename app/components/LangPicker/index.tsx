@@ -70,7 +70,7 @@ const LangPicker = () => {
       </button>
       <ul
         className={clsx(
-          "opacity-0 pointer-events-none absolute top-14 left-0 w-40 p-2 bg-gray-700 transition-opacity duration-500 rounded-lg shadow-lg",
+          "opacity-0 pointer-events-none absolute top-14 left-0 w-40 p-2 bg-gray-700 transition-opacity duration-300 rounded-lg shadow-lg",
           {
             "opacity-100 pointer-events-auto": isMenuOpen,
             "-translate-x-[70%]": !isMedia768,

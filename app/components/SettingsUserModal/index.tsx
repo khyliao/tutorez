@@ -8,6 +8,8 @@ type SettingsUserModalProps = {
   children?: React.ReactNode;
   onSecondaryBtnClick?: () => void;
   onPrimaryBtnClick?: () => void;
+  primaryBtnCaption?: string;
+  formLink: string;
 };
 
 const SettingsUserModal = ({
@@ -15,6 +17,8 @@ const SettingsUserModal = ({
   onSecondaryBtnClick,
   onPrimaryBtnClick,
   children,
+  primaryBtnCaption = "Зберегти зміни",
+  formLink,
 }: SettingsUserModalProps) => {
   return createPortal(
     <div
@@ -31,12 +35,12 @@ const SettingsUserModal = ({
           Закрити
         </Button>
         <Button
-          form="addUser"
+          form={formLink}
           btnType="submit"
           onClick={onPrimaryBtnClick}
           type="primaryBtnMode"
         >
-          Зберегти зміни
+          {primaryBtnCaption}
         </Button>
       </div>
     </div>,

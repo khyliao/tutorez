@@ -1,10 +1,10 @@
+import DashboardMenuLayout from "@components/DashboardMenuLayout";
+
 const NotFound = () => {
   return (
-    <html>
-      <body className="text-center">
-        <h1 className="m-auto  text-[40px] font-semibold">Page Not Found</h1>
-      </body>
-    </html>
+    <h1 className="p-4 text-[40px] text-center font-semibold">
+      Сторінка не знайдена :(
+    </h1>
   );
 };
 

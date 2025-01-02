@@ -30,6 +30,8 @@ const DashboardMenu = () => {
   const router = useRouter();
   const user = useAppSelector(selectCurrentUser);
 
+  if (!user) return <></>;
+
   const role = useMemo(() => {
     return getUserRoleField(user.role);
   }, [user.role]);
@@ -41,7 +43,7 @@ const DashboardMenu = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen p-4 px-1 md:p-4 w-20 md:w-56 transition-colors border-[#EFEFEF] border-r dark:bg-[#09090A] dark:border-r-[#1F1F22]">
+    <div className="flex flex-col h-screen p-4 px-1 md:p-4 w-20 md:min-w-56 transition-colors border-[#EFEFEF] border-r dark:bg-[#09090A] dark:border-r-[#1F1F22]">
       <div className="flex gap-3 justify-center items-center mb-11">
         <Image src={avatar} width={56} height={56} alt="avatar" />
         <div className="hidden md:flex flex-col">
@@ -55,10 +57,12 @@ const DashboardMenu = () => {
       </div>
       <div className="flex flex-col h-full justify-between">
         <div className="flex flex-col gap-6">
-          {DASHBOARD_MENU_ITEMS.map(({ icon, link, label }) => (
+          {DASHBOARD_MENU_ITEMS.map(({ icon, link, label, soon }) => (
             <Link
               key={label}
-              className="flex p-2 hover:bg-[#eadaf9] focus:bg-[#eadaf9] dark:hover:bg-[#42255a] dark:focus:bg-[#42255a] rounded-md transition-colors justify-center md:justify-start md:p-4 gap-4 items-center leading-5 font-montserrat font-medium dark:text-light-dashboard-menu"
+              className={` relative flex p-2 hover:bg-[#eadaf9] focus:bg-[#eadaf9] dark:hover:bg-[#42255a] dark:focus:bg-[#42255a] rounded-md transition-colors justify-center md:justify-start md:p-4 gap-4 items-center leading-5 font-montserrat font-medium dark:text-light-dashboard-menu ${
+                soon && "hidden md:flex"
+              }`}
               href={link}
             >
               <span className="text-[#1F1F22] stroke-[1.5] dark:text-light-dashboard-menu stroke-current">
@@ -66,6 +70,11 @@ const DashboardMenu = () => {
               </span>
 
               <span className="hidden md:block">{label}</span>
+              {soon && (
+                <span className="hidden md:inline-block absolute -top-[1px] -right-[6px] text-[8px] px-1 py-[2px] transition-colors bg-[#12092c] text-white dark:bg-[#5b2686] rounded-md rotate-[25deg]">
+                  Soon
+                </span>
+              )}
             </Link>
           ))}
         </div>
