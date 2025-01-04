@@ -9,7 +9,7 @@ export type Inputs = {
 export interface ICreateUserForm {
   name: string;
   subject: string;
-  telegram: string;
+  contact: string;
   role: string;
   comment: string;
   password: string;
@@ -20,9 +20,10 @@ export interface IAddStudentForm {
   name: string;
   subject: string;
   login: string;
-  telegram: string;
+  contact: string;
   price: string;
   status: string;
   comment: string;
   role: string;
+  tutor: string;
 }

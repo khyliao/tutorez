@@ -85,10 +85,10 @@ const DashboardMenu = () => {
           </div>
           <button
             onClick={handleLogOut}
-            className="flex w-full p-2 justify-center hover:bg-[#f9d3cc] focus:bg-[#f9d3cc] dark:hover:bg-[#843838] dark:focus:bg-[#843838] rounded-md transition-colors md:justify-start md:p-4 gap-4 items-center leading-5 font-montserrat font-medium"
+            className="group flex w-full p-2 justify-center hover:bg-[#d43d23] hover:text-white focus:bg-[#f9d3cc] dark:focus:bg-[#843838] rounded-md transition-colors md:justify-start md:p-4 gap-4 items-center leading-5 font-montserrat font-medium"
             type="button"
           >
-            <LogoutIcon className="text-[#1F1F22]  stroke-[1.5] dark:text-light-dashboard-menu stroke-current" />
+            <LogoutIcon className="text-[#1F1F22] transition-colors group-hover:text-white stroke-[1.5] dark:text-light-dashboard-menu stroke-current" />
             <span className="hidden md:block dark:text-light-dashboard-menu">
               Вийти
             </span>

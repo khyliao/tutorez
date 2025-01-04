@@ -17,7 +17,6 @@ export async function POST(req: NextRequest) {
     );
 
     const user = await userResponse.json();
-    console.log(user);
 
     if (!user) {
       return NextResponse.json(

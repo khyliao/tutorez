@@ -30,7 +30,7 @@ const Dropdown = <T extends Record<string, any>>({
   return (
     <div className={`relative transition-colors dark:text-white z-20`}>
       <div
-        className="flex justify-between p-2 gap-1 bg-inputBgStatic items-center transition-colors rounded-lg cursor-pointer"
+        className="flex justify-between p-2 gap-1 bg-inputBgStatic dark:bg-[#2F3966] items-center transition-colors rounded-lg cursor-pointer"
         onClick={handleOpen}
       >
         <span className="font-montserrat font-medium text-sm">
@@ -39,7 +39,7 @@ const Dropdown = <T extends Record<string, any>>({
         <ArrowDownIcon />
       </div>
       {isOpen && (
-        <ul className="absolute top-full mt-1 left-0 bg-inputBgStatic rounded-lg  overflow-hidden animate-dropdown">
+        <ul className="absolute top-full mt-1 left-0 rounded-lg  overflow-hidden animate-dropdown">
           {options.map((option, index) => (
             <li
               key={option}

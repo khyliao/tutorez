@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "modern-normalize";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
-import DashboardMenuLayout from "./components/DashboardMenuLayout";
 
 export const metadata: Metadata = {
   title: "Tutorez - Платформа онлайн-навчання",
@@ -60,9 +59,7 @@ export default function RootLayout({
         />
       </head>
       <body className="dark:bg-[#1D1E42]">
-        <StoreProvider>
-          <DashboardMenuLayout>{children}</DashboardMenuLayout>
-        </StoreProvider>
+        <StoreProvider>{children}</StoreProvider>
       </body>
     </html>
   );

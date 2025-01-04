@@ -31,7 +31,7 @@ const config: Config = {
         "nav-active": "#DB00FF",
         "hero-primary": "#9E00FF",
         footer: "#2B2B2B",
-        purplePrimary: "#624DE3",
+        purplePrimary: "#624de3",
         "light-dashboard-menu": "#EFEFEF",
         inputBgStatic: "#E9EAF7",
       },

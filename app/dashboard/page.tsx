@@ -4,10 +4,10 @@ import "react-toastify/dist/ReactToastify.css";
 import LoupeIcon from "@assets/loupe.svg";
 import Button from "@components/Button";
 import AdminTable from "@components/AdminTable";
-import DashboardMenu from "@components/DashboardMenu";
 import { useState } from "react";
 import SettingsUserModal from "@components/SettingsUserModal";
-import AddStudentForm from "../components/forms/AddStudentForm";
+import AddStudentForm from "@components/forms/AddStudentForm";
+import DashboardMenuLayout from "@components/DashboardMenuLayout";
 
 const Dashboard = () => {
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
@@ -17,7 +17,7 @@ const Dashboard = () => {
   };
 
   return (
-    <>
+    <DashboardMenuLayout>
       <div className="grid grid-rows-[auto_1fr]  w-calc-full-minus-96 md:w-calc-full-minus-224">
         <header className="p-4 flex flex-col md:flex-row gap-4 md:gap-0 transition-colors justify-between dark:bg-[#1D1E42]">
           <div className="flex flex-col lg:flex-row gap-4">
@@ -42,7 +42,6 @@ const Dashboard = () => {
           <div className="flex items-center gap-4 cursor-pointer">
             <Button
               type="purpleIcon"
-              className="dark:bg-[#fff]"
               onClick={() => {
                 setIsSettingsModalOpen(true);
               }}
@@ -59,9 +58,9 @@ const Dashboard = () => {
         formLink="addStudent"
         primaryBtnCaption="Створити студента"
       >
-        <AddStudentForm />
+        <AddStudentForm isSettingsModalOpen={isSettingsModalOpen} />
       </SettingsUserModal>
-    </>
+    </DashboardMenuLayout>
   );
 };
 

@@ -1,11 +1,12 @@
 import { NextResponse, NextRequest } from "next/server";
 import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
+import { generatePassword } from "@/lib/generatePassword";
 
 export async function PUT(req: NextRequest) {
   try {
     const user = await req.json();
-    const generatedPassword = Math.random().toString(36).slice(-8);
+    const generatedPassword = generatePassword();
 
     const userUrl = `${process.env.NEXT_PUBLIC_DATABASE_URL}/users/${user.login}.json`;
     const existingUserResponse = await fetch(userUrl);
@@ -14,10 +15,9 @@ export async function PUT(req: NextRequest) {
       const existingUser = await existingUserResponse.json();
 
       if (existingUser) {
-        return NextResponse.json(
-          { error: "Користувач з таким логіном вже існує" },
-          { status: 400 }
-        );
+        return NextResponse.json("Користувач з таким логіном вже існує", {
+          status: 400,
+        });
       }
     } else {
       throw new Error("Failed to check existing user.");
