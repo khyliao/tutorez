@@ -1,9 +1,9 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
     const res = await fetch(
-      `https://tutorez-com-ua-default-rtdb.europe-west1.firebasedatabase.app/tutors.json`
+      `${process.env.NEXT_PUBLIC_DATABASE_URL}/tutors.json`
     );
 
     if (!res.ok) {

@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useMemo } from "react";
 import { DASHBOARD_MENU_ITEMS } from "./SettingsDashboardMenu";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,29 +10,9 @@ import ThemeSwitcher from "@components/ThemeSwitcher";
 import { useAppSelector } from "@hooks/reduxHooks";
 import { selectCurrentUser } from "@store/api/features/currentUserSlice";
 
-const getUserRoleField = (role: string) => {
-  switch (role) {
-    case "root":
-      return "Суперадміністратор";
-    case "admin":
-      return "Адміністратор";
-    case "tutor":
-      return "Викладач";
-    case "student":
-      return "Студент";
-    default:
-      return "Невизначено";
-  }
-};
-
 const DashboardMenu = () => {
   const router = useRouter();
   const user = useAppSelector(selectCurrentUser);
-
-  const role = useMemo(
-    () => (user ? getUserRoleField(user.role) : null),
-    [user]
-  );
 
   if (!user) return <></>;
 
@@ -52,32 +31,40 @@ const DashboardMenu = () => {
             {user.name}
           </h2>
           <span className="max-w-fit px-[6px] text-xs bg-[#FFCD71] rounded-md">
-            {role}
+            {user.role}
           </span>
         </div>
       </div>
       <div className="flex flex-col h-full justify-between">
         <div className="flex flex-col gap-6">
-          {DASHBOARD_MENU_ITEMS.map(({ icon, link, label, soon }) => (
-            <Link
-              key={label}
-              className={` relative flex p-2 hover:bg-[#eadaf9] focus:bg-[#eadaf9] dark:hover:bg-[#42255a] dark:focus:bg-[#42255a] rounded-md transition-colors justify-center md:justify-start md:p-4 gap-4 items-center leading-5 font-montserrat font-medium dark:text-light-dashboard-menu ${
-                soon && "hidden md:flex"
-              }`}
-              href={link}
-            >
-              <span className="text-[#1F1F22] stroke-[1.5] dark:text-light-dashboard-menu stroke-current">
-                {icon}
-              </span>
+          {DASHBOARD_MENU_ITEMS.map(
+            ({ icon, link, label, soon, permission }) => {
+              const isAvailable = permission.includes(user.role);
 
-              <span className="hidden md:block">{label}</span>
-              {soon && (
-                <span className="hidden md:inline-block absolute -top-[1px] -right-[6px] text-[8px] px-1 py-[2px] transition-colors bg-[#12092c] text-white dark:bg-[#5b2686] rounded-md rotate-[25deg]">
-                  Soon
-                </span>
-              )}
-            </Link>
-          ))}
+              if (isAvailable) {
+                return (
+                  <Link
+                    key={label}
+                    className={` relative flex p-2 hover:bg-[#eadaf9] dark:hover:bg-[#42255a]  rounded-md transition-colors justify-center md:justify-start md:p-4 gap-4 items-center leading-5 font-montserrat font-medium dark:text-light-dashboard-menu ${
+                      soon && "hidden md:flex"
+                    }`}
+                    href={link}
+                  >
+                    <span className="text-[#1F1F22] stroke-[1.5] dark:text-light-dashboard-menu stroke-current">
+                      {icon}
+                    </span>
+
+                    <span className="hidden md:block">{label}</span>
+                    {soon && (
+                      <span className="hidden md:inline-block absolute -top-[1px] -right-[6px] text-[8px] px-1 py-[2px] transition-colors bg-[#12092c] text-white dark:bg-[#5b2686] rounded-md rotate-[25deg]">
+                        Soon
+                      </span>
+                    )}
+                  </Link>
+                );
+              }
+            }
+          )}
         </div>
         <div>
           <div className="flex p-2 justify-center md:justify-start md:p-4 gap-5 items-center">
@@ -85,7 +72,7 @@ const DashboardMenu = () => {
           </div>
           <button
             onClick={handleLogOut}
-            className="group flex w-full p-2 justify-center hover:bg-[#d43d23] hover:text-white focus:bg-[#f9d3cc] dark:focus:bg-[#843838] rounded-md transition-colors md:justify-start md:p-4 gap-4 items-center leading-5 font-montserrat font-medium"
+            className="group flex w-full p-2 justify-center hover:bg-[#d43d23] hover:text-white rounded-md transition-colors md:justify-start md:p-4 gap-4 items-center leading-5 font-montserrat font-medium"
             type="button"
           >
             <LogoutIcon className="text-[#1F1F22] transition-colors group-hover:text-white stroke-[1.5] dark:text-light-dashboard-menu stroke-current" />

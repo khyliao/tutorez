@@ -6,25 +6,29 @@ import UsersIcon from "@assets/users.svg";
 export const DASHBOARD_MENU_ITEMS = [
   {
     icon: <DashboardIcon />,
-    link: "/dashboard",
+    link: "/platform/dashboard",
     label: "Дашборд",
+    permission: ["Суперадміністратор", "Адміністратор", "Викладач"],
   },
   {
     icon: <UsersIcon />,
-    link: "/users",
+    link: "/platform/users",
     label: "Користувачі",
+    permission: ["Суперадміністратор", "Адміністратор"],
   },
   {
     icon: <AnalyticsIcon />,
-    link: "/analytics",
+    link: "/platform/analytics",
     label: "Аналітика",
+    permission: ["Суперадміністратор", "Адміністратор", "Викладач"],
     soon: true,
   },
 
   {
     icon: <NotificationIcon />,
-    link: "/notification",
+    link: "/platform/notification",
     label: "Сповіщення",
+    permission: ["Суперадміністратор", "Адміністратор", "Викладач"],
     soon: true,
   },
 ];

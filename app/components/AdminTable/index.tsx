@@ -2,10 +2,17 @@ import CopyIcon from "@assets/copy.svg";
 import EditIcon from "@assets/edit.svg";
 import DeleteIcon from "@assets/delete.svg";
 import UpDownArrow from "@assets/arrow-y.svg";
-import { copyToClipboard } from "@lib/clipboard";
 import s from "./AdminTable.module.css";
+import StatusView from "./components/StatusView";
+import { IUser } from "@/types/users";
 
-const AdminTable = () => {
+interface IAdminTableProps {
+  users: IUser[];
+}
+
+const AdminTable = ({ users }: IAdminTableProps) => {
+  if (!users) return <span>Завантаження...</span>;
+
   return (
     <div
       className={`${s.scrollbarVisible} transition-colors dark:bg-[#1D1E42]`}
@@ -50,105 +57,49 @@ const AdminTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="h-16 text-center font-medium transition-colors bg-[#F7F6FE] dark:bg-[#26264F]">
-            <td className="px-4">
-              <div className="inline-flex items-center gap-2">
-                <CopyIcon
-                  className="cursor-pointer"
-                  onClick={() => {
-                    copyToClipboard("student302");
-                  }} //! change in the future
-                />
-                student302
-              </div>
-            </td>
-            <td className="px-4">Матвій</td>
-            <td className="px-4">Англійська мова</td>
-            <td className="px-4">13.05.2022</td>
-            <td className="px-4">300</td>
-            <td className="px-4">1 год 30 хв</td>
-            <td className="px-4">
-              <span className="inline-block px-3 py-2 text-[#1F9254] bg-[#D7FFE9] rounded-3xl">
-                Активний
-              </span>
-            </td>
-            <td className="px-4">
-              <div className="flex gap-4 justify-center ">
-                <button type="button">
-                  <EditIcon />
-                </button>
-                <button type="button">
-                  <DeleteIcon />
-                </button>
-              </div>
-            </td>
-          </tr>
-          <tr className="h-16 text-center transition-colors font-medium">
-            <td className="px-4">
-              <div className="inline-flex items-center gap-2">
-                <CopyIcon
-                  className="cursor-pointer"
-                  onClick={() => {
-                    console.log("first");
-                  }}
-                />
-                student302
-              </div>
-            </td>
-            <td className="px-4">Матвій</td>
-            <td className="px-4">Англійська мова</td>
-            <td className="px-4">13.05.2022</td>
-            <td className="px-4">300</td>
-            <td className="px-4">1 год 30 хв</td>
-            <td className="px-4">
-              <span className="inline-block px-3 py-2 text-[#1F9254] bg-[#D7FFE9] rounded-3xl">
-                Активний
-              </span>
-            </td>
-            <td className="px-4 ">
-              <div className="flex gap-4 justify-center ">
-                <button type="button">
-                  <EditIcon />
-                </button>
-                <button type="button">
-                  <DeleteIcon />
-                </button>
-              </div>
-            </td>
-          </tr>
-          <tr className="h-16 text-center transition-colors font-medium bg-[#F7F6FE] dark:bg-[#26264F]">
-            <td className="px-4">
-              <div className="inline-flex items-center gap-2">
-                <CopyIcon
-                  className="cursor-pointer"
-                  onClick={() => {
-                    console.log("first");
-                  }}
-                />
-                student302
-              </div>
-            </td>
-            <td className="px-4">Матвій</td>
-            <td className="px-4">Англійська мова</td>
-            <td className="px-4">13.05.2022</td>
-            <td className="px-4">300</td>
-            <td className="px-4">1 год 30 хв</td>
-            <td className="px-4">
-              <span className="inline-block px-3 py-2 text-[#1F9254] bg-[#D7FFE9] rounded-3xl">
-                Активний
-              </span>
-            </td>
-            <td className="px-4 ">
-              <div className="flex gap-4 justify-center ">
-                <button type="button">
-                  <EditIcon />
-                </button>
-                <button type="button">
-                  <DeleteIcon />
-                </button>
-              </div>
-            </td>
-          </tr>
+          {users.map(
+            (
+              { login, name, price, status, subject, comment, balance },
+              index
+            ) => (
+              <tr
+                key={login}
+                className={`h-16 text-center font-medium transition-colors bg-[#F7F6FE] dark:bg-[#26264F] ${
+                  index % 2 !== 0 && "bg-white dark:bg-[#1d1e42]"
+                }`}
+              >
+                <td className="px-4">
+                  <div className="inline-flex items-center gap-2">
+                    <CopyIcon
+                      className="cursor-pointer"
+                      // onClick={() => {
+                      //   copyToClipboard(login);
+                      // }}
+                    />
+                    {login}
+                  </div>
+                </td>
+                <td className="px-4">{name}</td>
+                <td className="px-4">{subject}</td>
+                <td className="px-4">13.05.2022</td>
+                <td className="px-4">{price}</td>
+                <td className="px-4">{balance}</td>
+                <td className="px-4">
+                  <StatusView status={status} />
+                </td>
+                <td className="px-4">
+                  <div className="flex gap-4 justify-center ">
+                    <button type="button">
+                      <EditIcon />
+                    </button>
+                    <button type="button">
+                      <DeleteIcon />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            )
+          )}
         </tbody>
       </table>
     </div>

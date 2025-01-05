@@ -5,6 +5,7 @@ import Dropdown from "@components/Dropdown";
 import { useEffect, useState } from "react";
 import { selectCurrentUser } from "@/lib/store/api/features/currentUserSlice";
 import { useSelector } from "react-redux";
+import CopyIcon from "@assets/copy.svg";
 
 interface UserDetails {
   login: string;
@@ -16,6 +17,7 @@ interface IAddStudentFormProps {
 }
 
 const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
+  const [copied, setCopied] = useState(false);
   const [registerStudent] = useRegisterStudentMutation();
   const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
   const user = useSelector(selectCurrentUser);
@@ -24,6 +26,15 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
     const value = event.target.value;
     const filteredValue = value.replace(/[^a-zA-Z0-9]/g, "");
     setValue("login", filteredValue, { shouldValidate: true });
+  };
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
   };
 
   const onSubmit = async (data: IAddStudentForm) => {
@@ -43,7 +54,6 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
     register,
     setValue,
     reset,
-    watch,
     formState: { errors },
   } = useForm<IAddStudentForm>({
     defaultValues: {
@@ -56,6 +66,7 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
       comment: "",
       role: "student",
       tutor: user.login,
+      balance: 0,
     },
   });
 
@@ -67,31 +78,52 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
 
   if (userDetails) {
     return (
-      <div className="font-montserrat font-medium">
+      <div className="font-montserrat font-medium dark:text-white">
         <h2 className="font-bold mb-1">Користувач успішно створений!</h2>
         <p className="">
           Використайте наступне повідомлення як шаблон для відправки
           студенту/батькам
         </p>
-        <p className="p-3 my-2 bg-[#e9edff] rounded">
-          Вітаю! Тут ви можете ознайомитися з поточною успішністю в навчанні,
-          прогресом виконання домашніх завдань, моїми особистими відгуками на
-          рахунок занять та деталями на рахунок оплат.
-          <br />
-          Перейдіть за посиланням{" "}
-          <a
-            className="text-blue-800 font-medium"
-            target="_blank"
-            href="http://tutorez.com.ua/login"
-          >
-            http://tutorez.com.ua/login
-          </a>{" "}
-          та увійдіть в кабінет як студент за наступними деталями:
-          <br />
-          Логін - {userDetails.login} <br />
-          Пароль - {userDetails.password}
-        </p>
-        <span className="text-red-600 font-bold text-base">
+        <div className="relative p-3 my-2 bg-[#e9edff] dark:bg-[#1d295e] rounded">
+          <p>
+            {" "}
+            Вітаю! Тут ви можете ознайомитися з поточною успішністю в навчанні,
+            прогресом виконання домашніх завдань, моїми особистими відгуками на
+            рахунок занять та деталями на рахунок оплат.
+            <br />
+            Перейдіть за посиланням{" "}
+            <a
+              className="text-blue-800 dark:text-blue-400 font-medium hover:underline"
+              target="_blank"
+              href="http://tutorez.com.ua"
+            >
+              http://tutorez.com.ua
+            </a>{" "}
+            та увійдіть в кабінет як студент за наступними деталями:
+            <br />
+            Логін - {userDetails.login} <br />
+            Пароль - {userDetails.password}
+          </p>
+          <div className="relative">
+            <CopyIcon
+              className="absolute right-3 bottom-3 scale-150 cursor-pointer"
+              onClick={() => {
+                copyToClipboard(
+                  `Вітаю! Тут ви можете ознайомитися з поточною успішністю в навчанні, прогресом виконання домашніх завдань, моїми особистими відгуками на рахунок занять та деталями на рахунок оплат.
+Перейдіть за посиланням http://tutorez.com.ua та увійдіть в кабінет як студент за наступними деталями:
+Логін - ${userDetails.login} 
+Пароль - ${userDetails.password}`
+                );
+              }}
+            />
+            {copied && (
+              <div className="absolute right-0 bottom-0 p-2 bg-[#000] text-white text-xs rounded">
+                Скопійовано!
+              </div>
+            )}
+          </div>
+        </div>
+        <span className="text-red-600 dark:text-red-500 font-bold text-base">
           Варто відразу відправити це повідомлення студенту або ж зберегти його,
           в разі закриття вікна ці дані втрачаються назавжди!
         </span>
@@ -299,7 +331,7 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
         <div>
           <div className="relative">
             <Dropdown
-              options={["Активний", "Пауза", "Призупинений", "Втрачений"]}
+              options={["Активний", "Призупинений", "Втрачений"]}
               setValue={setValue}
               field="status"
             />

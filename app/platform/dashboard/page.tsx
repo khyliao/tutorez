@@ -1,33 +1,29 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import DashboardMenu from "@components/DashboardMenu";
-import UsersTable from "@components/UsersTable";
-import Button from "@components/Button";
+import "react-toastify/dist/ReactToastify.css";
 import LoupeIcon from "@assets/loupe.svg";
+import Button from "@components/Button";
+import AdminTable from "@components/AdminTable";
 import { useState } from "react";
-import AddUserForm from "@/app/components/forms/AddUserForm";
-import { useGetUsersQuery } from "@/lib/store/api/userApi";
+import SettingsUserModal from "@components/SettingsUserModal";
+import AddStudentForm from "@components/forms/AddStudentForm";
 import DashboardMenuLayout from "@components/DashboardMenuLayout";
+import { useGetStudentsQuery } from "@/lib/store/api/studentApi";
+import { useAppSelector } from "@/hooks/reduxHooks";
+import { selectCurrentUser } from "@/lib/store/api/features/currentUserSlice";
 
-const SettingsUserModal = dynamic(
-  () => import("@components/SettingsUserModal"),
-  {
-    ssr: false,
-  }
-);
-
-const Users = () => {
+const Dashboard = () => {
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
-  const { data, isLoading, error } = useGetUsersQuery("tutor");
+  const user = useAppSelector(selectCurrentUser);
+  const { data: students } = useGetStudentsQuery(user.login);
 
   const onModalClose = () => {
     setIsSettingsModalOpen(false);
   };
 
   return (
-    <DashboardMenuLayout>
-      <div className="grid grid-rows-[auto_1fr]  w-calc-full-minus-96 md:w-calc-full-minus-256">
+    <>
+      <div className="grid grid-rows-[auto_1fr]  w-calc-full-minus-96 md:w-calc-full-minus-224">
         <header className="p-4 flex flex-col md:flex-row gap-4 md:gap-0 transition-colors justify-between dark:bg-[#1D1E42]">
           <div className="flex flex-col lg:flex-row gap-4">
             {/* <div className="flex gap-2 items-center font-montserrat font-medium text-sm">
@@ -50,24 +46,27 @@ const Users = () => {
           </div>
           <div className="flex items-center gap-4 cursor-pointer">
             <Button
-              onClick={() => setIsSettingsModalOpen(!isSettingsModalOpen)}
               type="purpleIcon"
+              onClick={() => {
+                setIsSettingsModalOpen(true);
+              }}
             >
-              Додати користувача
+              Додати студента
             </Button>
           </div>
         </header>
-        <UsersTable />
-        <SettingsUserModal
-          isOpen={isSettingsModalOpen}
-          onSecondaryBtnClick={onModalClose}
-          formLink="addUser"
-        >
-          <AddUserForm />
-        </SettingsUserModal>
+        <AdminTable users={students} />
       </div>
-    </DashboardMenuLayout>
+      <SettingsUserModal
+        isOpen={isSettingsModalOpen}
+        onSecondaryBtnClick={onModalClose}
+        formLink="addStudent"
+        primaryBtnCaption="Створити студента"
+      >
+        <AddStudentForm isSettingsModalOpen={isSettingsModalOpen} />
+      </SettingsUserModal>
+    </>
   );
 };
 
-export default Users;
+export default Dashboard;

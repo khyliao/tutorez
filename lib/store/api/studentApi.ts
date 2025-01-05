@@ -9,8 +9,13 @@ export const studentApi = api.injectEndpoints({
         url: "/api/studentRegister",
         method: "PUT",
       }),
+      invalidatesTags: ["Student"],
+    }),
+    getStudents: builder.query({
+      query: (tutor) => `/api/students?tutor=${tutor}`,
+      providesTags: ["Student"],
     }),
   }),
 });
 
-export const { useRegisterStudentMutation } = studentApi;
+export const { useRegisterStudentMutation, useGetStudentsQuery } = studentApi;

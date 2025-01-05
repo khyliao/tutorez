@@ -1,6 +1,5 @@
 "use client";
 
-import { copyToClipboard } from "@/lib/clipboard";
 import CopyIcon from "@assets/copy.svg";
 import EditIcon from "@assets/edit.svg";
 import DeleteIcon from "@assets/delete.svg";
@@ -61,12 +60,7 @@ const UsersTable = () => {
           <tr className="h-16 text-center font-medium transition-colors bg-[#F7F6FE] dark:bg-[#26264F]">
             <td className="px-4">
               <div className="inline-flex items-center gap-2">
-                <CopyIcon
-                  className="cursor-pointer"
-                  onClick={() => {
-                    copyToClipboard("text");
-                  }} //! change in the future
-                />
+                <CopyIcon className="cursor-pointer" />
                 khilyao
               </div>
             </td>

@@ -23,6 +23,11 @@ const useAuth = () => {
     const logIn = async () => {
       try {
         const res = await loginUser(userCredentials);
+
+        // if (res.error) {
+        //   throw new Error(res.data);
+        // }
+
         dispatch(setCurrentUser(res.data));
         setIsUserLoading(false);
       } catch (e) {

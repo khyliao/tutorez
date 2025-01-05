@@ -48,7 +48,7 @@ const Login = () => {
 
       localStorage.setItem("user", JSON.stringify(userDataToSaveLocal));
 
-      router.push("/dashboard");
+      router.push("/platform/dashboard");
     } catch (e) {
       console.error(e);
     }

@@ -30,7 +30,7 @@ const Dropdown = <T extends Record<string, any>>({
   return (
     <div className={`relative transition-colors dark:text-white z-20`}>
       <div
-        className="flex justify-between p-2 gap-1 bg-inputBgStatic dark:bg-[#2F3966] items-center transition-colors rounded-lg cursor-pointer"
+        className="flex justify-between p-2 gap-1  bg-inputBgStatic dark:bg-[#2F3966] items-center transition-colors rounded-lg cursor-pointer"
         onClick={handleOpen}
       >
         <span className="font-montserrat font-medium text-sm">
@@ -39,11 +39,11 @@ const Dropdown = <T extends Record<string, any>>({
         <ArrowDownIcon />
       </div>
       {isOpen && (
-        <ul className="absolute top-full mt-1 left-0 rounded-lg  overflow-hidden animate-dropdown">
+        <ul className="absolute top-full mt-1 left-0 rounded-lg border border-[#bcc5fa] dark:border-[#5f72da] bg-[#e9eaf7] overflow-hidden animate-dropdown">
           {options.map((option, index) => (
             <li
               key={option}
-              className="py-2 px-5 cursor-pointer font-montserrat dark:bg-[#161634]  dark:hover:bg-[#5b4ea1] font-medium transition-colors hover:bg-[#7968eb] hover:text-white fade-in"
+              className="py-2 px-5 cursor-pointer text-sm font-montserrat dark:bg-[#161634] hover:bg-[#7968eb] hover:text-white dark:hover:bg-[#514fc0] font-medium transition-colors fade-in"
               style={{
                 animationDelay: `${index * 0.1}s`,
               }}

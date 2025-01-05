@@ -26,4 +26,5 @@ export interface IAddStudentForm {
   comment: string;
   role: string;
   tutor: string;
+  balance: number;
 }
