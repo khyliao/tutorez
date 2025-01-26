@@ -1,11 +1,11 @@
-import { getUsersByRole } from "@firebase/user/user";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function GET(req: NextRequest) {
-  const role = req.nextUrl.searchParams.get("role") || "allRoles";
+  const login = req.nextUrl.searchParams.get("login");
 
   try {
-    const res = await getUsersByRole(role);
+    const userUrl = `${process.env.NEXT_PUBLIC_DATABASE_URL}/users/${login}.json`;
+    const res = await fetch(userUrl);
 
     return NextResponse.json(res, { status: 200 });
   } catch (e) {

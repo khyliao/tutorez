@@ -8,10 +8,16 @@ import { IUser } from "@/types/users";
 
 interface IAdminTableProps {
   users: IUser[];
+  onEditClick: (login: string) => void;
+  onDeleteClick: (login: string) => void;
 }
 
-const AdminTable = ({ users }: IAdminTableProps) => {
-  if (!users) return <span>Завантаження...</span>;
+const AdminTable = ({
+  users,
+  onEditClick,
+  onDeleteClick,
+}: IAdminTableProps) => {
+  if (!users) return <div className="m-2">Завантаження...</div>;
 
   return (
     <div
@@ -64,8 +70,10 @@ const AdminTable = ({ users }: IAdminTableProps) => {
             ) => (
               <tr
                 key={login}
-                className={`h-16 text-center font-medium transition-colors bg-[#F7F6FE] dark:bg-[#26264F] ${
-                  index % 2 !== 0 && "bg-white dark:bg-[#1d1e42]"
+                className={`h-16 text-center font-medium transition-colors ${
+                  index % 2 !== 0
+                    ? "bg-white dark:bg-[#1D1E42]"
+                    : "bg-[#F7F6FE] dark:bg-[#26264F]"
                 }`}
               >
                 <td className="px-4">
@@ -90,9 +98,9 @@ const AdminTable = ({ users }: IAdminTableProps) => {
                 <td className="px-4">
                   <div className="flex gap-4 justify-center ">
                     <button type="button">
-                      <EditIcon />
+                      <EditIcon onClick={() => onEditClick(login)} />
                     </button>
-                    <button type="button">
+                    <button type="button" onClick={() => onDeleteClick(login)}>
                       <DeleteIcon />
                     </button>
                   </div>

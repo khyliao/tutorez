@@ -8,18 +8,15 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 
 const TeamLazy = dynamic(() => import("@components/Team"), { ssr: false });
-
 const AdvantageLazy = dynamic(() => import("@components/Advantage"), {
   ssr: false,
 });
-
 const ClientFormLazy = dynamic(() => import("@components/ClientForm"), {
   ssr: false,
 });
-
 const ReviewLazy = dynamic(() => import("@components/Review"), { ssr: false });
-
 const StatsLazy = dynamic(() => import("@components/Stats"), { ssr: false });
+
 const Home = () => {
   return (
     <>

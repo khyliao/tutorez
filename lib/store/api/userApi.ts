@@ -11,14 +11,14 @@ export const userApi = api.injectEndpoints({
     registerUser: builder.mutation({
       query: (user: ICreateUserForm) => ({
         body: user,
-        url: "/api/userRegister",
+        url: "/api/users/userRegister",
         method: "PUT",
       }),
     }),
     loginUser: builder.mutation({
       query: (user: User) => ({
         body: user,
-        url: "/api/userLogin",
+        url: "/api/users/userLogin",
         method: "POST",
       }),
     }),

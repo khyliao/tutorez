@@ -8,7 +8,6 @@ import LoupeIcon from "@assets/loupe.svg";
 import { useState } from "react";
 import AddUserForm from "@/app/components/forms/AddUserForm";
 import { useGetUsersQuery } from "@/lib/store/api/userApi";
-import DashboardMenuLayout from "@components/DashboardMenuLayout";
 
 const SettingsUserModal = dynamic(
   () => import("@components/SettingsUserModal"),

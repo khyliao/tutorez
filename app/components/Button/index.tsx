@@ -5,7 +5,7 @@ type Props = {
   btnType?: "button" | "submit";
   type?: string;
   className?: string;
-  children: string;
+  children: React.ReactNode;
   onClick?: () => void;
 };
 
@@ -21,7 +21,7 @@ const Button = ({
     case "purpleIcon":
       return (
         <button
-          type="button"
+          type={btnType}
           onClick={onClick}
           className={`flex transition-colors duration-200 items-center gap-2 text-sm font-montserrat font-bold p-3 px-4 rounded-lg text-white bg-purplePrimary hover:bg-[#5c3ec8] dark:bg-[#523ae6] ${className}`}
         >
@@ -42,8 +42,18 @@ const Button = ({
     case "secondaryBtnMode":
       return (
         <button
-          className="leading-5 text-sm font-montserrat font-medium dark:text-white rounded-md px-0 p-2 md:px-3 md:text-base transition-colors duration-300 md:hover:bg-[#d6d4f7] dark:hover:bg-[#1b1b7e]"
+          className="leading-5 text-sm font-montserrat font-medium dark:text-white rounded-md px-0 p-2 md:px-3 md:text-base transition-colors duration-300 md:hover:bg-[#b0a5fa] dark:hover:bg-[#1d1dd1]"
           type="button"
+          onClick={onClick}
+        >
+          {children}
+        </button>
+      );
+    case "variantBtn":
+      return (
+        <button
+          type={btnType}
+          className="flex gap-2 w-full items-center leading-5 dark:text-white hover:bg-[#b0a5fa] dark:hover:bg-[#3f34d3] text-sm p-3 md:text-base font-montserrat font-medium rounded-md transition-colors duration-300 "
           onClick={onClick}
         >
           {children}

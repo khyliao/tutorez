@@ -72,7 +72,7 @@ const DashboardMenu = () => {
           </div>
           <button
             onClick={handleLogOut}
-            className="group flex w-full p-2 justify-center hover:bg-[#d43d23] hover:text-white rounded-md transition-colors md:justify-start md:p-4 gap-4 items-center leading-5 font-montserrat font-medium"
+            className="group flex w-full p-2 justify-center hover:bg-[#d43d23] hover:text-white rounded-md transition-colors duration-200 md:justify-start md:p-4 gap-4 items-center leading-5 font-montserrat font-medium"
             type="button"
           >
             <LogoutIcon className="text-[#1F1F22] transition-colors group-hover:text-white stroke-[1.5] dark:text-light-dashboard-menu stroke-current" />

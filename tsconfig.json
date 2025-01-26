@@ -24,6 +24,7 @@
       "@context/*": ["./app/context/*"],
       "@firebase/*": ["./app/firebase/*"],
       "@lib/*": ["./lib/*"],
+      "@utils/*": ["./lib/utils/*"],
       "@store/*": ["./lib/store/*"],
       "@services/*": ["./services/*"],
       "@hooks/*": ["./hooks/*"],

@@ -28,3 +28,19 @@ export interface IAddStudentForm {
   tutor: string;
   balance: number;
 }
+
+export interface IEditStudentForm {
+  name: string;
+  subject: string;
+  contact: string;
+  price: string;
+  status: string;
+  comment: string;
+  role: string;
+  tutor: string;
+  balance: number;
+}
+
+export interface IAddPaymentForm {
+  amount: number | string;
+}

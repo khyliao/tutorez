@@ -7,7 +7,6 @@ const AddUserForm = () => {
   const [registerUser] = useRegisterUserMutation();
 
   const onSubmit = (data: ICreateUserForm) => {
-    console.log(data);
     registerUser(data);
     reset();
   };

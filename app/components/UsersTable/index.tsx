@@ -5,7 +5,6 @@ import EditIcon from "@assets/edit.svg";
 import DeleteIcon from "@assets/delete.svg";
 import UpDownArrow from "@assets/arrow-y.svg";
 import s from "./UsersTable.module.css";
-import { useGetTutorsQuery } from "@/lib/store/api/tutorApi";
 
 const UsersTable = () => {
   // const { data, error, isLoading } = useGetTutorsQuery(null);

@@ -1,4 +1,4 @@
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { IAddStudentForm } from "@/types/form";
 import { useRegisterStudentMutation } from "@store/api/studentApi";
 import Dropdown from "@components/Dropdown";
@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { selectCurrentUser } from "@/lib/store/api/features/currentUserSlice";
 import { useSelector } from "react-redux";
 import CopyIcon from "@assets/copy.svg";
+import { showErrorToast, showSuccessToast } from "@/lib/utils/toastUtils";
 
 interface UserDetails {
   login: string;
@@ -22,8 +23,8 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
   const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
   const user = useSelector(selectCurrentUser);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
     const filteredValue = value.replace(/[^a-zA-Z0-9]/g, "");
     setValue("login", filteredValue, { shouldValidate: true });
   };
@@ -39,13 +40,15 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
 
   const onSubmit = async (data: IAddStudentForm) => {
     try {
-      const res = await registerStudent(data);
+      const res = await registerStudent(data).unwrap();
+
+      showSuccessToast("Студент успішно доданий!");
 
       setUserDetails(res.data);
-    } catch (e) {
-      console.error(e);
-    } finally {
       reset();
+    } catch (e: any) {
+      showErrorToast(e.data);
+      console.error(e);
     }
   };
 
@@ -99,18 +102,19 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
             >
               http://tutorez.com.ua
             </a>{" "}
-            та увійдіть в кабінет як студент за наступними деталями:
+            та у верхньому правому куточку увійдіть в кабінет як студент за
+            наступними деталями:
             <br />
             Логін - {userDetails.login} <br />
             Пароль - {userDetails.password}
           </p>
           <div className="relative">
             <CopyIcon
-              className="absolute right-3 bottom-3 scale-150 cursor-pointer"
+              className="absolute right-3 bottom-3 scale-150 cursor-pointer text-[#5e5e5e] dark:text-[#cabffa]"
               onClick={() => {
                 copyToClipboard(
                   `Вітаю! Тут ви можете ознайомитися з поточною успішністю в навчанні, прогресом виконання домашніх завдань, моїми особистими відгуками на рахунок занять та деталями на рахунок оплат.
-Перейдіть за посиланням http://tutorez.com.ua та увійдіть в кабінет як студент за наступними деталями:
+Перейдіть за посиланням http://tutorez.com.ua та у верхньому правому куточку увійдіть в кабінет як студент за наступними деталями:
 Логін - ${userDetails.login} 
 Пароль - ${userDetails.password}`
                 );
