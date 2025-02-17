@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,20 +22,52 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
-      "@components/*": ["./app/components/*"],
-      "@assets/*": ["./assets/*"],
-      "@context/*": ["./app/context/*"],
-      "@firebase/*": ["./app/firebase/*"],
-      "@lib/*": ["./lib/*"],
-      "@utils/*": ["./lib/utils/*"],
-      "@store/*": ["./lib/store/*"],
-      "@services/*": ["./services/*"],
-      "@hooks/*": ["./hooks/*"],
-      "@db/*": ["./db/*"],
-      "@types/*": ["./types/*"]
-    }
+      "@/*": [
+        "./*"
+      ],
+      "@components/*": [
+        "./app/components/*"
+      ],
+      "@assets/*": [
+        "./assets/*"
+      ],
+      "@context/*": [
+        "./app/context/*"
+      ],
+      "@firebase/*": [
+        "./app/firebase/*"
+      ],
+      "@lib/*": [
+        "./lib/*"
+      ],
+      "@utils/*": [
+        "./lib/utils/*"
+      ],
+      "@store/*": [
+        "./lib/store/*"
+      ],
+      "@services/*": [
+        "./services/*"
+      ],
+      "@hooks/*": [
+        "./hooks/*"
+      ],
+      "@db/*": [
+        "./db/*"
+      ],
+      "@types/*": [
+        "./types/*"
+      ]
+    },
+    "target": "ES2017"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

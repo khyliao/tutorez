@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "modern-normalize";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
 
 export const metadata: Metadata = {
+  applicationName: "Tutorez",
   title: "Tutorez - Платформа онлайн-навчання",
   description:
     "Tutorez - це провідна платформа для онлайн-навчання, яка пропонує якісні освітні послуги з різних предметів та допомагає учням досягати успіху в навчанні.",
@@ -35,15 +36,15 @@ export const metadata: Metadata = {
       },
     ],
   },
-
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
   icons: {
     icon: "/favicon.png",
   },
 };
+
+export const generateViewport = (): Viewport => ({
+  width: "device-width",
+  initialScale: 1,
+});
 
 export default function RootLayout({
   children,
@@ -53,6 +54,7 @@ export default function RootLayout({
   return (
     <html lang="uk">
       <head>
+        <meta property="og:site_name" content="Tutorez" />
         <link
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
           rel="stylesheet"

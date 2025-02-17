@@ -1,25 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ArrowDownIcon from "@assets/arrow-bottom.svg";
 import { UseFormSetValue, FieldValues, Path, PathValue } from "react-hook-form";
-import { IAddStudentForm, ICreateUserForm } from "@/types/form";
 
 type Props<T extends FieldValues> = {
   options: string[];
   setValue: UseFormSetValue<T>;
   field: Path<T>;
+  oldStatus?: string;
 };
 
 const Dropdown = <T extends Record<string, any>>({
   options,
   field,
   setValue,
+  oldStatus,
 }: Props<T>) => {
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [selectedOption, setSelectedOption] = useState(oldStatus || options[0]);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    if (oldStatus) {
+      setSelectedOption(oldStatus);
+    }
+  }, [oldStatus]);
 
   const handleSelectOption = (option: string) => {
     setSelectedOption(option);

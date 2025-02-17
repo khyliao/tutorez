@@ -5,7 +5,7 @@ import {
   useUpdateStudentMutation,
 } from "@store/api/studentApi";
 import Dropdown from "@components/Dropdown";
-import { use, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { selectCurrentUser } from "@/lib/store/api/features/currentUserSlice";
 import { useSelector } from "react-redux";
 import Button from "@components/Button";
@@ -17,12 +17,14 @@ interface IEditStudentProps {
   isSettingsModalOpen: boolean;
   onClose: () => void;
   onAddPayment: () => void;
+  onAddLesson: () => void;
   oldLogin: string | null;
 }
 
 const EditStudent = ({
   isSettingsModalOpen,
   onAddPayment,
+  onAddLesson,
   oldLogin,
   onClose,
 }: IEditStudentProps) => {
@@ -34,20 +36,14 @@ const EditStudent = ({
   });
 
   const onSubmit = async (data: IEditStudentForm) => {
-    try {
-      const res = await updateStudent({ body: data, oldLogin });
+    const res = await updateStudent({ body: data, oldLogin });
 
-      if (res.data) {
-        showSuccessToast("Інформація про користувача була успішно оновлена!");
-      }
-
-      onClose();
-    } catch (e) {
-      console.error(e);
-
+    if ("error" in res) {
       showErrorToast("Виникла помилка, спробуйте пізніше!");
-    } finally {
+    } else {
+      showSuccessToast("Інформація про користувача була успішно оновлена!");
       reset();
+      onClose();
     }
   };
 
@@ -78,14 +74,14 @@ const EditStudent = ({
         subject: studentInfo.subject,
         contact: studentInfo.contact,
         price: studentInfo.price,
-        status: "Активний",
+        status: studentInfo.status,
         comment: studentInfo.comment,
         role: "student",
         tutor: user?.login || "",
         balance: 0,
       });
     }
-  }, [studentInfo]);
+  }, [studentInfo, reset, user?.login]);
 
   return (
     <>
@@ -115,7 +111,7 @@ const EditStudent = ({
                 </span>
                 <input
                   id="name"
-                  className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+                  className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2"
                   placeholder="Володимир"
                   {...register("name", {
                     minLength: {
@@ -153,7 +149,7 @@ const EditStudent = ({
                 </span>
                 <input
                   id="subject"
-                  className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+                  className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2"
                   placeholder="Англійська мова"
                   {...register("subject", {
                     required: "Обовʼязкове поле для заповнення!",
@@ -188,7 +184,7 @@ const EditStudent = ({
                 </span>
                 <input
                   id="contact"
-                  className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+                  className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2"
                   placeholder="@example293"
                   {...register("contact", {
                     minLength: {
@@ -225,7 +221,7 @@ const EditStudent = ({
                 </span>
                 <input
                   id="price"
-                  className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+                  className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2"
                   placeholder="200"
                   {...register("price", {
                     required: "Обовʼязкове поле для заповнення!",
@@ -252,6 +248,7 @@ const EditStudent = ({
           <div>
             <div className="relative">
               <Dropdown
+                oldStatus={studentInfo?.status || "Активний"}
                 options={["Активний", "Призупинений", "Втрачений"]}
                 setValue={setValue}
                 field="status"
@@ -283,7 +280,7 @@ const EditStudent = ({
               </span>
               <input
                 id="comment"
-                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2"
                 placeholder="Потрібно скинути додаткові матеріали на завтра"
                 {...register("comment")}
               />
@@ -297,11 +294,12 @@ const EditStudent = ({
         </div>
       </form>
       <div>
-        <Button type="variantBtn">
-          <CalendarIcon className=" dark:fill-white" /> Додати заняття
+        <Button onClick={onAddLesson} type="variantBtn">
+          <CalendarIcon className="dark:fill-white" />
+          Додати заняття
         </Button>
         <Button onClick={onAddPayment} type="variantBtn">
-          <EditPenIcon className=" dark:fill-white" />
+          <EditPenIcon className="dark:fill-white" />
           Додати платіж
         </Button>
       </div>

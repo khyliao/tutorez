@@ -3,10 +3,10 @@ import { IAddStudentForm } from "@/types/form";
 import { useRegisterStudentMutation } from "@store/api/studentApi";
 import Dropdown from "@components/Dropdown";
 import { useEffect, useState } from "react";
-import { selectCurrentUser } from "@/lib/store/api/features/currentUserSlice";
+import { selectCurrentUser } from "@store/api/features/currentUserSlice";
 import { useSelector } from "react-redux";
 import CopyIcon from "@assets/copy.svg";
-import { showErrorToast, showSuccessToast } from "@/lib/utils/toastUtils";
+import { showErrorToast, showSuccessToast } from "@utils/toastUtils";
 
 interface UserDetails {
   login: string;
@@ -15,19 +15,17 @@ interface UserDetails {
 
 interface IAddStudentFormProps {
   isSettingsModalOpen: boolean;
+  onAddStudent: () => void;
 }
 
-const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
+const AddStudentForm = ({
+  isSettingsModalOpen,
+  onAddStudent,
+}: IAddStudentFormProps) => {
   const [copied, setCopied] = useState(false);
-  const [registerStudent] = useRegisterStudentMutation();
+  const [registerStudent, { isLoading }] = useRegisterStudentMutation();
   const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
   const user = useSelector(selectCurrentUser);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    const filteredValue = value.replace(/[^a-zA-Z0-9]/g, "");
-    setValue("login", filteredValue, { shouldValidate: true });
-  };
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -37,21 +35,6 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
       setCopied(false);
     }, 2000);
   };
-
-  const onSubmit = async (data: IAddStudentForm) => {
-    try {
-      const res = await registerStudent(data).unwrap();
-
-      showSuccessToast("Студент успішно доданий!");
-
-      setUserDetails(res.data);
-      reset();
-    } catch (e: any) {
-      showErrorToast(e.data);
-      console.error(e);
-    }
-  };
-
   const {
     handleSubmit,
     register,
@@ -65,19 +48,40 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
       contact: "",
       price: "",
       login: "",
+      category: "",
       status: "Активний",
       comment: "",
       role: "student",
       tutor: user.login,
       balance: 0,
+      payments: [],
     },
   });
+
+  const onSubmit = async (data: IAddStudentForm) => {
+    if (Object.keys(errors).length) {
+      return;
+    }
+
+    try {
+      const res = await registerStudent(data).unwrap();
+
+      showSuccessToast("Студент успішно доданий!");
+
+      setUserDetails(res);
+      reset();
+      // onAddStudent();
+      reset();
+    } catch (e: any) {
+      showErrorToast(e.data);
+    }
+  };
 
   useEffect(() => {
     if (!isSettingsModalOpen) {
       setUserDetails(null);
     }
-  });
+  }, [isSettingsModalOpen]);
 
   if (userDetails) {
     return (
@@ -85,11 +89,10 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
         <h2 className="font-bold mb-1">Користувач успішно створений!</h2>
         <p className="">
           Використайте наступне повідомлення як шаблон для відправки
-          студенту/батькам
+          студенту/батькам.
         </p>
         <div className="relative p-3 my-2 bg-[#e9edff] dark:bg-[#1d295e] rounded">
           <p>
-            {" "}
             Вітаю! Тут ви можете ознайомитися з поточною успішністю в навчанні,
             прогресом виконання домашніх завдань, моїми особистими відгуками на
             рахунок занять та деталями на рахунок оплат.
@@ -128,8 +131,8 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
           </div>
         </div>
         <span className="text-red-600 dark:text-red-500 font-bold text-base">
-          Варто відразу відправити це повідомлення студенту або ж зберегти його,
-          в разі закриття вікна ці дані втрачаються назавжди!
+          Варто відразу відправити це повідомлення студенту, в разі закриття
+          вікна ці дані втрачаються назавжди!
         </span>
       </div>
     );
@@ -162,7 +165,7 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
               </span>
               <input
                 id="name"
-                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus  w-full font-medium rounded p-2 md:pr-7"
                 placeholder="Володимир"
                 {...register("name", {
                   minLength: {
@@ -182,45 +185,10 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
         </div>
         <div className="flex flex-col grow">
           <label
-            htmlFor="subject"
-            className="mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white"
-          >
-            Предмет *
-          </label>
-          <div>
-            <div className="relative">
-              <span
-                className="hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer"
-                onClick={() => {
-                  setValue("subject", "");
-                }}
-              >
-                x
-              </span>
-              <input
-                id="subject"
-                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
-                placeholder="Англійська мова"
-                {...register("subject", {
-                  required: "Обовʼязкове поле для заповнення!",
-                })}
-              />
-            </div>
-            {errors.subject && (
-              <span className="text-red-500 font-medium text-xs mt-1">
-                {errors.subject.message}
-              </span>
-            )}
-          </div>
-        </div>
-      </div>
-      <div className="flex justify-between gap-3">
-        <div className="flex flex-col grow">
-          <label
             htmlFor="contact"
             className="mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white"
           >
-            Контакт (tg або телефон) *
+            Контакт *
           </label>
           <div>
             <div className="relative">
@@ -234,12 +202,17 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
               </span>
               <input
                 id="contact"
-                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7"
                 placeholder="@example293"
                 {...register("contact", {
                   minLength: {
-                    value: 2,
+                    value: 3,
                     message: "Контакт повинен складатися з понад 3 символів!",
+                  },
+                  pattern: {
+                    value: /^[a-zA-Z0-9]+$/,
+                    message:
+                      "Контакт повинен складатися лише з англійських літер та чисел",
                   },
                   required: "Обовʼязкове поле для заповнення!",
                 })}
@@ -271,7 +244,8 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
               </span>
               <input
                 id="price"
-                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+                type="number"
+                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7"
                 placeholder="200"
                 {...register("price", {
                   required: "Обовʼязкове поле для заповнення!",
@@ -286,10 +260,79 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
           </div>
         </div>
       </div>
+
+      <div className="flex justify-between gap-3">
+        <div className="flex flex-col grow">
+          <label
+            htmlFor="subject"
+            className="mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white"
+          >
+            Предмет *
+          </label>
+          <div>
+            <div className="relative">
+              <span
+                className="hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer"
+                onClick={() => {
+                  setValue("subject", "");
+                }}
+              >
+                x
+              </span>
+              <input
+                id="subject"
+                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7"
+                placeholder="Англійська мова"
+                {...register("subject", {
+                  required: "Обовʼязкове поле для заповнення!",
+                })}
+              />
+            </div>
+            {errors.subject && (
+              <span className="text-red-500 font-medium text-xs mt-1">
+                {errors.subject.message}
+              </span>
+            )}
+          </div>
+        </div>
+        <div className="flex flex-col grow">
+          <label
+            htmlFor="category"
+            className="mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white"
+          >
+            Категорія учня *
+          </label>
+          <div>
+            <div className="relative">
+              <span
+                className="hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer"
+                onClick={() => {
+                  setValue("category", "");
+                }}
+              >
+                x
+              </span>
+              <input
+                id="category"
+                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7"
+                placeholder="6 клас / 2 курс / дорослий"
+                {...register("category", {
+                  required: "Обовʼязкове поле для заповнення!",
+                })}
+              />
+            </div>
+            {errors.category && (
+              <span className="text-red-500 font-medium text-xs mt-1">
+                {errors.category.message}
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
       <hr />
       <div className="flex flex-col">
         <label
-          htmlFor="status"
+          htmlFor="login"
           className="mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white"
         >
           Логін *
@@ -306,7 +349,7 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
             </span>
             <input
               id="login"
-              className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+              className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7"
               placeholder="matviy304"
               {...register("login", {
                 required: "Обовʼязкове поле для заповнення!",
@@ -314,8 +357,12 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
                   value: 6,
                   message: "Логін повинен складатися з понад 6 символів!",
                 },
+                pattern: {
+                  value: /^[a-zA-Z0-9]+$/,
+                  message:
+                    "Логін повинен складатися лише з англійських літер та чисел",
+                },
               })}
-              onChange={handleInputChange}
             />
           </div>
           {errors.login && (
@@ -366,7 +413,7 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
             </span>
             <input
               id="comment"
-              className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+              className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7"
               placeholder="Потрібно скинути додаткові матеріали на завтра"
               {...register("comment")}
             />

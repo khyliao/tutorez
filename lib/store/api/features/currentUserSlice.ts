@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../../store";
+import { RootState } from "@store/store";
 
 interface User {
   id: string;
@@ -7,6 +7,7 @@ interface User {
   name: string;
   password: string;
   role: string;
+  price: number;
   status: string;
   subject: string;
   telegram: string;

@@ -27,6 +27,7 @@ const config: Config = {
         "roboto-slab": ["RobotoSlab", "serif"],
       },
       colors: {
+        "field-focus": "#58585b",
         "section-title": "#212121",
         "nav-active": "#DB00FF",
         "hero-primary": "#9E00FF",

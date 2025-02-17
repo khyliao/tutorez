@@ -28,6 +28,7 @@ export async function PUT(req: NextRequest) {
 
     const newUser = {
       ...user,
+      price: +user.price,
       id: uuidv4(),
       password: hashedPassword,
     };

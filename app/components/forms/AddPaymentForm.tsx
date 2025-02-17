@@ -1,13 +1,11 @@
 import { useForm } from "react-hook-form";
 import { IAddPaymentForm } from "@/types/form";
-import { useUpdateStudentMutation } from "@store/api/studentApi";
-import { selectCurrentUser } from "@/lib/store/api/features/currentUserSlice";
-import { useSelector } from "react-redux";
 import Button from "@components/Button";
 import BackArrowIcon from "@assets/back-arrow.svg";
-import { showErrorToast, showSuccessToast } from "@/lib/utils/toastUtils";
+import { showErrorToast, showSuccessToast } from "@utils/toastUtils";
 import { PAYMENT_DURATIONS } from "@/constants/paymentDuration";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useUpdateStudentPaymentMutation } from "@store/api/studentApi";
 
 interface IAddPaymentFormProps {
   isSettingsModalOpen: boolean;
@@ -22,38 +20,46 @@ const AddPaymentForm = ({
   onBack,
   onClose,
 }: IAddPaymentFormProps) => {
-  const [updateStudent] = useUpdateStudentMutation();
-  const user = useSelector(selectCurrentUser);
   const [duration, setDuration] = useState(1);
+  const [updatePayment] = useUpdateStudentPaymentMutation();
 
   // const { data: studentInfo } = useGetStudentByLoginQuery(oldLogin, {
   //   skip: !oldLogin,
   // });
 
+  useEffect(() => {
+    if (!isSettingsModalOpen) {
+      reset();
+      setDuration(1);
+    }
+  }, [isSettingsModalOpen]);
+
   const onSubmit = async (data: IAddPaymentForm) => {
+    if (!oldLogin) {
+      showErrorToast("Неможливо оновити платіж без логіна користувача.");
+      return;
+    }
+
     try {
-      console.log(data);
-      showSuccessToast("Інформація про коeристувача була успішно оновлена!");
-
+      await updatePayment({ data, login: oldLogin }).unwrap();
+      showSuccessToast("Інформація про користувача була успішно оновлена!");
       onClose();
-    } catch (e) {
-      console.error(e);
-
+    } catch (error) {
       showErrorToast("Виникла помилка, спробуйте пізніше!");
     } finally {
       reset();
+      setDuration(1);
     }
   };
 
   const {
     handleSubmit,
-    register,
     reset,
     setValue,
     formState: { errors },
   } = useForm<IAddPaymentForm>({
     defaultValues: {
-      amount: "",
+      amount: 1,
     },
   });
 
@@ -90,10 +96,10 @@ const AddPaymentForm = ({
                 {PAYMENT_DURATIONS.map(({ label, value }) => (
                   <div
                     key={label}
-                    className={`placeholder:text-sm md:placeholder:text-base min-w-32 dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] font-medium rounded p-2 cursor-pointer ${
+                    className={`placeholder:text-sm md:placeholder:text-base min-w-32 dark:text-white transition-colors dark:bg-[#2F3966] font-medium rounded p-2 cursor-pointer ${
                       value === duration
-                        ? "bg-[#98b8fe] hover:bg-[#98b8fe] dark:bg-[#3c3ec0] dark:hover:bg-[#3c3ec0]"
-                        : "hover:bg-[#bacffd] dark:hover:bg-[#6062db] "
+                        ? "bg-[#5843e6] hover:bg-[#5843e6] text-white dark:bg-[#3c3ec0] dark:hover:bg-[#3c3ec0]"
+                        : "hover:bg-[#5843e6] hover:text-white bg-inputBgStatic dark:hover:bg-[#5356df]"
                     }`}
                     onClick={() => {
                       handleDurationClick(value);
@@ -104,7 +110,7 @@ const AddPaymentForm = ({
                   </div>
                 ))}
 
-                <input
+                {/* <input
                   id="amount"
                   className="placeholder:text-sm md:placeholder:text-base min-w-32 dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] font-medium rounded p-2"
                   placeholder="Свій варіант..."
@@ -120,7 +126,7 @@ const AddPaymentForm = ({
                         "Необхідно вказати лише кількість годин (без слів)!",
                     },
                   })}
-                />
+                /> */}
               </div>
               {errors.amount && (
                 <span className="text-red-500 font-medium text-xs mt-1">

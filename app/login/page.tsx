@@ -9,7 +9,7 @@ import EmailIcon from "@assets/email.svg";
 import PasswordIcon from "@assets/password.svg";
 import { useAppDispatch } from "@hooks/reduxHooks";
 import { setCurrentUser } from "@store/api/features/currentUserSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Inputs = {
   login: string;
@@ -21,13 +21,16 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<Inputs>();
   const router = useRouter();
   const [loginUser, { error }] = useLoginUserMutation();
   const dispatch = useAppDispatch();
   const [apiError, setApiError] = useState<string | null>(null);
+
+  useEffect(() => {
+    document.documentElement.classList.remove("dark");
+  }, []);
 
   const onSubmit: SubmitHandler<Inputs> = async (userCredentials) => {
     try {

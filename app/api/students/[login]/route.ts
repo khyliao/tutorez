@@ -1,11 +1,9 @@
 import { NextResponse, NextRequest } from "next/server";
 
-export async function GET(
-  req: NextRequest,
-  { params }: { params: { login: string } }
-) {
+export async function GET(req: NextRequest) {
   try {
-    const { login } = params;
+    const { pathname } = req.nextUrl;
+    const login = pathname.split("/").pop();
 
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_DATABASE_URL}/users/${login}.json`

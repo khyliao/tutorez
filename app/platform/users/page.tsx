@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import DashboardMenu from "@components/DashboardMenu";
 import UsersTable from "@components/UsersTable";
 import Button from "@components/Button";
 import LoupeIcon from "@assets/loupe.svg";

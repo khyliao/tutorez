@@ -56,7 +56,7 @@ const AddUserForm = () => {
               </span>
               <input
                 id="name"
-                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2"
                 placeholder="Володимир"
                 {...register("name", {
                   minLength: {
@@ -93,7 +93,7 @@ const AddUserForm = () => {
               </span>
               <input
                 id="subject"
-                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2"
                 placeholder="Англійська мова"
                 {...register("subject", {
                   required: "Обовʼязкове поле для заповнення!",
@@ -127,7 +127,7 @@ const AddUserForm = () => {
             </span>
             <input
               id="contact"
-              className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+              className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2"
               placeholder="@example293"
               {...register("contact", {
                 required: "Обовʼязкове поле для заповнення!",
@@ -183,7 +183,7 @@ const AddUserForm = () => {
             </span>
             <input
               id="login"
-              className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+              className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2"
               placeholder=""
               {...register("login", {
                 required: "Обовʼязкове поле для заповнення!",
@@ -221,7 +221,7 @@ const AddUserForm = () => {
             <input
               id="password"
               type="password"
-              className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+              className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2"
               placeholder=""
               {...register("password", {
                 required: "Обовʼязкове поле для заповнення!",
@@ -258,7 +258,7 @@ const AddUserForm = () => {
             </span>
             <input
               id="comment"
-              className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] w-full font-medium rounded p-2"
+              className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2"
               placeholder="Готова взяти додатково 2 студентів"
             />
           </div>

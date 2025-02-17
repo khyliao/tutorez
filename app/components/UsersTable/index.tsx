@@ -56,7 +56,7 @@ const UsersTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="h-16 text-center font-medium transition-colors bg-[#F7F6FE] dark:bg-[#26264F]">
+          <tr className="h-16  text-center font-medium transition-colors bg-[#F7F6FE] dark:bg-[#26264F]">
             <td className="px-4">
               <div className="inline-flex items-center gap-2">
                 <CopyIcon className="cursor-pointer" />
@@ -84,7 +84,7 @@ const UsersTable = () => {
               </div>
             </td>
           </tr>
-          <tr className="h-16 text-center transition-colors font-medium">
+          <tr className="h-16  text-center transition-colors font-medium">
             <td className="px-4">
               <div className="inline-flex items-center gap-2">
                 <CopyIcon
@@ -117,7 +117,7 @@ const UsersTable = () => {
               </div>
             </td>
           </tr>
-          <tr className="h-16 text-center transition-colors font-medium bg-[#F7F6FE] dark:bg-[#26264F]">
+          <tr className="h-16  text-center transition-colors font-medium bg-[#F7F6FE] dark:bg-[#26264F]">
             <td className="px-4">
               <div className="inline-flex items-center gap-2">
                 <CopyIcon

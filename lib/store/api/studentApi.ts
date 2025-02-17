@@ -1,4 +1,4 @@
-import { IAddStudentForm, IEditStudentForm } from "@/types/form";
+import { IAddLessonForm, IAddPaymentForm, IAddStudentForm } from "@/types/form";
 import { api } from "./api";
 
 export const studentApi = api.injectEndpoints({
@@ -13,7 +13,7 @@ export const studentApi = api.injectEndpoints({
     }),
     updateStudent: builder.mutation({
       query: (body) => ({
-        body: body,
+        body,
         url: `/api/students?student=${body.oldLogin}`,
         method: "PATCH",
       }),
@@ -35,8 +35,34 @@ export const studentApi = api.injectEndpoints({
       }),
       invalidatesTags: ["Student"],
     }),
+    updateStudentPayment: builder.mutation({
+      query: ({ login, data }: Payment) => ({
+        body: data,
+        url: `/api/students/updatePayment/${login}`,
+        method: "PUT",
+      }),
+      invalidatesTags: ["Student"],
+    }),
+    addLesson: builder.mutation({
+      query: ({ login, data }: Lesson) => ({
+        body: data,
+        url: `/api/students/addLesson/${login}`,
+        method: "PUT",
+      }),
+      invalidatesTags: ["Student"],
+    }),
   }),
 });
+
+type Payment = {
+  data: IAddPaymentForm;
+  login: string;
+};
+
+type Lesson = {
+  data: IAddLessonForm;
+  login: string;
+};
 
 export const {
   useRegisterStudentMutation,
@@ -44,4 +70,6 @@ export const {
   useUpdateStudentMutation,
   useGetStudentByLoginQuery,
   useDeleteStudentMutation,
+  useUpdateStudentPaymentMutation,
+  useAddLessonMutation,
 } = studentApi;

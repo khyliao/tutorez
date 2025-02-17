@@ -11,8 +11,6 @@ export async function DELETE(req: NextRequest) {
       );
     }
 
-    console.log(login);
-
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_DATABASE_URL}/users/${login}.json`,
       {

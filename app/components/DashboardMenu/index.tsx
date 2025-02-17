@@ -25,7 +25,11 @@ const DashboardMenu = () => {
   return (
     <div className="flex flex-col h-screen p-4 px-1 md:p-4 w-20 md:min-w-56 transition-colors border-[#EFEFEF] border-r dark:bg-[#09090A] dark:border-r-[#1F1F22]">
       <div className="flex gap-3 justify-center items-center mb-11">
-        <Image src={avatar} width={56} height={56} alt="avatar" />
+        <Image
+          src={avatar}
+          className="w-10 h-10 md:w-14 md:h-14"
+          alt="avatar"
+        />
         <div className="hidden md:flex flex-col">
           <h2 className="text-lg font-montserrat font-bold dark:text-light-dashboard-menu">
             {user.name}
@@ -45,7 +49,7 @@ const DashboardMenu = () => {
                 return (
                   <Link
                     key={label}
-                    className={` relative flex p-2 hover:bg-[#eadaf9] dark:hover:bg-[#42255a]  rounded-md transition-colors justify-center md:justify-start md:p-4 gap-4 items-center leading-5 font-montserrat font-medium dark:text-light-dashboard-menu ${
+                    className={` relative flex p-1 hover:bg-[#eadaf9] dark:hover:bg-[#42255a]  rounded-md transition-colors justify-center md:justify-start md:p-4 gap-4 items-center leading-5 font-montserrat font-medium dark:text-light-dashboard-menu ${
                       soon && "hidden md:flex"
                     }`}
                     href={link}
@@ -67,7 +71,7 @@ const DashboardMenu = () => {
           )}
         </div>
         <div>
-          <div className="flex p-2 justify-center md:justify-start md:p-4 gap-5 items-center">
+          <div className="flex mb-1 md:mb-0 justify-center md:justify-start md:p-4 gap-5 items-center">
             <ThemeSwitcher />
           </div>
           <button

@@ -20,6 +20,7 @@ export interface IAddStudentForm {
   name: string;
   subject: string;
   login: string;
+  category: string;
   contact: string;
   price: string;
   status: string;
@@ -27,6 +28,7 @@ export interface IAddStudentForm {
   role: string;
   tutor: string;
   balance: number;
+  payments: [];
 }
 
 export interface IEditStudentForm {
@@ -42,5 +44,11 @@ export interface IEditStudentForm {
 }
 
 export interface IAddPaymentForm {
-  amount: number | string;
+  amount: number;
+}
+
+export interface IAddLessonForm {
+  duration: number;
+  tutorReview: number;
+  comment: string;
 }
