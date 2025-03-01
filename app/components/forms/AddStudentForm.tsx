@@ -18,10 +18,7 @@ interface IAddStudentFormProps {
   onAddStudent: () => void;
 }
 
-const AddStudentForm = ({
-  isSettingsModalOpen,
-  onAddStudent,
-}: IAddStudentFormProps) => {
+const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
   const [copied, setCopied] = useState(false);
   const [registerStudent, { isLoading }] = useRegisterStudentMutation();
   const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
@@ -70,8 +67,6 @@ const AddStudentForm = ({
 
       setUserDetails(res);
       reset();
-      // onAddStudent();
-      reset();
     } catch (e: any) {
       showErrorToast(e.data);
     }
@@ -93,7 +88,7 @@ const AddStudentForm = ({
         </p>
         <div className="relative p-3 my-2 bg-[#e9edff] dark:bg-[#1d295e] rounded">
           <p>
-            Вітаю! Тут ви можете ознайомитися з поточною успішністю в навчанні,
+            Тут ви можете ознайомитися з поточною успішністю в навчанні,
             прогресом виконання домашніх завдань, моїми особистими відгуками на
             рахунок занять та деталями на рахунок оплат.
             <br />
@@ -116,7 +111,7 @@ const AddStudentForm = ({
               className="absolute right-3 bottom-3 scale-150 cursor-pointer text-[#5e5e5e] dark:text-[#cabffa]"
               onClick={() => {
                 copyToClipboard(
-                  `Вітаю! Тут ви можете ознайомитися з поточною успішністю в навчанні, прогресом виконання домашніх завдань, моїми особистими відгуками на рахунок занять та деталями на рахунок оплат.
+                  `Тут ви можете ознайомитися з поточною успішністю в навчанні, прогресом виконання домашніх завдань, моїми особистими відгуками на рахунок занять та деталями на рахунок оплат.
 Перейдіть за посиланням http://tutorez.com.ua та у верхньому правому куточку увійдіть в кабінет як студент за наступними деталями:
 Логін - ${userDetails.login} 
 Пароль - ${userDetails.password}`
@@ -210,7 +205,7 @@ const AddStudentForm = ({
                     message: "Контакт повинен складатися з понад 3 символів!",
                   },
                   pattern: {
-                    value: /^[a-zA-Z0-9]+$/,
+                    value: /^@?[a-zA-Z0-9]+$/,
                     message:
                       "Контакт повинен складатися лише з англійських літер та чисел",
                   },

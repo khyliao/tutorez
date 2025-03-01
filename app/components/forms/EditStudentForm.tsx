@@ -188,8 +188,13 @@ const EditStudent = ({
                   placeholder="@example293"
                   {...register("contact", {
                     minLength: {
-                      value: 2,
+                      value: 3,
                       message: "Контакт повинен складатися з понад 3 символів!",
+                    },
+                    pattern: {
+                      value: /^@?[a-zA-Z0-9]+$/,
+                      message:
+                        "Контакт повинен складатися лише з англійських літер та чисел",
                     },
                     required: "Обовʼязкове поле для заповнення!",
                   })}

@@ -24,12 +24,7 @@ const AddPaymentForm = ({
   onClose,
 }: IAddLessonFormProps) => {
   const [duration, setDuration] = useState(1);
-  const { t, lang } = useLang();
   const [addLesson] = useAddLessonMutation();
-
-  // const { data: studentInfo } = useGetStudentByLoginQuery(oldLogin, {
-  //   skip: !oldLogin,
-  // });
 
   useEffect(() => {
     if (!isSettingsModalOpen) {

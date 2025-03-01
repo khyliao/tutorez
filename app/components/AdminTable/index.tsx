@@ -1,7 +1,7 @@
 import CopyIcon from "@assets/copy.svg";
 import EditIcon from "@assets/edit.svg";
 import DeleteIcon from "@assets/delete.svg";
-import UpDownArrow from "@assets/arrow-y.svg";
+// import UpDownArrow from "@assets/arrow-y.svg";
 import s from "./AdminTable.module.css";
 import StatusView from "./components/StatusView";
 import { IUser } from "@/types/users";
@@ -9,6 +9,8 @@ import { showSuccessToast } from "@utils/toastUtils";
 import { useAppSelector } from "@hooks/reduxHooks";
 import { selectSearchFieldValue } from "@store/api/features/searchFieldSlice";
 import { useMemo } from "react";
+import { convertToTimeString } from "@/lib/utils/timeFormatter";
+import Link from "next/link";
 
 interface IAdminTableProps {
   users: IUser[];
@@ -22,7 +24,7 @@ const AdminTable = ({
   onDeleteClick,
 }: IAdminTableProps) => {
   const searchFieldLogin = useAppSelector(selectSearchFieldValue);
-
+  // const [sortMode, setSortMode] = useState(null);
   const visibleUsers = useMemo(() => {
     if (!users) return [];
 
@@ -46,10 +48,15 @@ const AdminTable = ({
                   className="cursor-pointer"
                   onClick={() => {
                     navigator.clipboard.writeText(login);
-                    showSuccessToast(`${login} успішно скопійовано!`);
+                    showSuccessToast(`Логін ${login} успішно скопійовано!`);
                   }}
                 />
-                {login}
+                <Link
+                  href={`/platform/students/${login}`}
+                  className="trasition-colors duration-200 hover:text-[#536aee]"
+                >
+                  {login}
+                </Link>
               </div>
             </td>
             <td className="px-1 lg:px-3 max-w-16 md:max-w-fit text-sm lg:text-base">
@@ -64,8 +71,16 @@ const AdminTable = ({
             <td className="px-1 lg:px-3 max-w-16 md:max-w-fit text-sm lg:text-base">
               {price}
             </td>
-            <td className="px-1 lg:px-3 max-w-16 md:max-w-fit text-sm lg:text-base">
-              {balance}
+            <td
+              className={`px-1 lg:px-3 max-w-16 md:max-w-fit text-sm lg:text-base ${
+                balance > 0
+                  ? "text-green-400 dark:text-green-500"
+                  : balance < 0
+                  ? "text-red-500 dark:text-red-600"
+                  : ""
+              }`}
+            >
+              {convertToTimeString(balance)}
             </td>
             <td className="px-1 lg:px-3 max-w-16 md:max-w-fit text-sm lg:text-base">
               <StatusView status={status} />
@@ -83,7 +98,7 @@ const AdminTable = ({
           </tr>
         )
       );
-  }, [searchFieldLogin, users]);
+  }, [searchFieldLogin, users, onDeleteClick, onEditClick]);
 
   return (
     <div
@@ -102,32 +117,38 @@ const AdminTable = ({
               </th>
               <th className="px-1 lg:px-3 max-w-16 md:max-w-fit text-sm lg:text-base">
                 <div className="flex items-center justify-center ">
-                  Студент <UpDownArrow className="cursor-pointer" />
+                  Студент
+                  {/* <UpDownArrow className="cursor-pointer" /> */}
                 </div>
               </th>
               <th className="px-1 lg:px-3 max-w-16 md:max-w-fit text-sm lg:text-base">
                 <div className="flex items-center justify-center ">
-                  Предмет <UpDownArrow className="cursor-pointer" />
+                  Предмет
+                  {/* <UpDownArrow className="cursor-pointer" /> */}
                 </div>
               </th>
               <th className="px-1 lg:px-3 max-w-16 md:max-w-fit text-sm lg:text-base">
                 <div className="flex items-center justify-center ">
-                  Останнє заняття <UpDownArrow className="cursor-pointer" />
+                  Останнє заняття
+                  {/* <UpDownArrow className="cursor-pointer" /> */}
                 </div>
               </th>
               <th className="px-1 lg:px-3 max-w-16 md:max-w-fit text-sm lg:text-base">
                 <div className="flex items-center justify-center ">
-                  Ціна/год <UpDownArrow className="cursor-pointer" />
+                  Ціна/год
+                  {/* <UpDownArrow className="cursor-pointer" /> */}
                 </div>
               </th>
               <th className="px-1 lg:px-3 max-w-16 md:max-w-fit text-sm lg:text-base">
                 <div className="flex items-center justify-center ">
-                  Баланс годин <UpDownArrow className="cursor-pointer" />
+                  Баланс годин
+                  {/* <UpDownArrow className="cursor-pointer" /> */}
                 </div>
               </th>
               <th className="px-1 lg:px-3 max-w-16 md:max-w-fit text-sm lg:text-base">
                 <div className="flex items-center justify-center ">
-                  Статус студента <UpDownArrow className="cursor-pointer" />
+                  Статус студента
+                  {/* <UpDownArrow className="cursor-pointer" /> */}
                 </div>
               </th>
               <th className="px-1 lg:px-3 max-w-16 md:max-w-fit text-sm lg:text-base">

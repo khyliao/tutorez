@@ -130,6 +130,15 @@ const AddUserForm = () => {
               className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2"
               placeholder="@example293"
               {...register("contact", {
+                minLength: {
+                  value: 3,
+                  message: "Контакт повинен складатися з понад 3 символів!",
+                },
+                pattern: {
+                  value: /^@?[a-zA-Z0-9]+$/,
+                  message:
+                    "Контакт повинен складатися лише з англійських літер та чисел",
+                },
                 required: "Обовʼязкове поле для заповнення!",
               })}
             />

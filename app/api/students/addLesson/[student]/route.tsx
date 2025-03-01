@@ -25,16 +25,25 @@ export const PUT = async (req: NextRequest) => {
 
     lessons.push(action);
 
-    await fetch(
-      `${process.env.NEXT_PUBLIC_DATABASE_URL}/users/${login}/lessons.json`,
-      {
-        method: "PUT",
-        body: JSON.stringify(lessons),
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    user.balance -= action.duration;
+    user.lessons = lessons;
 
-    return NextResponse.json(action, { status: 200 });
+    await fetch(`${process.env.NEXT_PUBLIC_DATABASE_URL}/users/${login}.json`, {
+      method: "PUT",
+      body: JSON.stringify(user),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    // await fetch(
+    //   `${process.env.NEXT_PUBLIC_DATABASE_URL}/users/${login}/lessons.json`,
+    //   {
+    //     method: "PUT",
+    //     body: JSON.stringify(lessons),
+    //     headers: { "Content-Type": "application/json" },
+    //   }
+    // );
+
+    return NextResponse.json(user, { status: 200 });
   } catch (e) {
     return NextResponse.json(e, { status: 500 });
   }

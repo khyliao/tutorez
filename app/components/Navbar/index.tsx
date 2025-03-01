@@ -26,7 +26,7 @@ const Navbar = () => {
         document.body.classList.remove("no-scroll");
       };
     }
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isMedia1024]);
 
   return (
     <header className="fixed w-full z-20 flex items-center py-2 px-4 xl:px-10 justify-between h-[70px] lg:h-[90px] bg-[#2B2B2B]">

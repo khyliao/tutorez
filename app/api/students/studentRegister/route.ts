@@ -31,6 +31,8 @@ export async function PUT(req: NextRequest) {
       price: +user.price,
       id: uuidv4(),
       password: hashedPassword,
+      lessons: [],
+      payments: [],
     };
 
     const saveResponse = await fetch(

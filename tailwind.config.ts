@@ -12,6 +12,14 @@ const config: Config = {
           "0px 1px 1px 0px rgba(0, 0, 0, 0.25), 1px 1px 10px 0px #24272C",
         themeSwitcherBoxDark:
           "0px 3.22px 3.22px 0px rgba(0, 0, 0, 0.25), 8.05px 8.05px 16.1px 0px #24272C",
+        lessonCardInfoMobile:
+          "0.6px 0.7px 1.6px 0px rgba(0, 0, 0, 0.01), 2.6px 3.1px 3.3px 0px rgba(0, 0, 0, 0.015),6.4px 7.7px 6.5px 0px rgba(0, 0, 0, 0.02),12.3px 14.8px 12.7px 0px rgba(0, 0, 0, 0.02),20.7px 24.9px 23.4px 0px rgba(0, 0, 0, 0.025),32px 38.4px 40px 0px rgba(0, 0, 0, 0.035)",
+        lessonCardInfoTabletAndMore:
+          "1px 1px 3px 0px rgba(0, 0, 0, 0.02), 4px 5px 6px 0px rgba(0, 0, 0, 0.03), 7px 9px 13px 0px rgba(0, 0, 0, 0.04), 18px 24px 25px 0px rgba(0, 0, 0, 0.04), 34px 36px 46.85px 0px rgba(0, 0, 0, 0.05),64.02px 76.82px 80px 0px rgba(0, 0, 0, 0.07)",
+        lessonCardInfoMobileDark:
+          "0.6px 0.7px 15px 0px rgba(173, 143, 255, 0.1), 2px 3px 15px 0px rgba(173, 183, 255, 0.12), 2px 2px 30px 0px rgba(173, 183, 255, 0.11), 4px 5px 13px 0px rgba(173, 183, 255, 0.12), 7px 8px 23px 0px rgba(173, 183, 255, 0.1), 10px 12ppx 40px 0px rgba(173, 183, 255, 0.14)",
+        lessonCardInfoTabletAndMoreDark:
+          "1px 1px 3px 0px rgba(173, 183, 255, 0.03), 3px 4px 6px 0px rgba(173, 183, 255, 0.02), 4px 5px 13px 0px rgba(173, 183, 255, 0.03), 5px 6px 29px 0px rgba(173, 183, 255, 0.04), 8px 5px 15px 0px rgba(173, 183, 255, 0.12), 9px 10px 80px 0px rgba(173, 183, 255, 0.13)",
       },
       spacing: {
         "calc-full-minus-96": "calc(100% - 96px)",
