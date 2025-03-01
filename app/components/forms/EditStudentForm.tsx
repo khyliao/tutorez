@@ -78,7 +78,7 @@ const EditStudent = ({
         comment: studentInfo.comment,
         role: "student",
         tutor: user?.login || "",
-        balance: 0,
+        balance: studentInfo.balance,
       });
     }
   }, [studentInfo, reset, user?.login]);
