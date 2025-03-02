@@ -41,12 +41,10 @@ const AddPaymentForm = ({
 
     data.amount = +data.amount;
 
-    console.log(data);
-
     try {
+      onClose();
       await updatePayment({ data, login: oldLogin }).unwrap();
       showSuccessToast("Інформація про користувача була успішно оновлена!");
-      onClose();
     } catch (error) {
       showErrorToast("Виникла помилка, спробуйте пізніше!");
     } finally {

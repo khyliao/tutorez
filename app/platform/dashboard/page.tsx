@@ -27,6 +27,7 @@ const Dashboard = () => {
   const [selectedStudentLogin, setSelectedStudentLogin] = useState<
     string | null
   >(null);
+  const [isPrimaryBtnHidden, setIsPrimaryBtnHidden] = useState(false);
   const user = useAppSelector(selectCurrentUser);
   const { data: students } = useGetStudentsQuery(user.login);
   const [deleteStudent] = useDeleteStudentMutation();
@@ -68,6 +69,7 @@ const Dashboard = () => {
 
   const handleAddStudentFormClose = () => {
     setIsAddStudentFormActive(false);
+    setIsPrimaryBtnHidden(false);
   };
 
   const handleEditStudentFormClose = () => {
@@ -118,6 +120,10 @@ const Dashboard = () => {
       <SettingsUserModal
         isOpen={isAddStudentFormActive}
         onSecondaryBtnClick={handleAddStudentFormClose}
+        isPrimaryBtnHidden={isPrimaryBtnHidden}
+        onPrimaryBtnClick={() => {
+          setIsPrimaryBtnHidden(true);
+        }}
         formLink="addStudent"
         primaryBtnCaption="Створити студента"
       >

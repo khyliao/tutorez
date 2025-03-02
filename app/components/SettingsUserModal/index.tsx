@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@components/Button";
+import { useState } from "react";
 import { createPortal } from "react-dom";
 
 type SettingsUserModalProps = {
@@ -10,6 +11,7 @@ type SettingsUserModalProps = {
   onPrimaryBtnClick?: () => void;
   primaryBtnCaption?: string;
   formLink: string;
+  isPrimaryBtnHidden?: boolean;
 };
 
 const SettingsUserModal = ({
@@ -19,6 +21,7 @@ const SettingsUserModal = ({
   children,
   primaryBtnCaption = "Зберегти зміни",
   formLink,
+  isPrimaryBtnHidden,
 }: SettingsUserModalProps) => {
   return createPortal(
     <div
@@ -37,6 +40,7 @@ const SettingsUserModal = ({
           Закрити
         </Button>
         <Button
+          className={`${isPrimaryBtnHidden && "hidden"}`}
           form={formLink}
           btnType="submit"
           onClick={onPrimaryBtnClick}

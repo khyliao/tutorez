@@ -23,7 +23,7 @@ const DashboardMenu = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen p-4 px-1 md:p-4 w-20 md:min-w-56 transition-colors border-[#EFEFEF] border-r dark:bg-[#09090A] dark:border-r-[#1F1F22]">
+    <div className="fixed pointer-e top-0 left-0 flex flex-col h-screen p-4 px-1 md:p-4 w-20 md:min-w-56 transition-colors border-[#EFEFEF] border-r dark:bg-[#09090A] dark:border-r-[#1F1F22]">
       <div className="flex gap-3 justify-center items-center mb-11">
         <Image
           src={avatar}

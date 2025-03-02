@@ -32,7 +32,7 @@ const Button = ({
       return (
         <button
           form={form}
-          className="leading-5 text-sm px-3 py-2 md:px-4 md:py-3 md:text-base text-white font-montserrat font-medium rounded-md transition-colors duration-300 bg-purplePrimary hover:bg-[#473dd6] dark:bg-[#523ae6] dark:hover:bg-[#3f34d3]"
+          className={`leading-5 h-12 text-sm px-3 py-2 md:px-4 md:py-3 md:text-base text-white font-montserrat font-medium rounded-md transition-colors duration-300 bg-purplePrimary hover:bg-[#473dd6] dark:bg-[#523ae6] dark:hover:bg-[#3f34d3] ${className}`}
           type={btnType}
           onClick={onClick}
         >
@@ -42,7 +42,7 @@ const Button = ({
     case "secondaryBtnMode":
       return (
         <button
-          className="leading-5 text-sm font-montserrat font-medium dark:text-white rounded-md px-0 p-2 md:px-3 md:text-base transition-colors duration-300 md:hover:bg-[#b0a5fa] dark:hover:bg-[#1d1dd1]"
+          className="leading-5 h-12 text-sm font-montserrat font-medium dark:text-white rounded-md px-0 p-2 md:px-3 md:text-base transition-colors duration-300 md:hover:bg-[#b0a5fa] dark:hover:bg-[#1d1dd1]"
           type="button"
           onClick={onClick}
         >

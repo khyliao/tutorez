@@ -44,9 +44,9 @@ const AddPaymentForm = ({
     }
 
     try {
+      onClose();
       await addLesson({ data, login: oldLogin }).unwrap();
       showSuccessToast("Інформація про заняття була успішно внесена!");
-      onClose();
     } catch (error) {
       showErrorToast("Виникла помилка, спробуйте пізніше!");
     } finally {
