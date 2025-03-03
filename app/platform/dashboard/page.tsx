@@ -121,14 +121,13 @@ const Dashboard = () => {
         isOpen={isAddStudentFormActive}
         onSecondaryBtnClick={handleAddStudentFormClose}
         isPrimaryBtnHidden={isPrimaryBtnHidden}
-        onPrimaryBtnClick={() => {
-          setIsPrimaryBtnHidden(true);
-        }}
         formLink="addStudent"
         primaryBtnCaption="Створити студента"
       >
         <AddStudentForm
-          onAddStudent={handleAddStudentFormClose}
+          onAddStudent={() => {
+            setIsPrimaryBtnHidden(true);
+          }}
           isSettingsModalOpen={isAddStudentFormActive}
         />
       </SettingsUserModal>

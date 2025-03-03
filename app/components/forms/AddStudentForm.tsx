@@ -15,10 +15,13 @@ interface UserDetails {
 
 interface IAddStudentFormProps {
   isSettingsModalOpen: boolean;
-  onAddStudent: () => void;
+  onAddStudent?: () => void;
 }
 
-const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
+const AddStudentForm = ({
+  isSettingsModalOpen,
+  onAddStudent,
+}: IAddStudentFormProps) => {
   const [copied, setCopied] = useState(false);
   const [registerStudent, { isLoading }] = useRegisterStudentMutation();
   const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
@@ -62,6 +65,7 @@ const AddStudentForm = ({ isSettingsModalOpen }: IAddStudentFormProps) => {
 
     try {
       const res = await registerStudent(data).unwrap();
+      onAddStudent && onAddStudent();
 
       showSuccessToast("Студент успішно доданий!");
 
