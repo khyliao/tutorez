@@ -25,7 +25,7 @@ const SettingsUserModal = ({
 }: SettingsUserModalProps) => {
   return createPortal(
     <div
-      className={`fixed top-3 left-3 md:left-auto right-0 bottom-3 z-20 flex flex-col rounded-md overflow-hidden duration-300 transition-transform lg:min-w-[576px] lg:max-w-[576px] border border-[#e2e2e2] dark:border-[#272774] ${
+      className={`fixed top-3 left-3 md:left-auto right-0 bottom-3 z-20 flex flex-col rounded-md overflow-hidden duration-300 transition-all lg:min-w-[576px] lg:max-w-[576px] border border-[#e2e2e2] dark:border-[#272774] ${
         isOpen ? "-translate-x-0 mr-3" : "translate-x-full"
       }`}
     >

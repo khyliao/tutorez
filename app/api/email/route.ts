@@ -1,17 +1,16 @@
 import { NextResponse, NextRequest } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
-  const password = process.env.NEXT_PUBLIC_BURNER_PASSWORD;
-  const myEmail = process.env.NEXT_PUBLIC_PERSONAL_EMAIL;
-
   const formData = await req.formData();
 
   const name = formData.get("name") as string | null;
   const email = formData.get("email") as string | null;
   const phone = formData.get("phone") as string | null;
   const other = formData.get("other") as string | null;
-  const subject = formData.get("subject") as string | null;
+  const subject = formData.get("subject") as string;
 
   if (!name || !phone) {
     return NextResponse.json(
@@ -20,20 +19,11 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: myEmail,
-      pass: password,
-    },
-  });
-
   try {
-    const mail = await transporter.sendMail({
-      priority: "high",
-      from: myEmail,
-      to: myEmail,
-      subject: `Tutorez | Заявка від ${name}`,
+    const { data, error } = await resend.emails.send({
+      from: "Tutorez@tutorez.com.ua",
+      to: process.env.NEXT_PUBLIC_PERSONAL_EMAIL || "",
+      subject,
       html: `<div style="font-family: Arial, sans-serif; color: #333;">
       <h2 style="margin-bottom: 20px; font-size: 24px; color: #007BFF;">Деталі замовлення</h2>
       <ul style="list-style: none; padding: 0; margin: 0;">
@@ -61,6 +51,7 @@ export async function POST(req: NextRequest) {
         Дякуємо за вашу заявку! Ми зв'яжемося з вами найближчим часом.
       </p>
     </div>`,
+      // react: EmailTemplate({ firstName: "John" }),
     });
 
     return NextResponse.json({ message: "Success: email was sent" });

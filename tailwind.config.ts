@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: "class",
+  darkMode: ["class"],
   content: ["./app/**/*.{js,ts,jsx,tsx,mdx}"],
   safelist: ["bg-[#080809]"],
   theme: {
@@ -59,12 +59,24 @@ const config: Config = {
       },
       keyframes: {
         slideDown: {
-          "0%": { transform: "translateY(-20px)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
+          "0%": {
+            transform: "translateY(-20px)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "translateY(0)",
+            opacity: "1",
+          },
         },
         fadeIn: {
-          "0%": { opacity: "0", transform: "translateY(-10px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
         },
       },
       animation: {
@@ -73,7 +85,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
 };
 
 export default config;
