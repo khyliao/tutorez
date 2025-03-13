@@ -15,7 +15,7 @@ const SearchBar = () => {
           onChange={(e) => {
             dispatch(setSearchValue(e.target.value));
           }}
-          placeholder="Gerol320"
+          placeholder="Анастасія"
         />
       </div>
     </div>

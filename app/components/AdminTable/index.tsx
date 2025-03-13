@@ -29,8 +29,8 @@ const AdminTable = ({
     if (!users) return [];
 
     return users
-      .filter(({ login }) =>
-        login.toLowerCase().includes(searchFieldLogin.toLowerCase())
+      .filter(({ name }) =>
+        name.toLowerCase().includes(searchFieldLogin.toLowerCase())
       )
       .map(
         ({ login, name, price, status, subject, lessons, balance }, index) => (

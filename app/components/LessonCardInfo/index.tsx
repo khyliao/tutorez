@@ -112,21 +112,19 @@ const LessonCardInfo = ({ action }: IPaymentCardInfoProps) => {
               maxLength={10}
             />
           </div>
-          <div className="flex justify-between gap-2">
-            <span className="text-xs md:text-sm font-semibold ">
-              Тривалість
-            </span>
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-xs md:text-sm font-semibold">Тривалість</span>
             <span className="text-xs md:text-sm font-semibold ">
               {convertToTimeString(duration)}
             </span>
           </div>
-          <div className="flex justify-between gap-2">
+          {/* <div className="flex items-center justify-between gap-2">
             <span className="text-xs md:text-sm font-semibold ">Оплачено</span>
             <span className="text-xs md:text-sm font-semibold ">
               {paid ? "Так" : "Ні"}
             </span>
-          </div>
-          <div className="flex justify-between gap-2">
+          </div> */}
+          <div className="flex items-center justify-between gap-2">
             <span className="text-xs md:text-sm font-semibold ">
               Виконання д/з
             </span>
@@ -171,7 +169,7 @@ const LessonCardInfo = ({ action }: IPaymentCardInfoProps) => {
           </button>
         </div>
         <div className="font-semibold flex flex-col gap-[10px]">
-          <div className="flex justify-between gap-2">
+          <div className="flex items-center justify-between gap-2">
             <span className="text-xs md:text-sm font-montserrat">
               Дата платежу
             </span>
@@ -185,7 +183,7 @@ const LessonCardInfo = ({ action }: IPaymentCardInfoProps) => {
               maxLength={10}
             />
           </div>
-          <div className="flex justify-between gap-2">
+          <div className="flex items-center justify-between gap-2">
             <span className="text-xs md:text-sm font-semibold ">
               Оплачено занять
             </span>
