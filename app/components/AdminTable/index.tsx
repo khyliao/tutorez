@@ -36,7 +36,7 @@ const AdminTable = ({
         ({ login, name, price, status, subject, lessons, balance }, index) => (
           <tr
             key={login}
-            className={`h-14 text-center font-medium transition-colors ${
+            className={`h-14 text-center font-medium hover:bg-[#d8cef6] dark:hover:bg-[#070606] transition-colors ${
               index % 2 !== 0
                 ? "bg-white dark:bg-[#1D1E42]"
                 : "bg-[#F7F6FE] dark:bg-[#26264F]"
@@ -53,7 +53,7 @@ const AdminTable = ({
                 />
                 <Link
                   href={`/platform/students/${login}`}
-                  className="trasition-colors duration-200 hover:text-[#536aee]"
+                  className="trasition-colors duration-200 hover:text-[#033dfc] dark:hover:text-[#515dc3]"
                 >
                   {login}
                 </Link>

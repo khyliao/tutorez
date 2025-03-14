@@ -13,25 +13,7 @@ import {
   useUpdateDateMutation,
 } from "@store/api/studentApi";
 import { showErrorToast, showSuccessToast } from "@/lib/utils/toastUtils";
-
-interface Lesson {
-  date: string;
-  type: string;
-  paid: boolean;
-  tutorReview: number;
-  duration: number;
-  isHomeworkCompleted: boolean;
-  id: number;
-  comment: string;
-}
-
-interface Payment {
-  date: string;
-  price: number;
-  type: string;
-  id: number;
-  amount: number;
-}
+import { Payment, Lesson } from "@/types/lessons";
 
 interface IPaymentCardInfoProps {
   action: Payment | Lesson;
@@ -85,7 +67,8 @@ const LessonCardInfo = ({ action }: IPaymentCardInfoProps) => {
   };
 
   if ("isHomeworkCompleted" in action) {
-    const { isHomeworkCompleted, tutorReview, duration, paid, id } = action;
+    const { isHomeworkCompleted, tutorReview, duration, paid, id, type } =
+      action;
 
     return (
       <div className="w-full transition-colors shadow-lessonCardInfoMobile md:shadow-lessonCardInfoTabletAndMore dark:shadow-lessonCardInfoMobileDark md:dark:shadow-lessonCardInfoTabletAndMoreDark leading-6 px-4 py-3 md:px-6 md:py-5 rounded-[20px] border-[4px] md:border-[5px] bg-[#f4c9f775] border-[#50135673] dark:bg-[#d6aee9] dark:border-[#6b4e6c]">
@@ -156,7 +139,7 @@ const LessonCardInfo = ({ action }: IPaymentCardInfoProps) => {
   }
 
   if ("amount" in action) {
-    const { amount, id } = action;
+    const { amount, currentBalance } = action;
 
     return (
       <div className="w-full transition-colors shadow-lessonCardInfoMobile md:shadow-lessonCardInfoTabletAndMore dark:shadow-lessonCardInfoMobileDark md:dark:shadow-lessonCardInfoTabletAndMoreDark leading-6 px-4 py-3 md:px-6 md:py-5 rounded-[20px] border-[4px] md:border-[6px] bg-[#f9f2c274] border-[#716c0273] dark:bg-[#f2ebc9] dark:border-[#aea830]">
@@ -185,12 +168,22 @@ const LessonCardInfo = ({ action }: IPaymentCardInfoProps) => {
           </div>
           <div className="flex items-center justify-between gap-2">
             <span className="text-xs md:text-sm font-semibold ">
-              Оплачено занять
+              Сума поповнення
             </span>
             <span className="text-xs md:text-sm font-semibold ">
               {convertToTimeString(amount)}
             </span>
           </div>
+          {currentBalance && (
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-xs md:text-sm font-semibold ">
+                Баланс після платежу
+              </span>
+              <span className="text-xs md:text-sm font-semibold ">
+                {convertToTimeString(currentBalance)}
+              </span>
+            </div>
+          )}
         </div>
       </div>
     );

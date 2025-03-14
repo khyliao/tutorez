@@ -8,5 +8,13 @@ export const convertToTimeString = (number: number) => {
   if (hours > 0) result.push(`${hours} год`);
   if (minutes > 0) result.push(`${minutes} хв`);
 
-  return result.length > 0 ? result.join(" ") : "0 год";
+  if (result.length > 0) {
+    if (number > 0) {
+      return result.join(" ");
+    }
+
+    return `-${result.join(" ")}`;
+  } else {
+    return "0 год";
+  }
 };

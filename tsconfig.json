@@ -28,8 +28,7 @@
       "@store/*": ["./lib/store/*"],
       "@services/*": ["./services/*"],
       "@hooks/*": ["./hooks/*"],
-      "@db/*": ["./db/*"],
-      "@types/*": ["./types/*"]
+      "@db/*": ["./db/*"]
     },
     "target": "ES2017"
   },

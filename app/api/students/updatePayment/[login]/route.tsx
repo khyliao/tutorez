@@ -11,10 +11,13 @@ export const PUT = async (req: NextRequest) => {
     const user = await res.json();
     const payments = [];
 
+    const newBalance = user.balance + action.amount;
+
     action.type = "payment";
     action.date = new Date().toLocaleDateString("uk-UA");
     action.id = Date.now();
     action.price = user.price;
+    action.currentBalance = newBalance;
 
     if (user) {
       if (Array.isArray(user.payments)) {
@@ -24,7 +27,7 @@ export const PUT = async (req: NextRequest) => {
 
     payments.push(action);
 
-    user.balance += action.amount;
+    user.balance = newBalance;
     user.payments = payments;
 
     await fetch(`${process.env.NEXT_PUBLIC_DATABASE_URL}/users/${login}.json`, {

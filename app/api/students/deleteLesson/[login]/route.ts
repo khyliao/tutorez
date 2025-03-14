@@ -1,15 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
-interface Lesson {
-  date: string;
-  type: string;
-  paid: boolean;
-  tutorReview: number;
-  duration: number;
-  isHomeworkCompleted: boolean;
-  id: number;
-  comment: string;
-}
+import { Lesson } from "@/types/lessons";
 
 export const PUT = async (req: NextRequest) => {
   try {
@@ -22,7 +12,7 @@ export const PUT = async (req: NextRequest) => {
 
     const user = await res.json();
     const lessons = user.lessons.filter(
-      (lesson: Lesson) => lesson.id !== lessonIdToDelete
+      ({ id }: Lesson) => id !== lessonIdToDelete
     );
 
     user.lessons = lessons;

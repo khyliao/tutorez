@@ -1,12 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
-interface Payment {
-  date: string;
-  price: number;
-  type: string;
-  id: number;
-  amount: number;
-}
+import { Payment } from "@/types/lessons";
 
 export const PUT = async (req: NextRequest) => {
   try {
