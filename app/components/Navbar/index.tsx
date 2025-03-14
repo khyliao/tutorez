@@ -34,7 +34,7 @@ const Navbar = () => {
         href="/"
         className="font-bungee z-20 tracking-wider text-2xl md:text-4xl lg:text-3xl xl:text-4xl leading-5 text-white font-medium"
       >
-        Tutor<span className="text-[#7000FF]">EZ</span>
+        Tutor<span className="text-[#7000FF]">ez</span>
       </Link>
       <aside
         className={`fixed z-10 top-0 pt-20 md:pt-28 px-4 left-0 h-screen w-screen bg-[#2B2B2B] -translate-y-full lg:translate-y-0 lg:flex lg:h-auto lg:w-auto lg:p-0  ${

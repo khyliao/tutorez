@@ -6,6 +6,7 @@ const GreetingPicture = () => {
       <Image
         src="/hero.webp"
         layout="intrinsic"
+        loading="eager"
         width={800}
         height={600}
         alt="platform's placeholder"

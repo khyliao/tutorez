@@ -1,0 +1,18 @@
+User-agent: *
+Disallow: /dashboard/
+Disallow: /login/
+Disallow: /api/
+
+Allow: /$
+
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Sitemap for better crawling
+Sitemap: https://tutorez.com.ua/sitemap.xml
