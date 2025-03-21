@@ -174,7 +174,7 @@ const LessonCardInfo = ({ action }: IPaymentCardInfoProps) => {
               {convertToTimeString(amount)}
             </span>
           </div>
-          {currentBalance && (
+          {currentBalance !== undefined && (
             <div className="flex items-center justify-between gap-2">
               <span className="text-xs md:text-sm font-semibold ">
                 Баланс після платежу
