@@ -8,27 +8,38 @@ export const DASHBOARD_MENU_ITEMS = [
     icon: <DashboardIcon />,
     link: "/platform/dashboard",
     label: "Дашборд",
-    permission: ["Суперадміністратор", "Адміністратор", "Викладач"],
+    permission: ["superadmin", "admin", "tutor"],
   },
   {
     icon: <UsersIcon />,
     link: "/platform/users",
     label: "Користувачі",
-    permission: ["Суперадміністратор", "Адміністратор"],
+    permission: ["superadmin", "admin"],
   },
   {
     icon: <AnalyticsIcon />,
     link: "/platform/analytics",
     label: "Аналітика",
-    permission: ["Суперадміністратор", "Адміністратор", "Викладач"],
+    permission: ["superadmin", "admin", "tutor"],
     soon: true,
   },
-
   {
     icon: <NotificationIcon />,
     link: "/platform/notification",
     label: "Сповіщення",
-    permission: ["Суперадміністратор", "Адміністратор", "Викладач"],
+    permission: ["superadmin", "admin", "tutor"],
     soon: true,
+  },
+  {
+    icon: <DashboardIcon />,
+    link: "/platform/dashboard",
+    label: "Дашборд",
+    permission: ["student"],
+  },
+  {
+    icon: <AnalyticsIcon />,
+    link: "/platform/dashboard/courses",
+    label: "Предмети",
+    permission: ["student"],
   },
 ];

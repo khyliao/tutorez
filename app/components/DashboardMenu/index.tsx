@@ -9,10 +9,16 @@ import LogoutIcon from "@assets/logout.svg";
 import ThemeSwitcher from "@components/ThemeSwitcher";
 import { useAppSelector } from "@hooks/reduxHooks";
 import { selectCurrentUser } from "@store/api/features/currentUserSlice";
+import { getRoleName, roles } from "@/app/utils/roles";
+import { useMemo } from "react";
 
 const DashboardMenu = () => {
   const router = useRouter();
   const user = useAppSelector(selectCurrentUser);
+  const roleName = useMemo(
+    () => getRoleName(user.role as keyof typeof roles),
+    [user.role]
+  );
 
   if (!user) return <></>;
 
@@ -35,7 +41,7 @@ const DashboardMenu = () => {
             {user.name}
           </h2>
           <span className="max-w-fit px-[6px] text-xs bg-[#FFCD71] rounded-md">
-            {user.role}
+            {roleName}
           </span>
         </div>
       </div>

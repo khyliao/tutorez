@@ -1,5 +1,5 @@
 "use client";
-import bcrypt from "bcryptjs";
+
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -30,6 +30,10 @@ const Login = () => {
 
   useEffect(() => {
     document.documentElement.classList.remove("dark");
+
+    if (localStorage.getItem("user")) {
+      router.push("/platform/dashboard");
+    }
   }, []);
 
   const onSubmit: SubmitHandler<Inputs> = async (userCredentials) => {

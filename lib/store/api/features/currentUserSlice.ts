@@ -1,3 +1,4 @@
+import { Lesson, Payment } from "@/types/lessons";
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "@store/store";
 
@@ -6,6 +7,8 @@ interface User {
   login: string;
   name: string;
   password: string;
+  lessons: Lesson[];
+  payments: Payment[];
   role: string;
   price: number;
   status: string;

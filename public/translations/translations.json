@@ -159,7 +159,7 @@
         },
         "additionInfo": {
           "label": "Additional information",
-          "placeholder": "My Telegram: @student"
+          "placeholder": "Nickname in Telegram/Viber"
         },
         "subject": {
           "label": "Subject",
@@ -352,7 +352,7 @@
         },
         "additionInfo": {
           "label": "Додаткова інформація",
-          "placeholder": "Мій телеграм: @student"
+          "placeholder": "Нік в Telegram/Viber"
         },
         "subject": {
           "label": "Предмет",

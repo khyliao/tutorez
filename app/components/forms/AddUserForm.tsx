@@ -22,7 +22,7 @@ const AddUserForm = () => {
       name: "",
       subject: "",
       contact: "",
-      role: "Викладач",
+      role: "tutor",
       comment: "",
       password: "",
       login: "",
@@ -161,7 +161,7 @@ const AddUserForm = () => {
         <div>
           <div className="relative">
             <Dropdown
-              options={["Викладач", "Адміністратор", "Суперадміністратор"]}
+              options={["tutor", "admin", "superadmin"]}
               field="role"
               setValue={setValue}
             />

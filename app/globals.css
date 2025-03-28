@@ -124,3 +124,11 @@ body {
     background-image: url("../assets/background.webp");
   }
 }
+
+.rdp-chevron {
+  fill: rgb(73, 0, 245);
+}
+
+.dark .rdp-chevron {
+  fill: rgb(250, 59, 59);
+}
