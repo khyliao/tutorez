@@ -17,7 +17,7 @@ const Analytics = () => {
 
   const total = students?.reduce(
     (acc: Record<string, number>, student: any) => {
-      student.lessons.forEach((lesson: Lesson) => {
+      student.lessons?.forEach((lesson: Lesson) => {
         const [day, month, year] = lesson.date.split(".").map(Number);
         const lessonMonth = month - 1;
 
