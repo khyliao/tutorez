@@ -40,7 +40,7 @@ const DashboardMenu = () => {
           <h2 className="text-lg font-montserrat font-bold dark:text-light-dashboard-menu">
             {user.name}
           </h2>
-          <span className="max-w-fit px-[6px] text-xs bg-[#FFCD71] rounded-md">
+          <span className="max-w-fit px-[6px] text-xs bg-[#FFCD71] dark:text-black rounded-md">
             {roleName}
           </span>
         </div>
