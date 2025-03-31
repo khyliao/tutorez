@@ -5,6 +5,7 @@ import { RootState } from "@store/store";
 interface User {
   id: string;
   login: string;
+  percentage: number;
   name: string;
   password: string;
   lessons: Lesson[];

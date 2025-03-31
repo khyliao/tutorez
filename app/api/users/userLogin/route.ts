@@ -17,7 +17,6 @@ export async function POST(req: NextRequest) {
     );
 
     const user = await userResponse.json();
-
     if (!user) {
       return NextResponse.json(
         { error: "User does not exist" },

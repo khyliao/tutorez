@@ -11,6 +11,7 @@ export interface Lesson {
   date: string;
   type: string;
   paid: boolean;
+  price: number;
   tutorReview: number;
   duration: number;
   isHomeworkCompleted: boolean;
