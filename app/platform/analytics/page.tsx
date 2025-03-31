@@ -15,20 +15,26 @@ const Analytics = () => {
   const currentMonth = now.getMonth();
   const previousMonth = currentMonth === 0 ? 11 : currentMonth - 1;
 
-  const total = students?.reduce(
+  const stats = students?.reduce(
     (acc: Record<string, number>, student: any) => {
-      student.lessons?.forEach((lesson: Lesson) => {
-        const [day, month, year] = lesson.date.split(".").map(Number);
+      student.lessons?.forEach(({ price, duration, date }: Lesson) => {
+        const [day, month, year] = date.split(".").map(Number);
         const lessonMonth = month - 1;
 
         if (lessonMonth === currentMonth) {
-          acc.currentMonth =
-            (acc.currentMonth || 0) + lesson.price * lesson.duration;
+          acc.currentMonthAmount =
+            (acc.currentMonthAmount || 0) + price * duration;
+
+          acc.currentMonthWorkHours =
+            (acc.currentMonthWorkHours || 0) + duration;
         }
 
         if (lessonMonth === previousMonth) {
-          acc.previousMonth =
-            (acc.previousMonth || 0) + lesson.price * lesson.duration;
+          acc.previousMonthAmount =
+            (acc.previousMonthAmount || 0) + price * duration;
+
+          acc.previousMonthWorkHours =
+            (acc.previousMonthWorkHours || 0) + duration;
         }
       });
 
@@ -37,11 +43,17 @@ const Analytics = () => {
     {}
   );
 
-  console.log(total);
-
   const data = [
-    { month: "Поточний місяць", value: total?.currentMonth || 0 },
-    { month: "Попередній місяць", value: total?.previousMonth || 0 },
+    {
+      month: "Поточний місяць",
+      amount: stats?.currentMonthAmount || 0,
+      workHours: stats?.currentMonthWorkHours,
+    },
+    {
+      month: "Попередній місяць",
+      amount: stats?.previousMonthAmount || 0,
+      workHours: stats?.previousMonthWorkHours,
+    },
   ];
   return (
     <>
