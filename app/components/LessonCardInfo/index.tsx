@@ -71,7 +71,7 @@ const LessonCardInfo = ({ action }: IPaymentCardInfoProps) => {
       action;
 
     return (
-      <div className="w-full transition-colors shadow-lessonCardInfoMobile md:shadow-lessonCardInfoTabletAndMore dark:shadow-lessonCardInfoMobileDark md:dark:shadow-lessonCardInfoTabletAndMoreDark leading-6 px-4 py-3 md:px-6 md:py-5 rounded-[20px] border-[4px] md:border-[5px] bg-[#f4c9f775] border-[#50135673] dark:bg-[#d6aee9] dark:border-[#6b4e6c]">
+      <div className="w-full dark:text-black transition-colors shadow-lessonCardInfoMobile md:shadow-lessonCardInfoTabletAndMore dark:shadow-lessonCardInfoMobileDark md:dark:shadow-lessonCardInfoTabletAndMoreDark leading-6 px-4 py-3 md:px-6 md:py-5 rounded-[20px] border-[4px] md:border-[5px] bg-[#f4c9f775] border-[#50135673] dark:bg-[#d6aee9] dark:border-[#6b4e6c]">
         <div className="flex mb-2 pb-[10px] border-b border-b-[#b48888] items-center justify-between">
           <h2 className=" text-base lg:text-lg font-bold tracking-wider text-[#0f0f0f] ">
             Деталі заняття
@@ -142,7 +142,7 @@ const LessonCardInfo = ({ action }: IPaymentCardInfoProps) => {
     const { amount, currentBalance } = action;
 
     return (
-      <div className="w-full transition-colors shadow-lessonCardInfoMobile md:shadow-lessonCardInfoTabletAndMore dark:shadow-lessonCardInfoMobileDark md:dark:shadow-lessonCardInfoTabletAndMoreDark leading-6 px-4 py-3 md:px-6 md:py-5 rounded-[20px] border-[4px] md:border-[6px] bg-[#f9f2c274] border-[#716c0273] dark:bg-[#f2ebc9] dark:border-[#aea830]">
+      <div className="w-full dark:text-black transition-colors shadow-lessonCardInfoMobile md:shadow-lessonCardInfoTabletAndMore dark:shadow-lessonCardInfoMobileDark md:dark:shadow-lessonCardInfoTabletAndMoreDark leading-6 px-4 py-3 md:px-6 md:py-5 rounded-[20px] border-[4px] md:border-[6px] bg-[#f9f2c274] border-[#716c0273] dark:bg-[#f2ebc9] dark:border-[#aea830]">
         <div className="flex mb-2 pb-[10px] border-b border-b-[#b48888] items-center justify-between">
           <h2 className=" text-base lg:text-lg font-bold tracking-wider text-[#0f0f0f] ">
             Платіж

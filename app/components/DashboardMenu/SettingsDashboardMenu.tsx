@@ -21,6 +21,7 @@ export const DASHBOARD_MENU_ITEMS = [
     link: "/platform/analytics",
     label: "Аналітика",
     permission: ["superadmin", "admin", "tutor"],
+    
   },
   {
     icon: <NotificationIcon />,
