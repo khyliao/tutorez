@@ -21,7 +21,6 @@ export const DASHBOARD_MENU_ITEMS = [
     link: "/platform/analytics",
     label: "Аналітика",
     permission: ["superadmin", "admin", "tutor"],
-    
   },
   {
     icon: <NotificationIcon />,
@@ -41,5 +40,17 @@ export const DASHBOARD_MENU_ITEMS = [
     link: "/platform/dashboard/courses",
     label: "Предмети",
     permission: ["student"],
+  },
+  {
+    // icon: <AnalyticsIcon />,
+    link: "/platform/logs",
+    label: "Логи",
+    permission: ["superadmin"],
+  },
+  {
+    // icon: <AnalyticsIcon />,
+    link: "/platform/suspicious-activity",
+    label: "Підозріла активність",
+    permission: ["superadmin"],
   },
 ];

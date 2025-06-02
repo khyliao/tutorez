@@ -29,24 +29,24 @@ const DashboardMenu = () => {
   };
 
   return (
-    <div className="fixed pointer-e top-0 left-0 flex flex-col h-screen p-4 px-1 md:p-4 w-20 md:min-w-56 transition-colors duration-300 border-[#EFEFEF] border-r dark:bg-[#09090A] dark:border-r-[#1F1F22]">
-      <div className="flex gap-3 justify-center items-center mb-11">
+    <div className='fixed pointer-e top-0 left-0 flex flex-col h-screen p-4 px-1 md:p-4 w-20 md:min-w-56 transition-colors duration-300 border-[#EFEFEF] border-r dark:bg-[#09090A] dark:border-r-[#1F1F22]'>
+      <div className='flex gap-3 justify-center items-center mb-11'>
         <Image
           src={avatar}
-          className="w-10 h-10 md:w-14 md:h-14"
-          alt="avatar"
+          className='w-10 h-10 md:w-14 md:h-14'
+          alt='avatar'
         />
-        <div className="hidden md:flex flex-col">
-          <h2 className="text-lg font-montserrat font-bold dark:text-light-dashboard-menu">
+        <div className='hidden md:flex flex-col'>
+          <h2 className='text-lg font-montserrat font-bold dark:text-light-dashboard-menu'>
             {user.name}
           </h2>
-          <span className="max-w-fit px-[6px] text-xs bg-[#FFCD71] dark:text-black rounded-md">
+          <span className='max-w-fit px-[6px] text-xs bg-[#FFCD71] dark:text-black rounded-md'>
             {roleName}
           </span>
         </div>
       </div>
-      <div className="flex flex-col h-full justify-between">
-        <div className="flex flex-col gap-6">
+      <div className='flex flex-col h-full justify-between'>
+        <div className='flex flex-col gap-6'>
           {DASHBOARD_MENU_ITEMS.map(
             ({ icon, link, label, soon, permission }) => {
               const isAvailable = permission.includes(user.role);
@@ -60,13 +60,15 @@ const DashboardMenu = () => {
                     }`}
                     href={link}
                   >
-                    <span className="text-[#1F1F22] stroke-[1.5] dark:text-light-dashboard-menu stroke-current">
-                      {icon}
-                    </span>
+                    {icon && (
+                      <span className='text-[#1F1F22] stroke-[1.5] dark:text-light-dashboard-menu stroke-current'>
+                        {icon}
+                      </span>
+                    )}
 
-                    <span className="hidden md:block">{label}</span>
+                    <span className='hidden md:block'>{label}</span>
                     {soon && (
-                      <span className="hidden md:inline-block absolute -top-[1px] -right-[6px] text-[8px] px-1 py-[2px] transition-colors bg-[#12092c] text-white dark:bg-[#5b2686] rounded-md rotate-[25deg]">
+                      <span className='hidden md:inline-block absolute -top-[1px] -right-[6px] text-[8px] px-1 py-[2px] transition-colors bg-[#12092c] text-white dark:bg-[#5b2686] rounded-md rotate-[25deg]'>
                         Soon
                       </span>
                     )}
@@ -77,16 +79,16 @@ const DashboardMenu = () => {
           )}
         </div>
         <div>
-          <div className="flex mb-1 md:mb-0 justify-center md:justify-start md:p-4 gap-5 items-center">
+          <div className='flex mb-1 md:mb-0 justify-center md:justify-start md:p-4 gap-5 items-center'>
             <ThemeSwitcher />
           </div>
           <button
             onClick={handleLogOut}
-            className="group flex w-full p-2 justify-center hover:bg-[#d43d23] hover:text-white rounded-md transition-colors duration-200 md:justify-start md:p-4 gap-4 items-center leading-5 font-montserrat font-medium"
-            type="button"
+            className='group flex w-full p-2 justify-center hover:bg-[#d43d23] hover:text-white rounded-md transition-colors duration-200 md:justify-start md:p-4 gap-4 items-center leading-5 font-montserrat font-medium'
+            type='button'
           >
-            <LogoutIcon className="text-[#1F1F22] transition-colors group-hover:text-white stroke-[1.5] dark:text-light-dashboard-menu stroke-current" />
-            <span className="hidden md:block dark:text-light-dashboard-menu">
+            <LogoutIcon className='text-[#1F1F22] transition-colors group-hover:text-white stroke-[1.5] dark:text-light-dashboard-menu stroke-current' />
+            <span className='hidden md:block dark:text-light-dashboard-menu'>
               Вийти
             </span>
           </button>

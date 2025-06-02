@@ -25,7 +25,7 @@ const Button = ({
           onClick={onClick}
           className={`flex transition-colors duration-200 items-center gap-2 text-xs lg:text-sm font-montserrat font-bold p-3 px-3 md:p-3 md:px-4 rounded-lg text-white bg-purplePrimary hover:bg-[#5c3ec8] dark:bg-[#523ae6] ${className}`}
         >
-          <PlusIcon className="text-white" /> {children}
+          <PlusIcon className='text-white' /> {children}
         </button>
       );
     case "primaryBtnMode":
@@ -42,8 +42,8 @@ const Button = ({
     case "secondaryBtnMode":
       return (
         <button
-          className="leading-5 h-12 text-sm font-montserrat font-medium dark:text-white rounded-md px-0 p-2 md:px-3 md:text-base transition-colors duration-300 md:hover:bg-[#b0a5fa] dark:hover:bg-[#1d1dd1]"
-          type="button"
+          className='leading-5 h-12 text-sm font-montserrat font-medium dark:text-white rounded-md px-0 p-2 md:px-3 md:text-base transition-colors duration-300 md:hover:bg-[#b0a5fa] dark:hover:bg-[#1d1dd1]'
+          type='button'
           onClick={onClick}
         >
           {children}
@@ -53,7 +53,7 @@ const Button = ({
       return (
         <button
           type={btnType}
-          className="flex gap-2 w-full items-center leading-5 dark:text-white hover:bg-[#b0a5fa] dark:hover:bg-[#3f34d3] text-sm p-3 md:text-base font-montserrat font-medium rounded-md transition-colors duration-300 "
+          className='flex gap-2 w-full items-center leading-5 dark:text-white hover:bg-[#b0a5fa] dark:hover:bg-[#3f34d3] text-sm p-3 md:text-base font-montserrat font-medium rounded-md transition-colors duration-300 '
           onClick={onClick}
         >
           {children}

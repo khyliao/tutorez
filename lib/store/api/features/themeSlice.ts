@@ -23,10 +23,14 @@ const themeSlice = createSlice({
       state.value = "light";
       localStorage.setItem("theme", "light");
     },
+    initTheme: (state, action) => {
+      state.value = action.payload
+    }
   },
+  
 });
 
-export const { toggleTheme } = themeSlice.actions;
+export const { toggleTheme, initTheme } = themeSlice.actions;
 
 export const selectTheme = (state: RootState) => state.theme.value;
 
