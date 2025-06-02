@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
 
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function GET(req: NextRequest) {
   try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_DATABASE_URL}/payments.json`);
