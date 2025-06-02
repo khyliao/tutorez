@@ -3,24 +3,18 @@ import { useAppSelector } from "@hooks/reduxHooks";
 import { selectCurrentUser } from "@store/api/features/currentUserSlice";
 import LineChart from "@components/LineChart";
 import { TrendingDownIcon, TrendingUpIcon } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { CardFooter } from "@/components/ui/card";
 import { useGetPaymentsQuery } from "@/lib/store/api/paymentsApi";
-import {
-  ILineChartData,
-  ILineChartItem,
-  PaymentInfoDBScheme,
-} from "@/types/lineChart";
+import { ILineChartData, PaymentInfoDBScheme } from "@/types/lineChart";
 
 const Analytics = () => {
   const { login, percentage } = useAppSelector(selectCurrentUser);
   const { data: payments } = useGetPaymentsQuery(null);
   const paymentsValues: PaymentInfoDBScheme[] = Object.values(payments ?? {});
-
+  console.log(paymentsValues);
   const data: ILineChartData[] = paymentsValues.reduce(
     (acc: ILineChartData[], payment: PaymentInfoDBScheme) => {
       const tutorData = payment.info[login];
-      if (!tutorData) return acc;
 
       return [
         ...acc,
@@ -37,7 +31,6 @@ const Analytics = () => {
   const dataForLineChart = data.map(({ date, amount }) => ({ date, amount }));
 
   if (!data.length && login !== "khilyao") return <div>Завантаження...</div>;
-
   const lastItem = data.at(-1);
   const preLastItem = data.at(-2);
 
@@ -62,7 +55,7 @@ const Analytics = () => {
                     {percentage !== 0 && (
                       <p className='@[250px]/card:text-2xl text-xl text-red-500 font-semibold tabular-nums'>
                         {(lastItem?.percentage ?? 0) * 100}% -{" "}
-                        {(lastItem?.amount ?? 0) * (lastItem?.percentage ?? 0)}
+                        {(lastItem?.amount ?? 0) * (lastItem?.percentage ?? 0)}{" "}
                         грн
                       </p>
                     )}

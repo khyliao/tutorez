@@ -8,8 +8,8 @@ import LogBar from "@components/LogBar";
 
 const Logs = () => {
   const [date, setDate] = useState(getDateKey());
-
   const { data: logs, isLoading, error } = useGetLogsQuery({ date });
+  console.log(logs);
 
   const handleDateChange = (date: string) => {
     setDate(date);
