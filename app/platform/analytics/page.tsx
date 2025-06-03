@@ -19,6 +19,7 @@ const Analytics = () => {
       return [
         ...acc,
         {
+          time: payment.date,
           date: payment.id,
           amount: tutorData.amount,
           totalHours: tutorData.totalHours,
@@ -46,8 +47,11 @@ const Analytics = () => {
               <div className='*:data-[slot=card]:shadow-xs @xl/main:grid-cols-2 @5xl/main:grid-cols-4 grid grid-cols-1 gap-4 *:data-[slot=card]:bg-gradient-to-t  *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card lg:px-6'>
                 <div className='rounded-xl border  text-card-foreground shadow'>
                   <div className='relative flex flex-col space-y-1.5 p-6'>
+                    <div className='absolute top-3 right-3 text-[11px] text-[#d4ecff]'>
+                      (Станом на {lastItem?.time})
+                    </div>
                     <div className='text-sm text-muted-foreground'>
-                      Поточний місяць
+                      Поточний місяць{" "}
                     </div>
                     <div className='text-2xl font-semibold tabular-nums'>
                       {lastItem?.amount ?? 0} грн
@@ -70,6 +74,7 @@ const Analytics = () => {
                         : 0}{" "}
                       грн
                     </p>
+
                     {/* <div className=''>
                     <Badge
                       variant='outline'
@@ -106,6 +111,9 @@ const Analytics = () => {
               <div className='*:data-[slot=card]:shadow-xs @xl/main:grid-cols-2 @5xl/main:grid-cols-4 grid grid-cols-1 gap-4 *:data-[slot=card]:bg-gradient-to-t  *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card lg:px-6'>
                 <div className='rounded-xl border  text-card-foreground shadow'>
                   <div className='relative flex flex-col space-y-1.5 p-6'>
+                    <div className='absolute top-3 right-3 text-[11px] text-[#d4ecff]'>
+                      (Станом на {preLastItem?.time})
+                    </div>
                     <div className='text-sm text-muted-foreground'>
                       Попередній місяць
                     </div>
