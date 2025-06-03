@@ -47,8 +47,8 @@ const Analytics = () => {
               <div className='*:data-[slot=card]:shadow-xs @xl/main:grid-cols-2 @5xl/main:grid-cols-4 grid grid-cols-1 gap-4 *:data-[slot=card]:bg-gradient-to-t  *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card lg:px-6'>
                 <div className='rounded-xl border  text-card-foreground shadow'>
                   <div className='relative flex flex-col space-y-1.5 p-6'>
-                    <div className='absolute top-3 right-3 text-[11px] text-[#d4ecff]'>
-                      (Станом на {lastItem?.time})
+                    <div className='absolute top-3 right-3 text-[11px] text-[#5c5555] dark:text-[#d4ecff]'>
+                      Станом на {lastItem?.time}
                     </div>
                     <div className='text-sm text-muted-foreground'>
                       Поточний місяць{" "}
@@ -111,8 +111,8 @@ const Analytics = () => {
               <div className='*:data-[slot=card]:shadow-xs @xl/main:grid-cols-2 @5xl/main:grid-cols-4 grid grid-cols-1 gap-4 *:data-[slot=card]:bg-gradient-to-t  *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card lg:px-6'>
                 <div className='rounded-xl border  text-card-foreground shadow'>
                   <div className='relative flex flex-col space-y-1.5 p-6'>
-                    <div className='absolute top-3 right-3 text-[11px] text-[#d4ecff]'>
-                      (Станом на {preLastItem?.time})
+                    <div className='absolute top-3 right-3 text-[11px] text-[#5c5555] dark:text-[#d4ecff]'>
+                      Станом на {preLastItem?.time}
                     </div>
                     <div className='text-sm text-muted-foreground'>
                       Попередній місяць
