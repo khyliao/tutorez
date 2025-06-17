@@ -1,17 +1,21 @@
 "use client";
 import { useAppSelector } from "@hooks/reduxHooks";
 import { selectCurrentUser } from "@store/api/features/currentUserSlice";
-import LineChart from "@components/LineChart";
+import LineChart from "@components/AnalyticsPageComponents/LineChart";
+import { LineChart as IconLineChart } from "lucide-react";
 import { TrendingDownIcon, TrendingUpIcon } from "lucide-react";
 import { CardFooter } from "@/components/ui/card";
 import { useGetPaymentsQuery } from "@/lib/store/api/paymentsApi";
 import { ILineChartData, PaymentInfoDBScheme } from "@/types/lineChart";
+import TutorPaymentList from "@components/AnalyticsPageComponents/TutorPaymentList";
+import Title from "@components/AnalyticsPageComponents/Title";
 
 const Analytics = () => {
-  const { login, percentage } = useAppSelector(selectCurrentUser);
+  const { login, role, percentage } = useAppSelector(selectCurrentUser);
+
   const { data: payments } = useGetPaymentsQuery(null);
   const paymentsValues: PaymentInfoDBScheme[] = Object.values(payments ?? {});
-  console.log(paymentsValues);
+
   const data: ILineChartData[] = paymentsValues.reduce(
     (acc: ILineChartData[], payment: PaymentInfoDBScheme) => {
       const tutorData = payment.info[login];
@@ -29,6 +33,7 @@ const Analytics = () => {
     },
     []
   );
+
   const dataForLineChart = data.map(({ date, amount }) => ({ date, amount }));
 
   if (!data.length && login !== "khilyao") return <div>Завантаження...</div>;
@@ -39,8 +44,17 @@ const Analytics = () => {
     <>
       <div className='flex flex-1 flex-col'>
         <div className='@container/main flex flex-1 flex-col gap-2'>
-          <div className='h-[400px] mb-8 px-6'>
-            <LineChart data={dataForLineChart} />
+          <div className='mb-8 h-[200px] md:h-[300px] lg:h-[400px] px-3 md:px-6 pt-4 lg:mb-12'>
+            <Title>Щомісячна звітність</Title>
+            <div key={login} className='mt-6 border rounded-xl p-4 shadow'>
+              <div className='flex items-center justify-between mb-4'>
+                <h3 className='text-lg font-semibold'>{login}</h3>
+                <IconLineChart className='text-muted-foreground' />
+              </div>
+              <div className='h-60'>
+                <LineChart data={dataForLineChart} />
+              </div>
+            </div>
           </div>
           <div className='grid px-2 md:grid-cols-2 gap-4'>
             <div className='flex flex-col gap-4  md:gap-6'>
@@ -89,8 +103,8 @@ const Analytics = () => {
                     </Badge>
                   </div> */}
                   </div>
-                  <CardFooter className='flex-col items-start gap-1 text-sm'>
-                    {/* <div className='line-clamp-1 flex gap-2 font-medium'>
+                  {/* <CardFooter className='flex-col items-start gap-1 text-sm'> */}
+                  {/* <div className='line-clamp-1 flex gap-2 font-medium'>
                     {trend === "up" ? (
                       <>
                         Тенденція до прирісту цього місяця{" "}
@@ -103,7 +117,7 @@ const Analytics = () => {
                       </>
                     )}
                   </div> */}
-                  </CardFooter>
+                  {/* </CardFooter> */}
                 </div>
               </div>
             </div>
@@ -151,8 +165,8 @@ const Analytics = () => {
                     </Badge>
                   </div> */}
                   </div>
-                  <CardFooter className='flex-col items-start gap-1 text-sm'>
-                    {/* <div className='line-clamp-1 flex gap-2 font-medium'>
+                  {/* <CardFooter className='flex-col items-start gap-1 text-sm'> */}
+                  {/* <div className='line-clamp-1 flex gap-2 font-medium'>
                     {trend === "up" ? (
                       <>
                         Тенденція до прирісту цього місяця{" "}
@@ -165,10 +179,15 @@ const Analytics = () => {
                       </>
                     )}
                   </div> */}
-                  </CardFooter>
+                  {/* </CardFooter> */}
                 </div>
               </div>
             </div>
+          </div>
+          <div className='mt-6'>
+            {role === "superadmin" && (
+              <TutorPaymentList data={paymentsValues} />
+            )}
           </div>
         </div>
       </div>

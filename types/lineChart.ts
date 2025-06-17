@@ -15,14 +15,19 @@ export interface PaymentInfoDBScheme {
   date: string,
   id: string,
   income: number,
-  info: Record<string, tutorPaymentItem>
+  info: Record<string, TutorPaymentItem>
 }
   
-export interface tutorPaymentItem {
+export interface TutorPaymentItem {
   amount: number,
   averageLessonCost: number,
   commision: number,
   paid: boolean,
   percentage: number,
   totalHours: number
+}
+
+
+export interface TutorPaymentItemWithDate extends TutorPaymentItem {
+  date:string
 }
