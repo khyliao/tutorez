@@ -16,19 +16,19 @@ const StudentStats = () => {
   ).toFixed(2);
 
   return (
-    <div className="flex flex-col md:flex-row flex-wrap gap-4">
-      <div className="p-4 px-5 w-full md:w-[220px] rounded-2xl bg-[#fce9e9] dark:bg-[#eeb4b4]">
-        <div className="w-10 h-10 mb-2 flex items-center justify-center bg-white dark:bg-[#f9dede] rounded-full">
-          <Medal />
+    <div className='flex flex-col md:flex-row flex-wrap gap-4'>
+      <div className='p-4 px-5 w-full md:w-[220px] rounded-2xl bg-[#fce9e9] dark:bg-[#f79292] dark:text-black'>
+        <div className='w-10 h-10 mb-2 flex items-center justify-center bg-white dark:bg-[#f9dede] rounded-full'>
+          <Medal className='text-black' />
         </div>
-        <h3 className="mb-[6px] opacity-60 dark:opacity-80 font-montserrat font-medium text-base leading-6">
+        <h3 className='mb-[6px] opacity-60 dark:opacity-80 font-montserrat font-medium text-base leading-6'>
           Середня оцінка
         </h3>
-        <span className="text-2xl font-semibold font-montserrat leading-5 tracking-wide">
+        <span className='text-2xl font-semibold font-montserrat leading-5 tracking-wide'>
           {averageMark} / 5.00
         </span>
       </div>
-      <div className="p-4 px-5 w-full md:w-[220px] rounded-2xl bg-[#e7f9ea] dark:bg-[#d7f6da]">
+      {/* <div className="p-4 px-5 w-full md:w-[220px] rounded-2xl bg-[#e7f9ea] dark:bg-[#d7f6da]">
         <div className="w-10 h-10 mb-2 flex items-center justify-center bg-white dark:bg-[#f5fcf2] rounded-full">
           <VideoSquare />
         </div>
@@ -49,7 +49,7 @@ const StudentStats = () => {
         <span className="text-2xl font-semibold font-montserrat leading-5 tracking-wide">
           43 / 231
         </span>
-      </div>
+      </div> */}
     </div>
   );
 };

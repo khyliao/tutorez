@@ -1,5 +1,5 @@
 "use client";
-import { useState, Suspense, useEffect } from "react";
+import { useState, Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import dynamic from "next/dynamic";
 import Hero from "@components/Hero";
@@ -9,7 +9,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import QrModal from "./components/QrModal";
 import QrModalWrapper from "./components/QrModal/components/QrModalWrapper";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 const LazyComponents = {
   Team: dynamic(() => import("@components/Team"), { ssr: false }),
@@ -21,31 +21,30 @@ const LazyComponents = {
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const router = useRouter();
+  // const router = useRouter();
 
   // temporary
-  useEffect(() => {
-    router.replace("/?openModal=true");
-  }, []);
+  // useEffect(() => {
+  //   router.replace("/?openModal=true");
+  // }, []);
 
   return (
     <>
       <Analytics />
-      <main className="main">
+      <main className='main'>
         <Navbar />
         <Hero />
         <About />
         <LazyComponents.Advantage />
         <LazyComponents.Team />
+        <LazyComponents.Review />
         <LazyComponents.Stats />
         <LazyComponents.ClientForm />
       </main>
       <Footer />
-
       <Suspense fallback={<div>...</div>}>
         <QrModalWrapper setIsModalOpen={setIsModalOpen} />
       </Suspense>
-
       {isModalOpen && <QrModal onClose={() => setIsModalOpen(false)} />}
     </>
   );

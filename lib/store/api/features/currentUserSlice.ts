@@ -1,25 +1,11 @@
-import { Lesson, Payment } from "@/types/lessons";
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "@store/store";
+import {IUser} from '@/types/users'
 
-interface User {
-  id: string;
-  login: string;
-  percentage: number;
-  name: string;
-  password: string;
-  lessons: Lesson[];
-  payments: Payment[];
-  role: string;
-  price: number;
-  status: string;
-  subject: string;
-  telegram: string;
-  comment?: string;
-}
+
 
 const initialState = {
-  value: {} as User,
+  value: {} as IUser,
 };
 
 const currentUserSlice = createSlice({

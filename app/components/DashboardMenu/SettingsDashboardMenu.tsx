@@ -35,12 +35,12 @@ export const DASHBOARD_MENU_ITEMS = [
     label: "Дашборд",
     permission: ["student"],
   },
-  {
-    icon: <AnalyticsIcon />,
-    link: "/platform/dashboard/courses",
-    label: "Предмети",
-    permission: ["student"],
-  },
+  // {
+  //   icon: <AnalyticsIcon />,
+  //   link: "/platform/dashboard/courses",
+  //   label: "Предмети",
+  //   permission: ["student"],
+  // },
   {
     // icon: <AnalyticsIcon />,
     link: "/platform/logs",

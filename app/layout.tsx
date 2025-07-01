@@ -2,6 +2,21 @@ import type { Metadata, Viewport } from "next";
 import "modern-normalize";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
+import { Montserrat, Manrope } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-montserrat",
+  weight: ["400", "500", "600", "700"],
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-manrope",
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 export const metadata: Metadata = {
   applicationName: "Tutorez",
@@ -71,18 +86,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-  
   return (
-    <html lang="uk">
+    <html lang='uk'>
       <head>
-        <meta property="og:site_name" content="Tutorez" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
+        <meta property='og:site_name' content='Tutorez' />
       </head>
-      <body className="dark:bg-[#1D1E42]">
+      <body
+        className={`${montserrat.variable} ${manrope.variable} dark:bg-[#1D1E42]`}
+      >
         <StoreProvider>{children}</StoreProvider>
       </body>
     </html>

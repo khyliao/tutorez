@@ -9,7 +9,7 @@ const PlatformLayout = ({ children }: IPlatformLayoutProps) => {
   return (
     <>
       <DashboardMenuLayout>
-        <div className="ml-[80px] md:ml-[224px] w-calc-full-minus-80 md:w-calc-full-minus-256">
+        <div className='w-calc-full-minus-80 max-h-screen overflow-y-scroll md:w-calc-full-minus-256'>
           {children}
         </div>
       </DashboardMenuLayout>

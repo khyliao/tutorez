@@ -29,22 +29,22 @@ const SettingsUserModal = ({
         isOpen ? "-translate-x-0 mr-3" : "translate-x-full"
       }`}
     >
-      <div className="p-3 py-4 transition-colors bg-[#EBEEF2] dark:bg-[#141432] dark:text-white font-montserrat font-bold">
+      <div className='p-3 py-4 transition-colors bg-[#EBEEF2] dark:bg-[#141432] dark:text-white font-montserrat font-bold'>
         Загальна інформація про користувача
       </div>
-      <div className="grow flex flex-col justify-between p-3 overflow-y-scroll transition-colors bg-white dark:bg-[#1D1E42]">
+      <div className='grow flex flex-col justify-between p-3 overflow-y-scroll transition-colors bg-white dark:bg-[#1D1E42]'>
         {children}
       </div>
-      <div className="flex justify-between p-3 transition-colors bg-[#EBEEF2] dark:bg-[#141432]">
-        <Button onClick={onSecondaryBtnClick} type="secondaryBtnMode">
+      <div className='flex justify-between p-3 transition-colors bg-[#EBEEF2] dark:bg-[#141432]'>
+        <Button onClick={onSecondaryBtnClick} type='secondaryBtnMode'>
           Закрити
         </Button>
         <Button
           className={`${isPrimaryBtnHidden && "hidden"}`}
           form={formLink}
-          btnType="submit"
+          btnType='submit'
           onClick={onPrimaryBtnClick}
-          type="primaryBtnMode"
+          type='primaryBtnMode'
         >
           {primaryBtnCaption}
         </Button>

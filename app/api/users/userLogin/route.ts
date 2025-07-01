@@ -12,9 +12,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const userResponse = await fetch(
-      `${process.env.NEXT_PUBLIC_DATABASE_URL}/users/${login}.json`
-    );
+    const userResponse = await fetch(`${process.env.NEXT_PUBLIC_DATABASE_URL}/users/${login}.json`);
 
     const user = await userResponse.json();
     if (!user) {

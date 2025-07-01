@@ -7,6 +7,8 @@ export interface ILineChartData extends ILineChartItem {
   totalHours: number
   percentage: number
   time: string
+  commision: number,
+  income: number,
 }
   
 export interface PaymentInfoDBScheme {

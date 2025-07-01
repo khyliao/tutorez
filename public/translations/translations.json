@@ -195,11 +195,15 @@
         "title": "Company",
         "companies": [
           ["About us", "about"],
-          ["Our team", "team"],
           ["Our advantages", "advantages"],
+          ["Our team", "team"],
           ["Reviews", "reviews"],
           ["Contacts", "contacts"]
         ]
+      },
+      "term": {
+        "title": "Our policy",
+        "terms": ["Offer Agreement", "offer-agreement"]
       },
       "copyright": "All rights reserved"
     }
@@ -388,11 +392,15 @@
         "title": "Компанія",
         "companies": [
           ["Про нас", "about"],
-          ["Наша команда", "team"],
           ["Наші переваги", "advantages"],
+          ["Наша команда", "team"],
           ["Відгуки", "reviews"],
           ["Контакти", "contacts"]
         ]
+      },
+      "term": {
+        "title": "Наша політика",
+        "terms": [["Договір оферти", "offer-agreement"]]
       },
       "copyright": "Всі права захищені"
     }

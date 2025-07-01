@@ -11,7 +11,7 @@ const TeamMember: React.FC<Props> = ({ tutor }) => {
 
   return (
     <motion.li className="team-card max-w-[320px] bg-[#e9e1ff] ease-in-out shadow-lg rounded-lg overflow-hidden relative transition-all duration-300 transform">
-      <div className="inline-block overflow-hidden">
+      <div className="block overflow-hidden">
         <Image
           src={`/${photo}`}
           alt={`${name}'s photo`}

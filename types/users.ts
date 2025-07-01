@@ -1,26 +1,18 @@
-interface ILesson {
-  id: number;
-  duration: number;
-  price: number;
-  tutorReview: number;
-  type: string;
-  isHomeworkCompleted: boolean;
-  date: string;
-  comment: string;
-}
+import { Lesson, Payment } from "@/types/lessons";
 
 export interface IUser {
   id: string;
   login: string;
+  percentage: number;
+  balance: number;
   name: string;
   password: string;
-  price: string;
-  role: "student" | "tutor" | "admin";
+  lessons: Lesson[];
+  payments: Payment[];
+  role: string;
+  price: number;
   status: string;
   subject: string;
-  lessons: ILesson[];
-  contact: string;
-  tutor: string;
+  telegram: string;
   comment?: string;
-  balance: number;
 }

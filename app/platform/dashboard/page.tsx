@@ -8,7 +8,11 @@ const Dashboard = () => {
   const { role } = useAppSelector(selectCurrentUser);
 
   if (role !== "student") {
-    return <TutorDashboard />;
+    return (
+      <>
+        <TutorDashboard />
+      </>
+    );
   }
 
   return <StudentDashboard />;

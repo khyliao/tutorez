@@ -39,6 +39,17 @@ const Button = ({
           {children}
         </button>
       );
+    case "advert":
+      return (
+        <button
+          form={form}
+          className={`text-left inline w-fit leading-5 h-12 text-sm px-3 py-2 md:px-6 md:py-3 md:text-sm text-white border border-black font-montserrat font-medium rounded-md transition-colors duration-300 bg-[#000] hover:bg-[#ffffffce] hover:text-black dark:bg-[#000000] dark:hover:bg-[#ffffff] ${className}`}
+          type={btnType}
+          onClick={onClick}
+        >
+          {children}
+        </button>
+      );
     case "secondaryBtnMode":
       return (
         <button

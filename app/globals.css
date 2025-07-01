@@ -184,13 +184,13 @@ body {
 }
 
 .main {
-  background-image: url("../assets/background-mobile.webp");
+  /* background-image: url("../assets/background-mobile.webp"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #e7e1ff;
 
   @media screen and (min-width: 768px) {
-    background-image: url("../assets/background.webp");
+    /* background-image: url("../assets/background.webp"); */
   }
 }
 

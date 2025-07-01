@@ -15,6 +15,7 @@ import AddLessonForm from "@components/forms/AddLessonForm";
 import { useDeleteStudentMutation } from "@store/api/studentApi";
 import { showErrorToast, showSuccessToast } from "@utils/toastUtils";
 import SearchBar from "@/app/components/SearchBar";
+import { motion } from "framer-motion";
 
 const TutorDashboard = () => {
   const [isAddStudentFormActive, setIsAddStudentFormActive] = useState(false);
@@ -102,11 +103,11 @@ const TutorDashboard = () => {
 
   return (
     <>
-      <div className="grid grid-rows-[auto_1fr] grow">
-        <header className="p-2 pt-4 md:p-4 flex flex-col md:flex-row gap-2 md:gap-0 transition-colors justify-between dark:bg-[#1D1E42]">
+      <div className='grid grid-rows-[auto_1fr] grow'>
+        <header className='p-2 pt-4 md:p-4 flex flex-col md:flex-row gap-2 md:gap-0 transition-colors justify-between dark:bg-[#1D1E42]'>
           <SearchBar />
-          <div className="flex items-center gap-4 cursor-pointer">
-            <Button type="purpleIcon" onClick={activateAddStudentForm}>
+          <div className='flex items-center gap-4 cursor-pointer'>
+            <Button type='purpleIcon' onClick={activateAddStudentForm}>
               Додати студента
             </Button>
           </div>
@@ -117,12 +118,23 @@ const TutorDashboard = () => {
           onDeleteClick={activateDeleteDialog}
         />
       </div>
+      {(isAddStudentFormActive ||
+        isEditStudentFormActive ||
+        isAddLessonStudentFormActive ||
+        isAddPaymentStudentFormActive) && (
+        <motion.div
+          className='fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-[2px]'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        ></motion.div>
+      )}
       <SettingsUserModal
         isOpen={isAddStudentFormActive}
         onSecondaryBtnClick={handleAddStudentFormClose}
         isPrimaryBtnHidden={isPrimaryBtnHidden}
-        formLink="addStudent"
-        primaryBtnCaption="Створити студента"
+        formLink='addStudent'
+        primaryBtnCaption='Створити студента'
       >
         <AddStudentForm
           onAddStudent={() => {
@@ -134,8 +146,8 @@ const TutorDashboard = () => {
       <SettingsUserModal
         isOpen={isEditStudentFormActive}
         onSecondaryBtnClick={handleEditStudentFormClose}
-        formLink="editStudent"
-        primaryBtnCaption="Зберегти"
+        formLink='editStudent'
+        primaryBtnCaption='Зберегти'
       >
         <EditStudentForm
           onAddLesson={activateAddLessonStudentForm}
@@ -148,8 +160,8 @@ const TutorDashboard = () => {
       <SettingsUserModal
         isOpen={isAddPaymentStudentFormActive}
         onSecondaryBtnClick={handleAddPaymentStudentFormClose}
-        formLink="addPaymentStudent"
-        primaryBtnCaption="Додати платіж"
+        formLink='addPaymentStudent'
+        primaryBtnCaption='Додати платіж'
       >
         <AddPaymentForm
           onBack={backToEditStudentForm}
@@ -161,8 +173,8 @@ const TutorDashboard = () => {
       <SettingsUserModal
         isOpen={isAddLessonStudentFormActive}
         onSecondaryBtnClick={handleAddLessonStudentFormClose}
-        formLink="addLessonStudent"
-        primaryBtnCaption="Додати заняття"
+        formLink='addLessonStudent'
+        primaryBtnCaption='Додати заняття'
       >
         <AddLessonForm
           onBack={backToEditStudentForm}
@@ -171,9 +183,10 @@ const TutorDashboard = () => {
           oldLogin={selectedStudentLogin}
         />
       </SettingsUserModal>
+
       <WarningConfirmDialog
         isDialogOpen={isDeleteDialogOpen}
-        title="Видалення студента"
+        title='Видалення студента'
         label={`Ви впевнені що бажаєте видалити студента ${selectedStudentLogin}?`}
         onCancel={disactivateDeleteDialog}
         onConfirm={handleDeleteStudent}

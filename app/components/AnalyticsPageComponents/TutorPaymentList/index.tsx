@@ -62,7 +62,7 @@ const TutorPaymentList = ({ data }: ITutorPaymentListProps) => {
   const latestMonth = monthList.at(-1) ?? "";
 
   return (
-    <div className='px-6'>
+    <div>
       <Title>Успішність викладачів</Title>
 
       <div className='flex flex-wrap gap-2 mt-4'>
