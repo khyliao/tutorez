@@ -13,7 +13,7 @@ export const PUT = async (req: NextRequest) => {
     const priceInUAH = action.price / 100;
     const lessonsQty = priceInUAH / user.price || action.amount;
 
-    const isProcessed = user.payments.find(
+    const isProcessed = user.payments?.find(
       ({ id }: { id: string }) => id === action.id
     );
 
