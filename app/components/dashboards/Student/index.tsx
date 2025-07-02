@@ -18,6 +18,7 @@ import ProgrammingIcon from "@assets/programming-advert.svg";
 import Title from "../../AnalyticsPageComponents/Title";
 import { AdvertModal, PaymentModal } from "../../Modal";
 import { convertToTimeString } from "@/lib/utils/timeFormatter";
+import BalanceBar from "../../BalanceBar";
 
 const StudentDashboard = () => {
   // const [selected, setSelected] = useState<Date>(new Date());
@@ -42,19 +43,15 @@ const StudentDashboard = () => {
   //   .then(console.log);
 
   return (
-    <div className='flex flex-col gap-4 p-5'>
-      <div className='flex flex-col gap-2 justify-start md:flex-row-reverse md:justify-between md:items-start'>
-        <div className='inline-flex self-start md:self-auto w-68 gap-2 py-2 px-4 rounded-md font-montserrat font-bold border-[2px] border-[#c8c7c7] '>
-          Поточний баланс:
-          <span
-            className={`${
-              currentUser.balance <= 0 ? "text-red-600" : "text-green-600"
-            }`}
-          >
-            {convertToTimeString(currentUser.balance)}
-          </span>
-          <PaymentModal />
-        </div>
+    <div className='flex flex-col gap-4 p-3 md:p-5'>
+      <div className='flex flex-col gap-4 justify-start items-start md:flex-row-reverse md:justify-between md:items-start'>
+        <BalanceBar balance={currentUser.balance}>
+          <PaymentModal
+            userLogin={currentUser.login}
+            price={currentUser.price}
+            balance={currentUser.balance}
+          />
+        </BalanceBar>
         <StudentStats />
       </div>
       {/* <div className='hidden md:block max-w-[330px] p-4 rounded-lg bg-purple-500/10  dark:bg-black/70'>

@@ -84,13 +84,13 @@ const AddStudentForm = ({
 
   if (userDetails) {
     return (
-      <div className="font-montserrat font-medium dark:text-white">
-        <h2 className="font-bold mb-1">Користувач успішно створений!</h2>
-        <p className="">
+      <div className='font-montserrat font-medium dark:text-white'>
+        <h2 className='font-bold mb-1'>Користувач успішно створений!</h2>
+        <p className=''>
           Використайте наступне повідомлення як шаблон для відправки
           студенту/батькам.
         </p>
-        <div className="relative p-3 my-2 bg-[#e9edff] dark:bg-[#1d295e] rounded">
+        <div className='relative p-3 my-2 bg-[#e9edff] dark:bg-[#1d295e] rounded'>
           <p>
             Тут ви можете ознайомитися з поточною успішністю в навчанні,
             прогресом виконання домашніх завдань, моїми особистими відгуками на
@@ -98,9 +98,9 @@ const AddStudentForm = ({
             <br />
             Перейдіть за посиланням{" "}
             <a
-              className="text-blue-800 dark:text-blue-400 font-medium hover:underline"
-              target="_blank"
-              href="http://tutorez.com.ua"
+              className='text-blue-800 dark:text-blue-400 font-medium hover:underline'
+              target='_blank'
+              href='http://tutorez.com.ua'
             >
               http://tutorez.com.ua
             </a>{" "}
@@ -110,9 +110,9 @@ const AddStudentForm = ({
             Логін - {userDetails.login} <br />
             Пароль - {userDetails.password}
           </p>
-          <div className="relative">
+          <div className='relative'>
             <CopyIcon
-              className="absolute right-3 bottom-3 scale-150 cursor-pointer text-[#5e5e5e] dark:text-[#cabffa]"
+              className='absolute w-4 h-4 right-3 bottom-3 scale-150 cursor-pointer text-[#5e5e5e] dark:text-[#cabffa]'
               onClick={() => {
                 copyToClipboard(
                   `Тут ви можете ознайомитися з поточною успішністю в навчанні, прогресом виконання домашніх завдань, моїми особистими відгуками на рахунок занять та деталями на рахунок оплат.
@@ -123,13 +123,13 @@ const AddStudentForm = ({
               }}
             />
             {copied && (
-              <div className="absolute right-0 bottom-0 p-2 bg-[#000] text-white text-xs rounded">
+              <div className='absolute right-0 bottom-0 p-2 bg-[#000] text-white text-xs rounded'>
                 Скопійовано!
               </div>
             )}
           </div>
         </div>
-        <span className="text-red-600 dark:text-red-500 font-bold text-base">
+        <span className='text-red-600 dark:text-red-500 font-bold text-base'>
           Варто відразу відправити це повідомлення студенту, в разі закриття
           вікна ці дані втрачаються назавжди!
         </span>
@@ -140,22 +140,22 @@ const AddStudentForm = ({
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-4 font-montserrat"
-      id="addStudent"
-      autoComplete="off"
+      className='space-y-4 font-montserrat'
+      id='addStudent'
+      autoComplete='off'
     >
-      <div className="flex justify-between gap-3">
-        <div className="flex flex-col grow">
+      <div className='flex justify-between gap-3'>
+        <div className='flex flex-col grow'>
           <label
-            htmlFor="name"
-            className="mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white"
+            htmlFor='name'
+            className='mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white'
           >
             Імʼя *
           </label>
           <div>
-            <div className="relative">
+            <div className='relative'>
               <span
-                className="hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer"
+                className='hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer'
                 onClick={() => {
                   setValue("name", "");
                 }}
@@ -163,9 +163,9 @@ const AddStudentForm = ({
                 x
               </span>
               <input
-                id="name"
-                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus  w-full font-medium rounded p-2 md:pr-7"
-                placeholder="Володимир"
+                id='name'
+                className='placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus  w-full font-medium rounded p-2 md:pr-7'
+                placeholder='Володимир'
                 {...register("name", {
                   minLength: {
                     value: 3,
@@ -176,23 +176,23 @@ const AddStudentForm = ({
               />
             </div>
             {errors.name && (
-              <span className="text-red-500 font-medium text-xs mt-1">
+              <span className='text-red-500 font-medium text-xs mt-1'>
                 {errors.name.message}
               </span>
             )}
           </div>
         </div>
-        <div className="flex flex-col grow">
+        <div className='flex flex-col grow'>
           <label
-            htmlFor="contact"
-            className="mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white"
+            htmlFor='contact'
+            className='mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white'
           >
             Контакт *
           </label>
           <div>
-            <div className="relative">
+            <div className='relative'>
               <span
-                className="hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer"
+                className='hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer'
                 onClick={() => {
                   setValue("contact", "");
                 }}
@@ -200,9 +200,9 @@ const AddStudentForm = ({
                 x
               </span>
               <input
-                id="contact"
-                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7"
-                placeholder="@example293"
+                id='contact'
+                className='placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7'
+                placeholder='@example293'
                 {...register("contact", {
                   minLength: {
                     value: 3,
@@ -218,23 +218,23 @@ const AddStudentForm = ({
               />
             </div>
             {errors.contact && (
-              <span className="text-red-500 font-medium text-xs mt-1">
+              <span className='text-red-500 font-medium text-xs mt-1'>
                 {errors.contact.message}
               </span>
             )}
           </div>
         </div>
-        <div className="flex flex-col grow">
+        <div className='flex flex-col grow'>
           <label
-            htmlFor="price"
-            className="mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white"
+            htmlFor='price'
+            className='mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white'
           >
             Ціна/год *
           </label>
           <div>
-            <div className="relative">
+            <div className='relative'>
               <span
-                className="hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer"
+                className='hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer'
                 onClick={() => {
                   setValue("price", "");
                 }}
@@ -242,17 +242,17 @@ const AddStudentForm = ({
                 x
               </span>
               <input
-                id="price"
-                type="number"
-                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7"
-                placeholder="200"
+                id='price'
+                type='number'
+                className='placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7'
+                placeholder='200'
                 {...register("price", {
                   required: "Обовʼязкове поле для заповнення!",
                 })}
               />
             </div>
             {errors.price && (
-              <span className="text-red-500 font-medium text-xs mt-1">
+              <span className='text-red-500 font-medium text-xs mt-1'>
                 {errors.price.message}
               </span>
             )}
@@ -260,18 +260,18 @@ const AddStudentForm = ({
         </div>
       </div>
 
-      <div className="flex justify-between gap-3">
-        <div className="flex flex-col grow">
+      <div className='flex justify-between gap-3'>
+        <div className='flex flex-col grow'>
           <label
-            htmlFor="subject"
-            className="mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white"
+            htmlFor='subject'
+            className='mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white'
           >
             Предмет *
           </label>
           <div>
-            <div className="relative">
+            <div className='relative'>
               <span
-                className="hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer"
+                className='hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer'
                 onClick={() => {
                   setValue("subject", "");
                 }}
@@ -279,32 +279,32 @@ const AddStudentForm = ({
                 x
               </span>
               <input
-                id="subject"
-                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7"
-                placeholder="Англійська мова"
+                id='subject'
+                className='placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7'
+                placeholder='Англійська мова'
                 {...register("subject", {
                   required: "Обовʼязкове поле для заповнення!",
                 })}
               />
             </div>
             {errors.subject && (
-              <span className="text-red-500 font-medium text-xs mt-1">
+              <span className='text-red-500 font-medium text-xs mt-1'>
                 {errors.subject.message}
               </span>
             )}
           </div>
         </div>
-        <div className="flex flex-col grow">
+        <div className='flex flex-col grow'>
           <label
-            htmlFor="category"
-            className="mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white"
+            htmlFor='category'
+            className='mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white'
           >
             Категорія учня *
           </label>
           <div>
-            <div className="relative">
+            <div className='relative'>
               <span
-                className="hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer"
+                className='hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer'
                 onClick={() => {
                   setValue("category", "");
                 }}
@@ -312,16 +312,16 @@ const AddStudentForm = ({
                 x
               </span>
               <input
-                id="category"
-                className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7"
-                placeholder="6 клас / 2 курс / дорослий"
+                id='category'
+                className='placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7'
+                placeholder='6 клас / 2 курс / дорослий'
                 {...register("category", {
                   required: "Обовʼязкове поле для заповнення!",
                 })}
               />
             </div>
             {errors.category && (
-              <span className="text-red-500 font-medium text-xs mt-1">
+              <span className='text-red-500 font-medium text-xs mt-1'>
                 {errors.category.message}
               </span>
             )}
@@ -329,17 +329,17 @@ const AddStudentForm = ({
         </div>
       </div>
       <hr />
-      <div className="flex flex-col">
+      <div className='flex flex-col'>
         <label
-          htmlFor="login"
-          className="mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white"
+          htmlFor='login'
+          className='mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white'
         >
           Логін *
         </label>
         <div>
-          <div className="relative">
+          <div className='relative'>
             <span
-              className="hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer"
+              className='hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer'
               onClick={() => {
                 setValue("login", "");
               }}
@@ -347,9 +347,9 @@ const AddStudentForm = ({
               x
             </span>
             <input
-              id="login"
-              className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7"
-              placeholder="matviy304"
+              id='login'
+              className='placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7'
+              placeholder='matviy304'
               {...register("login", {
                 required: "Обовʼязкове поле для заповнення!",
                 minLength: {
@@ -365,45 +365,45 @@ const AddStudentForm = ({
             />
           </div>
           {errors.login && (
-            <span className="text-red-500 font-medium text-xs mt-1">
+            <span className='text-red-500 font-medium text-xs mt-1'>
               {errors.login.message}
             </span>
           )}
         </div>
       </div>
-      <div className="flex flex-col">
+      <div className='flex flex-col'>
         <label
-          htmlFor="status"
-          className="mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white"
+          htmlFor='status'
+          className='mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white'
         >
           Статус користувача
         </label>
         <div>
-          <div className="relative">
+          <div className='relative'>
             <Dropdown
               options={["Активний", "Призупинений", "Втрачений"]}
               setValue={setValue}
-              field="status"
+              field='status'
             />
           </div>
           {errors.status && (
-            <span className="text-red-500 font-medium text-xs mt-1">
+            <span className='text-red-500 font-medium text-xs mt-1'>
               {errors.status.message}
             </span>
           )}
         </div>
       </div>
-      <div className="flex flex-col">
+      <div className='flex flex-col'>
         <label
-          htmlFor="comment"
-          className="mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white"
+          htmlFor='comment'
+          className='mb-2 text-sm font-bold leading-4 text-[#2E3438] transition-colors dark:text-white'
         >
           Замітка
         </label>
         <div>
-          <div className="relative">
+          <div className='relative'>
             <span
-              className="hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer"
+              className='hidden transition-colors dark:text-white md:block font-bold absolute right-1 top-1/2 px-2 py-1 -translate-y-1/2 cursor-pointer'
               onClick={() => {
                 setValue("comment", "");
               }}
@@ -411,14 +411,14 @@ const AddStudentForm = ({
               x
             </span>
             <input
-              id="comment"
-              className="placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7"
-              placeholder="Потрібно скинути додаткові матеріали на завтра"
+              id='comment'
+              className='placeholder:text-sm md:placeholder:text-base dark:text-white bg-inputBgStatic transition-colors dark:bg-[#2F3966] focus:outline-field-focus w-full font-medium rounded p-2 md:pr-7'
+              placeholder='Потрібно скинути додаткові матеріали на завтра'
               {...register("comment")}
             />
           </div>
           {errors.comment && (
-            <span className="text-red-500 font-medium text-xs mt-1">
+            <span className='text-red-500 font-medium text-xs mt-1'>
               {errors.comment.message}
             </span>
           )}

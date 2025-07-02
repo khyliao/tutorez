@@ -206,6 +206,9 @@
         "terms": ["Offer Agreement", "offer-agreement"]
       },
       "copyright": "All rights reserved"
+    },
+    "payment": {
+      "payBtn": "Pay"
     }
   },
   "uk": {
@@ -403,6 +406,9 @@
         "terms": [["Договір оферти", "offer-agreement"]]
       },
       "copyright": "Всі права захищені"
+    },
+    "payment": {
+      "payBtn": "Оплатити"
     }
   }
 }

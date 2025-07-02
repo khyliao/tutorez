@@ -15,7 +15,9 @@ export const PUT = async (req: NextRequest) => {
 
     action.type = "payment";
     action.date = new Date().toLocaleDateString("uk-UA");
-    action.id = Date.now();
+    if (!action.id) {
+      action.id = Date.now();
+    }
     action.price = user.price;
     action.currentBalance = newBalance;
 

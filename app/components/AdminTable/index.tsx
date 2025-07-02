@@ -44,7 +44,7 @@ const AdminTable = ({
           <tr
             key={login}
             className={`h-14 text-center font-medium hover:bg-[#9f82f1] dark:hover:bg-[#070606] transition-colors  ${
-              getCurrentDate() === lessons[lessons.length - 1].date
+              lessons && getCurrentDate() === lessons[lessons.length - 1].date
                 ? "bg-[#f3d6f7] dark:bg-[#23258a]"
                 : index % 2 !== 0
                 ? "bg-[#fff] dark:bg-[#1D1E42]"
