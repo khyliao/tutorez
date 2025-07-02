@@ -46,8 +46,7 @@ const QrModal = ({ onClose }: IQrModal) => {
         >
           x
         </motion.button>
-        content
-        <motion.button
+        {/* <motion.button
           initial={{
             y: 20,
             opacity: 0,
@@ -65,7 +64,7 @@ const QrModal = ({ onClose }: IQrModal) => {
           type='submit'
         >
           {t[lang].form.submitBtn}
-        </motion.button>
+        </motion.button> */}
       </div>
     </div>
   );

@@ -61,7 +61,7 @@ const FormApplication = () => {
           },
         }}
         viewport={{ once: true }}
-        className='font-open-sans text-center text-[22px] md:text-xl lg:text-3xl xl:text-4xl font-extrabold leading-7 md:leading-5 mb-5'
+        className='font-open-sans text-center dark:text-black text-[22px] md:text-xl lg:text-3xl xl:text-4xl font-extrabold leading-7 md:leading-5 mb-5'
       >
         {t[lang].form.formTitle}
       </motion.h2>
