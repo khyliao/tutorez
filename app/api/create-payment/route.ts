@@ -10,7 +10,6 @@ export async function POST(req: Request) {
       ccy: 980,
       redirectUrl: "https://tutorez.com.ua/platform/dashboard",
       webHookUrl: "https://tutorez.com.ua/api/payment-callback",
-      validity: 3600,
       merchantPaymInfo: {
         reference: `payment-${Date.now()}`,
         destination: description,
@@ -29,9 +28,7 @@ export async function POST(req: Request) {
         ],
         discounts: [],
         customerEmails: [],
-        saveCardData: {
-          tipsEmployeeId: "2GYgFLuYXaHMT",
-        },
+        tipsEmployeeId: "2GYgFLuYXaHMT",
       },
     };
 
