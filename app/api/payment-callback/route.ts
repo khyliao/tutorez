@@ -12,6 +12,10 @@ export async function POST(req: Request) {
       { status: 400 }
     );
   }
+  console.log("invoiceId", body.invoiceId);
+  console.log("tranId", body.paymentInfo.tranId);
+
+  console.log(reference);
 
   const invoicePayload = {
     amount: body.amount,

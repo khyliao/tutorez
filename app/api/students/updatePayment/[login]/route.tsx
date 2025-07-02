@@ -15,12 +15,7 @@ export const PUT = async (req: NextRequest) => {
       typeof action.price === "number" ? action.price / 100 : 0;
     const lessonsQty = user.price ? priceInUAH / user.price : 0;
 
-    const isProcessed = user.payments?.find(
-      ({ id }: { id: string }) => id === action.id
-    );
-
-    if (isProcessed) {
-      console.log("Already processed:", action.id);
+    if (user.payments?.some(({ id }: { id: string }) => id === action.id)) {
       return NextResponse.json({ ok: true });
     }
 
