@@ -41,6 +41,7 @@ const Login = () => {
       const loginWithGiverUserInfo = async () => {
         try {
           const userInfo = { login, password };
+          localStorage.removeItem("user");
           const res = await loginUser(userInfo).unwrap();
 
           if (res.error) {
