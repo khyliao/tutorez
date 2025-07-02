@@ -33,7 +33,7 @@ export const PUT = async (req: NextRequest) => {
     if (!action.id) {
       action.id = Date.now();
     }
-    action.price = priceInUAH;
+    action.price = user.price;
     action.currentBalance = newBalance;
 
     if (user) {

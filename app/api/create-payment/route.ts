@@ -29,6 +29,9 @@ export async function POST(req: Request) {
         ],
         discounts: [],
         customerEmails: [],
+        saveCardData: {
+          tipsEmployeeId: "2GYgFLuYXaHMT",
+        },
       },
     };
 
