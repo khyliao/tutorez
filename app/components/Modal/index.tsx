@@ -10,7 +10,6 @@ import {
 import Button from "../Button";
 import QrModal from "../QrModal";
 
-// AdvertModal untouched as you requested
 export const AdvertModal = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -39,19 +38,25 @@ interface IPaymentModal {
   userLogin: string;
 }
 
-// Only PaymentModal modified with motion
 export const PaymentModal = ({ balance, price, userLogin }: IPaymentModal) => {
   const [isPaymentModalFormActive, setIsPaymentModalFormActive] =
     useState(false);
   const { lang, t } = useLang();
+
+  const getInitialTotalLessons = () => (balance < 0 ? Math.abs(balance) : 1);
+  const getInitialLessonsToPay = () => (balance < 0 ? Math.abs(balance) : 1);
   const [totalLessonsToPay, setTotalLessonsToPay] = useState(
-    balance < 0 ? Math.abs(balance) : 1
+    getInitialTotalLessons()
   );
+  const [lessonsToPay, setLessonsToPay] = useState(getInitialLessonsToPay());
   const indebtedLessons = balance < 0 ? Math.abs(balance) : 0;
-  const [lessonsToPay, setLessonsToPay] = useState(indebtedLessons || 1);
 
   const handleOpen = () => setIsPaymentModalFormActive(true);
-  const handleClose = () => setIsPaymentModalFormActive(false);
+  const handleClose = () => {
+    setIsPaymentModalFormActive(false);
+    setTotalLessonsToPay(getInitialTotalLessons());
+    setLessonsToPay(getInitialLessonsToPay());
+  };
 
   const handleDecreaseLessonsToPay = () => {
     if (totalLessonsToPay - 1 < indebtedLessons) return;
@@ -152,9 +157,9 @@ export const PaymentModal = ({ balance, price, userLogin }: IPaymentModal) => {
                 Оберіть кількість годин
               </motion.p>
               <motion.span className='text-sm mb-2 text-[#3c3c3c]'>
-                (Включно з годинами для оплати боргу)
+                (Включно з годинами для оплати боргу, якщо такі є)
               </motion.span>
-              <motion.div className='flex gap-2 items-center'>
+              <motion.div className='flex gap-3 items-center'>
                 <button
                   onClick={handleDecreaseLessonsToPay}
                   type='button'
@@ -183,6 +188,9 @@ export const PaymentModal = ({ balance, price, userLogin }: IPaymentModal) => {
                     ? convertToTimeString(lessonsToPay - indebtedLessons)
                     : convertToTimeString(0)}
                 </p>
+                <span className='block text-sm -mt-1 text-[#3c3c3c]'>
+                  (без врахування вже оплачених годин)
+                </span>
               </motion.div>
               <motion.div className='text-2xl text-center my-4'>
                 Разом до сплати:{" "}
