@@ -25,7 +25,7 @@ export async function POST(req: Request) {
 
   try {
     const response = await fetch(
-      `https://tutorez.com.ua/api/students/updatePayment/${login}`,
+      `https://tutorez.com.ua/api/students/updatePaymentByAcquiring/${login}`,
       {
         method: "PUT",
         headers: {

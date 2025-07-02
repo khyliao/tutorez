@@ -210,3 +210,9 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@media (min-width: 440px) {
+  .hide-br-on-small {
+    display: none;
+  }
+}

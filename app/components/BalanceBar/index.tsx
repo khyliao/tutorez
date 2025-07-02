@@ -2,19 +2,19 @@ import { convertToTimeString } from "@/lib/utils/timeFormatter";
 
 interface IBalanceBar {
   balance: number;
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }
 
 const BalanceBar = ({ balance, children }: IBalanceBar) => {
   return (
     <div
-      className={`inline-flex flex-wrap items-start text-sm text-white md:text-base font-bold font-montserrat
+      className={`inline-flex items-center flex-wrap text-base text-white md:text-base font-bold font-montserrat
   shadow-lessonCardInfoMobile dark:shadow-lessonCardInfoMobileDark 
   lg:shadow-lessonCardInfoTabletAndMore dark:lg:shadow-lessonCardInfoTabletAndMoreDark 
   rounded-lg bg-[#151515] p-3`}
     >
       <p>
-        Поточний баланс годин:{" "}
+        Поточний баланс <br className='hide-br-on-small' /> годин:{" "}
         <span
           className={`pl-2 
     ${
