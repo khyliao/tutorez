@@ -27,7 +27,7 @@ const StudentDashboard = () => {
   const lastLessonDate =
     (currentUser.lessons &&
       currentUser.lessons[currentUser.lessons.length - 1].date) ||
-    0;
+    "";
 
   // const MONO_API_URL = "https://api.monobank.ua/api/merchant/invoice/create";
   // fetch(`${MONO_API_URL}`, {
