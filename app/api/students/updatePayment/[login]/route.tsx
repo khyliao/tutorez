@@ -1,3 +1,4 @@
+import { getCurrentDateAndTime } from "@/lib/utils/timeFormatter";
 import { NextRequest, NextResponse } from "next/server";
 
 export const PUT = async (req: NextRequest) => {
@@ -10,8 +11,9 @@ export const PUT = async (req: NextRequest) => {
     );
     const user = await res.json();
     const payments = [];
-    const priceInUAH = action.price / 100;
-    const lessonsQty = priceInUAH / user.price || action.amount;
+    const priceInUAH =
+      typeof action.price === "number" ? action.price / 100 : 0;
+    const lessonsQty = user.price ? priceInUAH / user.price : 0;
 
     const isProcessed = user.payments?.find(
       ({ id }: { id: string }) => id === action.id
@@ -26,7 +28,7 @@ export const PUT = async (req: NextRequest) => {
 
     action.amount = lessonsQty || action.amount;
     action.type = "payment";
-    action.date = new Date().toLocaleDateString("uk-UA");
+    action.date = getCurrentDateAndTime();
     if (!action.id) {
       action.id = Date.now();
     }

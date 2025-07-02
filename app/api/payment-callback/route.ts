@@ -16,6 +16,7 @@ export async function POST(req: Request) {
   const invoicePayload = {
     amount: body.amount,
     id: reference,
+    price: body.amount,
   };
 
   try {
