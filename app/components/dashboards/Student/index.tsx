@@ -24,6 +24,9 @@ const StudentDashboard = () => {
   // const [selected, setSelected] = useState<Date>(new Date());
 
   const currentUser = useAppSelector(selectCurrentUser);
+  const lastLessonDate =
+    currentUser.lessons[currentUser.lessons.length - 1].date;
+  console.log(lastLessonDate);
 
   // const MONO_API_URL = "https://api.monobank.ua/api/merchant/invoice/create";
   // fetch(`${MONO_API_URL}`, {
@@ -44,16 +47,21 @@ const StudentDashboard = () => {
 
   return (
     <div className='flex flex-col gap-4 p-3 md:p-5'>
-      <div className='flex flex-col gap-4 justify-start items-start md:flex-row-reverse md:justify-between md:items-start'>
+      <div className='flex flex-col gap-4 justify-start items-start md:flex-row md:justify-between md:items-center'>
+        <p className='text-xl md:text-2xl lg:text-4xl font-bold'>
+          Вітаємо, {currentUser.name}!
+        </p>
         <BalanceBar balance={currentUser.balance}>
           <PaymentModal
             userLogin={currentUser.login}
             price={currentUser.price}
             balance={currentUser.balance}
+            lastLessonDate={lastLessonDate}
           />
         </BalanceBar>
-        <StudentStats />
       </div>
+      <StudentStats />
+
       {/* <div className='hidden md:block max-w-[330px] p-4 rounded-lg bg-purple-500/10  dark:bg-black/70'>
         <DayPicker
           locale={uk}

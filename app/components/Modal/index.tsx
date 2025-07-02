@@ -36,9 +36,15 @@ interface IPaymentModal {
   balance: number;
   price: number;
   userLogin: string;
+  lastLessonDate: string;
 }
 
-export const PaymentModal = ({ balance, price, userLogin }: IPaymentModal) => {
+export const PaymentModal = ({
+  balance,
+  price,
+  userLogin,
+  lastLessonDate,
+}: IPaymentModal) => {
   const [isPaymentModalFormActive, setIsPaymentModalFormActive] =
     useState(false);
   const { lang, t } = useLang();
@@ -135,16 +141,22 @@ export const PaymentModal = ({ balance, price, userLogin }: IPaymentModal) => {
               x
             </motion.button>
             <motion.div className='flex flex-col font-bold font-sans items-start justify-start text-left text-xl'>
-              <motion.span className='text-sm text-[#5e5e5e]'>
+              <motion.span className='text-sm  text-[#5e5e5e]'>
                 Станом на {getCurrentDateAndTime()}
               </motion.span>
+              {lastLessonDate && (
+                <motion.span className='text-sm text-[#5e5e5e]'>
+                  Останнє проведене заняття - {lastLessonDate}
+                </motion.span>
+              )}
+
               {balance < 0 && (
-                <motion.div className='mb-4 mt-1'>
+                <motion.div className='mb-4 mt-2'>
                   У вас <span className='text-red-500'>заборговано</span>{" "}
                   {convertToTimeString(indebtedLessons)}
                 </motion.div>
               )}
-              <motion.div className='mb-2'>
+              <motion.div className='mb-2 mt-2'>
                 <p>
                   Оплатіть <span className='font-extrabold'>години</span>{" "}
                   завчасно
