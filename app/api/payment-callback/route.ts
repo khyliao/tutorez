@@ -24,14 +24,17 @@ export async function POST(req: Request) {
   const invoicePayload = { amount: body.amount, id: reference };
 
   try {
-    const response = await fetch(`/api/students/updatePayment/${login}`, {
-      method: "POST",
-      headers: {
-        "X-Token": process.env.NEXT_PUBLIC_MONOBANK_TOKEN!,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(invoicePayload),
-    });
+    const response = await fetch(
+      `https://tutorez.com.ua/api/students/updatePayment/${login}`,
+      {
+        method: "POST",
+        headers: {
+          "X-Token": process.env.NEXT_PUBLIC_MONOBANK_TOKEN!,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(invoicePayload),
+      }
+    );
 
     const data = await response.json();
 
