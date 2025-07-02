@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   const { amount, description, totalLessonsToPay } = await req.json();
-  console.log(amount, description, totalLessonsToPay);
 
   try {
     const invoicePayload = {

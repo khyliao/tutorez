@@ -3,16 +3,8 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   const body = await req.json();
 
-  console.log(
-    "💰 Payment callback from Monobank:",
-    JSON.stringify(body, null, 2)
-  );
-
   const reference = body.invoiceId || body.paymentInfo.tranId;
   const login = body.destination.split(".")[0];
-  console.log("reference", reference);
-
-  console.log(login);
 
   if (!reference) {
     return NextResponse.json(
@@ -27,9 +19,8 @@ export async function POST(req: Request) {
     const response = await fetch(
       `https://tutorez.com.ua/api/students/updatePayment/${login}`,
       {
-        method: "POST",
+        method: "PUT",
         headers: {
-          "X-Token": process.env.NEXT_PUBLIC_MONOBANK_TOKEN!,
           "Content-Type": "application/json",
         },
         body: JSON.stringify(invoicePayload),
@@ -51,7 +42,4 @@ export async function POST(req: Request) {
       { status: 500 }
     );
   }
-  // await updatePaymentStatus(reference, invoiceStatus); // TODO
-
-  return NextResponse.json({ ok: true });
 }
