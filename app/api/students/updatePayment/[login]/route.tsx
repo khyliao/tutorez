@@ -15,7 +15,13 @@ export const PUT = async (req: NextRequest) => {
       typeof action.price === "number" ? action.price / 100 : 0;
     const lessonsQty = user.price ? priceInUAH / user.price : 0;
 
-    if (user.payments?.some(({ id }: { id: string }) => id === action.id)) {
+    const isExistedPaymentRes = await fetch(
+      `https://tutorez.com.ua/api/students/checkPayment/${login}?actionId=${action.id}`
+    );
+
+    const isExistedPaymentData = await isExistedPaymentRes.json();
+
+    if (isExistedPaymentData) {
       return NextResponse.json({ ok: true });
     }
 
