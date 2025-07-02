@@ -13,7 +13,10 @@ export async function POST(req: Request) {
     );
   }
 
-  const invoicePayload = { amount: body.amount, id: reference };
+  const invoicePayload = {
+    amount: body.merchantPaymInfo.basketOrder.qty,
+    id: reference,
+  };
 
   try {
     const response = await fetch(

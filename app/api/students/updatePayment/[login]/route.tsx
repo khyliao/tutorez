@@ -11,6 +11,15 @@ export const PUT = async (req: NextRequest) => {
     const user = await res.json();
     const payments = [];
 
+    const isProcessed = user.payments.find(
+      ({ id }: { id: string }) => id === action.id
+    );
+
+    if (isProcessed) {
+      console.log("Already processed:", action.id);
+      return NextResponse.json({ ok: true });
+    }
+
     const newBalance = user.balance + action.amount;
 
     action.type = "payment";

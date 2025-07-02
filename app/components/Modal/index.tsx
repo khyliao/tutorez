@@ -82,8 +82,9 @@ export const PaymentModal = ({ balance, price, userLogin }: IPaymentModal) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           amount: totalLessonsToPay * price,
+          price,
           totalLessonsToPay,
-          description: `${userLogin}. Оплата за освітні послуги.`,
+          description: `${userLogin}. Оплата за освітні послуги`,
         }),
       });
       console.log(res.ok);
