@@ -10,6 +10,8 @@ export const PUT = async (req: NextRequest) => {
     );
     const user = await res.json();
     const payments = [];
+    const priceInUAH = action.price / 100;
+    const lessonsQty = priceInUAH / user.price || action.amount;
 
     const isProcessed = user.payments.find(
       ({ id }: { id: string }) => id === action.id
@@ -20,14 +22,15 @@ export const PUT = async (req: NextRequest) => {
       return NextResponse.json({ ok: true });
     }
 
-    const newBalance = user.balance + action.amount;
+    const newBalance = user.balance + lessonsQty;
 
+    action.amount = lessonsQty || action.amount;
     action.type = "payment";
     action.date = new Date().toLocaleDateString("uk-UA");
     if (!action.id) {
       action.id = Date.now();
     }
-    action.price = user.price;
+    action.price = priceInUAH;
     action.currentBalance = newBalance;
 
     if (user) {

@@ -14,7 +14,7 @@ export async function POST(req: Request) {
   }
 
   const invoicePayload = {
-    amount: body.merchantPaymInfo.basketOrder.qty,
+    amount: body.amount,
     id: reference,
   };
 
