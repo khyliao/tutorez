@@ -6,6 +6,10 @@ export async function POST(req: Request) {
   const reference = body.invoiceId || body.paymentInfo.tranId;
   const login = body.destination.split(".")[0];
 
+  if (body.status !== "success") {
+    return NextResponse.json({ error: "Still not" }, { status: 400 });
+  }
+
   if (!reference) {
     return NextResponse.json(
       { error: "Missing reference ID" },
