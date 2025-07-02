@@ -2,7 +2,7 @@ import { convertToTimeString } from "@/lib/utils/timeFormatter";
 
 interface IBalanceBar {
   balance: number;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const BalanceBar = ({ balance, children }: IBalanceBar) => {
